@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PasswordModule} from 'primeng/password'; //add input password from primeng
 import {ChipsModule} from 'primeng/chips';
 import {CalendarModule} from 'primeng/calendar';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -116,7 +117,8 @@ import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
     CalendarModule,
     NgImageSliderModule,
     CarouselModule,
-    FileUploadModule
+    FileUploadModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

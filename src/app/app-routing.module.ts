@@ -10,12 +10,20 @@ import { AboutComponent } from './Components/about/about.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { JobsComponent } from './Components/jobs/jobs.component';
 import { HomeComponent } from './Components/Home/home/home.component';
+import { AddPortfolioComponent } from './Components/portfolio/add-portfolio/add-portfolio.component';
+import { EditPortfolioComponent } from './Components/portfolio/edit-portfolio/edit-portfolio.component';
+import { ListPortfolioComponent } from './Components/portfolio/list-portfolio/list-portfolio.component';
+import { ViewPortfolioComponent } from './Components/portfolio/view-portfolio/view-portfolio.component';
 
 
 const routes: Routes = [
   {path:"Catagories",component:CatagoriesComponent },
   {path: "Catagories/:name",component: SelectedCatComponent },
   {path:"dashboard",component:HomeFreelancerDashboardComponent},
+  {path:"listportfolio",component:ListPortfolioComponent},
+  {path:"viewportfolio",component:ViewPortfolioComponent},
+  {path:"addportfolio",component:AddPortfolioComponent},
+  {path:"editportfolio" , component:EditPortfolioComponent},
   {path:"profile",component:ProfileComponent},
   {path:"setting",component:SettingComponent},
   {path:"editProfile",component:EditprofileComponent},
@@ -23,7 +31,7 @@ const routes: Routes = [
   {path:"about",component: AboutComponent},
   {path:"jobs",component:JobsComponent},
   {path:"home",component:HomeComponent},
-  {path:"",redirectTo:"home" , pathMatch:"full"}
+  // {path:"",redirectTo:"home" , pathMatch:"full"}
 
 
 
