@@ -1,0 +1,19 @@
+
+
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css" ;
+
+/*primeng adds*/
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/themes/saga-blue/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css" ;
+
+/*material icons*/
+@import "//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css";
+
+
+body{
+    background-color: #f9f9fa;
+    color: #6c7293;
+
+}

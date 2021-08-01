@@ -1,0 +1,16 @@
+
+/*section 2 */
+
+.section2 .card{
+    border: none;
+}
+
+.section2 .card-title{
+    color :#053742
+}
+.section2 h1:hover{
+    animation: bounce;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+/* End section2 */

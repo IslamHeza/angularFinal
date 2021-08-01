@@ -1,0 +1,31 @@
+<div class="card mb-4"> <!-- style="width: 18rem;"-->
+  <div class="card-header text-left bg-white">
+    <fa-icon [icon]="faSignal" aria-hidden="true"></fa-icon> Statistics
+  </div>
+  <div class="card-body">
+      <div class="row">
+          <div class="col-md-3">evaluation</div>
+          <div class="col-md-5">
+            <p-rating [(ngModel)]="val" [stars]="5" [cancel]="false"></p-rating>
+          </div>
+          <div class="col-md-4">{{val}}</div>
+          <!-- <div class="col-md-4">number rating</div> -->
+      </div>
+      <div class="row">
+          <div class="col-md-6">Project completion rate </div>
+          <div class="col-md-6"><span style="background-color: gray; color: white;">not calculated yet</span></div>
+      </div>
+      <!-- <div class="row">
+          <div class="col-md-6">Re-employment rate</div>
+          <div class="col-md-6"><span style="background-color: gray; color: white;">not calculated yet</span></div>
+      </div> -->
+      <div class="row">
+          <div class="col-md-6">On-time delivery rate</div>
+          <div class="col-md-6"><span style="background-color: gray; color: white;">not calculated yet</span></div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">average response</div>
+          <div class="col-md-6"><span style="background-color: gray; color: white;">not calculated yet</span></div>
+      </div>
+  </div>
+</div>
