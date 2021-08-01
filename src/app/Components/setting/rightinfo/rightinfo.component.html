@@ -1,0 +1,90 @@
+<section class="Editing">
+  <div class="card">
+      <div class="card-body">
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label>
+                  Type of account<sup style="color: red;"> *</sup>
+              </label>
+              <section class="checkbox">
+                  <label>
+                      <input type="checkbox"/> The project owner
+                      <small class="text-muted">search for worker to implement my project</small>
+                  </label>
+                  <label>
+                      <input type="checkbox"/> The project hiring
+                      <small class="text-muted">search for work to implement my Experience</small>
+                      <!-- <label class="ps-4">
+                          <input type="checkbox"/> Avaliable to work
+                          <small class="text-muted">
+                              (removing this tag will temporarily hide your account from search results)
+                          </small>
+                      </label> -->
+                  </label>
+              </section>
+          </div>
+          <!-- specialist -->
+          <section class="row mt-3">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label>
+                          Specialization<sup style="color: red;"> *</sup>
+                          <select class="form-select" aria-label="Default select example">
+                              <option selected>Open this select menu</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                          </select>
+                          <small class="text-muted">choose your field</small>
+                      </label>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label>
+                          Job title<sup style="color: red;"> *</sup>
+                          <div class="input-group">
+                              <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                          <small class="text-muted">choose your field</small>
+                      </label>
+                  </div>
+              </div>
+          </section>
+          <!-- shortlist about me  -->
+          <section class="row mt-3">
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <label>
+                          About-me<sup style="color: red;"> *</sup>
+                      </label>
+                      <div class="form-floating">
+                          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <!-- prtofolio -->
+          <section class="prtfolio mt-3">
+              <div class="row">
+                  <div class="col-md-12">
+                      <label>
+                          Intro video<sup style="color: red;"> *</sup>
+                      </label>
+                      <div class="input-group mb-3">
+                          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                      <small class="text-muted">Link to a video of you introducing yourself from YouTube or Vimeo</small>
+                  </div>
+              </div>
+          </section>
+              <div class="form-group">
+                  <label class="control-label">Skills</label><br>
+                  <p-chips [(ngModel)]="values"></p-chips>
+              </div>
+              <label class="control-label mt-2 mb-2">or Select skills from the list</label>
+              <div><button type="button" class="btn">Save</button></div>
+          </form>
+      </div>
+  </div>
+</section>
