@@ -9,6 +9,12 @@ export class HomeSection1Component implements OnInit {
 
   constructor() { }
 
+  btnStyle(clickedBtn:any , unclickedBtn:any){
+    console.log(clickedBtn);
+    console.log(unclickedBtn);
+    clickedBtn.classList.add("btnClikcedStyle");
+    unclickedBtn.classList.remove("btnClikcedStyle");
+  }
   ngOnInit(): void {
   }
 
