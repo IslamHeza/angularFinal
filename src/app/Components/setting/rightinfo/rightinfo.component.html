@@ -4,7 +4,7 @@
           <form action="#" method="POST">
             <div class="form-group">
               <label>
-                  Type of account<sup style="color: red;"> *</sup>
+                  Type of account<em class="text-danger">*</em>
               </label>
               <section class="checkbox">
                   <label>
@@ -28,7 +28,7 @@
               <div class="col-md-6">
                   <div class="form-group">
                       <label>
-                          Specialization<sup style="color: red;"> *</sup>
+                          Specialization<em class="text-danger">*</em>
                           <select class="form-select" aria-label="Default select example">
                               <option selected>Open this select menu</option>
                               <option value="1">One</option>
@@ -42,7 +42,7 @@
               <div class="col-md-6">
                   <div class="form-group">
                       <label>
-                          Job title<sup style="color: red;"> *</sup>
+                          Job title<em class="text-danger">*</em>
                           <div class="input-group">
                               <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                           </div>
@@ -56,7 +56,7 @@
               <div class="col-md-12">
                   <div class="form-group">
                       <label>
-                          About-me<sup style="color: red;"> *</sup>
+                          About-me<em class="text-danger">*</em>
                       </label>
                       <div class="form-floating">
                           <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
@@ -65,24 +65,17 @@
               </div>
           </section>
           <!-- prtofolio -->
-          <section class="prtfolio mt-3">
-              <div class="row">
-                  <div class="col-md-12">
-                      <label>
-                          Intro video<sup style="color: red;"> *</sup>
-                      </label>
-                      <div class="input-group mb-3">
-                          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                      </div>
-                      <small class="text-muted">Link to a video of you introducing yourself from YouTube or Vimeo</small>
-                  </div>
-              </div>
-          </section>
+          <section class="row mt-3">
               <div class="form-group">
                   <label class="control-label">Skills</label><br>
-                  <p-chips [(ngModel)]="values"></p-chips>
+                  <div class="row">
+                    <div class="col-md-3 bg-white ms-3" style="border-radius: 5px;">
+                      <p-chips [(ngModel)]="values"></p-chips>
+                    </div>
+                  </div>
               </div>
               <label class="control-label mt-2 mb-2">or Select skills from the list</label>
+          </section>
               <div><button type="button" class="btn">Save</button></div>
           </form>
       </div>

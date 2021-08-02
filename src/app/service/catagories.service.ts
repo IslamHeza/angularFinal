@@ -8,13 +8,15 @@ import { Workers } from '../_models/workers';
 })
 export class CatagoriesService {
   catagories:Catagory[]=[
-    new Catagory(1 , "Doctors" , "assets/imges/doctor.jpg"),
-    new Catagory(2 ,"Engineers","assets/imges/eng.jpg"),
-    new Catagory(3 ,"programers", "assets/imges/programers.jpg"),
-    new Catagory(4 ,"Net works", "assets/imges/network.jpg"),
-    new Catagory(5 ,"lawyers", "assets/imges/lawyer.jpg"),
-    new Catagory(6 ,"photographers", "assets/imges/photographer.jpg"),
-  
+    new Catagory(1 , "Full Stack Developers" , "assets/imges/dev1.jpg"),
+    new Catagory(2 ,"PHP Developers","assets/imges/dev2.jpg"),
+    new Catagory(3 ,"programers", "assets/imges/dev3.jpg"),
+    new Catagory(4 ,"Syper Security", "assets/imges/dev4.jpg"),
+    new Catagory(5 ,"Androids Developers", "assets/imges/dev1.jpg"),
+    new Catagory(6 ,"Back End Developers", "assets/imges/dev2.jpg"),
+    new Catagory(7 ,"Syper Security", "assets/imges/dev4.jpg"),
+    new Catagory(8 ,"Androids Developers", "assets/imges/dev1.jpg"),
+    new Catagory(9,"PHP Developers","assets/imges/dev2.jpg"),  
  ];
  worker:Workers[]=[
      new Workers(1,"Hader Zayed","assets/imges/2.jpg","Mansoura" ,"ddddd",1),
@@ -27,8 +29,9 @@ export class CatagoriesService {
      new Workers(8,"Hader Zayed","assets/imges/2.jpg","EL zamalik" ,"ddddd",4),
      new Workers(9,"tttttttt","assets/imges/2.jpg","EL mahla" ,"kkk ",1),
 
- ];
   
+ ];
+     
  listCatagories(){
   return this. catagories ;
 }

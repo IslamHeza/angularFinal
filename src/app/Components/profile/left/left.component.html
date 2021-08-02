@@ -3,29 +3,31 @@
     <fa-icon [icon]="faSignal" aria-hidden="true"></fa-icon> Statistics
   </div>
   <div class="card-body">
-      <div class="row">
-          <div class="col-md-3">evaluation</div>
-          <div class="col-md-5">
+      <div class="row text-center">
+          <div class="col-md-6 col-ms-12">evaluation</div>
+          <div class="col-md-6 col-ms-12">
             <p-rating [(ngModel)]="val" [stars]="5" [cancel]="false"></p-rating>
           </div>
-          <div class="col-md-4">{{val}}</div>
           <!-- <div class="col-md-4">number rating</div> -->
       </div>
-      <div class="row">
-          <div class="col-md-6">Project completion rate </div>
-          <div class="col-md-6"><span style="background-color: gray; color: white;">not calculated yet</span></div>
+      <hr>
+      <div class="row text-center">
+          <div class="col-md-6 col-ms-12">Project completion</div>
+          <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">not calculated</span></div>
       </div>
+      <hr>
       <!-- <div class="row">
-          <div class="col-md-6">Re-employment rate</div>
-          <div class="col-md-6"><span style="background-color: gray; color: white;">not calculated yet</span></div>
+          <div class="col-md-6 col-ms-12">Re-employment</div>
+          <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">not calculated yet</span></div>
       </div> -->
-      <div class="row">
-          <div class="col-md-6">On-time delivery rate</div>
-          <div class="col-md-6"><span style="background-color: gray; color: white;">not calculated yet</span></div>
+      <div class="row text-center">
+          <div class="col-md-6 col-ms-12">On-time delivery</div>
+          <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">not calculated</span></div>
       </div>
-      <div class="row">
-          <div class="col-md-6">average response</div>
-          <div class="col-md-6"><span style="background-color: gray; color: white;">not calculated yet</span></div>
+      <hr>
+      <div class="row text-center">
+          <div class="col-md-6 col-ms-12">average response</div>
+          <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">not calculated</span></div>
       </div>
   </div>
 </div>
