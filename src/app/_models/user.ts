@@ -1,0 +1,21 @@
+export class User {
+fname:any;
+lname:any;
+username:any;
+gender:any;
+national_id:any;
+phone_number:any;
+email:any;
+image:any;
+city:any;
+street:any;
+overview:any;
+job:any;
+university:any;
+specialization:any;
+experience:any;
+rate:any;
+credit:any;
+type:any;
+category_id:any;
+}

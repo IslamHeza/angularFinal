@@ -62,6 +62,20 @@ import { FooterComponent } from './Components/Shared/footer/footer.component';
 import { HomeComponent } from './Components/Home/home/home.component';
 import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
 
+//signup
+import { EmailComponent } from './Components/SignUp/email/email.component';
+import { ResultComponent } from './Components/SignUp/result/result.component';
+import { PersonalComponent } from './Components/SignUp/personal/personal.component';
+import { SignUpNavbarComponent } from './Components/SignUp/signUp-navbar/signUp-navbar.component';
+import { SignUpComponent } from './Components/SignUp/SignUp/SignUp.component';
+import { WorkComponent } from './Components/SignUp/work/work.component';
+import { FormDataService } from './Components/SignUp/data/formData.service';
+import { WorkflowService } from './Components/SignUp/workflow/workflow.service';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { LoginComponent } from './Components/login/login.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,6 +114,18 @@ import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
     HomeSection5Component,
     HomeSection6Component,
     HomeSection7Component,
+
+    //sign up
+
+
+    EmailComponent,
+    PersonalComponent,
+    ResultComponent,
+    SignUpComponent,
+    SignUpNavbarComponent,
+    WorkComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
@@ -118,9 +144,17 @@ import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
     NgImageSliderModule,
     CarouselModule,
     FileUploadModule,
-    HttpClientModule
+    HttpClientModule,
+
+        //signup
+        InputMaskModule,
+        InputTextareaModule,
   ],
-  providers: [],
+  providers: [
+    //signup
+    { provide: FormDataService, useClass: FormDataService },
+    { provide: WorkflowService, useClass: WorkflowService },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
