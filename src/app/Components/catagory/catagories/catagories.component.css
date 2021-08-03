@@ -3,21 +3,32 @@
 }
 a{
     color:black;
-}
+}/*background-size:110% 110%;*/
 .cad{
-    height: 180px;
+    height:180px;
     color:white;
-    padding-top: 40px;
+    margin-top:78px; 
+    background-image: url("/assets/imges/back.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width:100%;
+     
+  
 } 
  .cad a{
     color: white;
     text-decoration: none;
 }
+
+h2{
+    margin-top: 50px;
+}
     
  .cd {
      text-align: center;
      padding: 0px;
-     margin: 4px;
+     margin:10px;
     }
 .cd  img{
     width:100%;
