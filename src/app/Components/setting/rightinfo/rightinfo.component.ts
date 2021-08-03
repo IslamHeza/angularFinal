@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class RightinfoComponent implements OnInit {
 
   constructor() { }
-  values:string=""
+  values=["php","html"]
   ngOnInit(): void {
   }
 }
