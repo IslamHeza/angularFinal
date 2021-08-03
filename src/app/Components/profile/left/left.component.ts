@@ -8,7 +8,6 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./left.component.css']
 })
 export class LeftComponent implements OnInit {
-  val:number=2;
   faSignal=faSignal;
   allUsers:any=[]
   constructor(private userService:UserService) { }
