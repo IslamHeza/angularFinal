@@ -16,6 +16,17 @@ import { ListPortfolioComponent } from './Components/portfolio/list-portfolio/li
 import { ViewPortfolioComponent } from './Components/portfolio/view-portfolio/view-portfolio.component';
 
 
+
+// //signup
+import { PersonalComponent } from "./Components/SignUp/personal/personal.component";
+import { EmailComponent } from "./Components/SignUp/email/email.component";
+import { WorkflowGuard } from "./Components/SignUp/workflow/workflow-guard.service";
+import { WorkComponent } from "./Components/SignUp/work/work.component";
+
+import { ResultComponent } from "./Components/SignUp/result/result.component";
+import { LoginComponent } from "./Components/login/login.component";
+
+
 const routes: Routes = [
   {path:"Catagories",component:CatagoriesComponent },
   {path: "Catagories/:name",component: SelectedCatComponent },
@@ -31,6 +42,20 @@ const routes: Routes = [
   {path:"about",component: AboutComponent},
   {path:"jobs",component:JobsComponent},
   {path:"home",component:HomeComponent},
+
+//signup
+  // 1st Route
+  { path: "SignUp/personal", component: PersonalComponent},
+   // 2nd Route
+  { path: "SignUp/email", component: EmailComponent, canActivate: [WorkflowGuard]  },
+  // 3rd Route
+  { path: "SignUp/work", component: WorkComponent, canActivate: [WorkflowGuard]  },
+  // 4th Route
+  { path: "SignUp/result", component: ResultComponent, canActivate: [WorkflowGuard]  },
+
+  //login
+  { path: "login", component:LoginComponent},
+
   {path:"",redirectTo:"home" , pathMatch:"full"}
 
 
@@ -43,6 +68,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [WorkflowGuard],
 })
 export class AppRoutingModule { }
