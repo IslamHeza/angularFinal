@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class HomeSection4Component implements OnInit {
 
   addStyle(img1 : any , cardBody1 : any){
-    // var img = document.getElementsByClassName("card-img-top")[0];
     img1.classList.add("styleImg");
     cardBody1.classList.add("card-bodyStyle");
     // console.log(cardBody1.classList);

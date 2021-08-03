@@ -16,6 +16,9 @@
 .section4 button{
     border-radius: 10px;
 }
+.section4 small{
+    font-weight: bold;
+}
 /* ------------------------- */
 
 .section4 .card-body{
@@ -28,7 +31,13 @@
 .card-bodyStyle{
     display: block !important;
 }
-/* .styleP{
-    display: inline-block;
-} */
+a{
+    text-decoration: none;
+}
 /* End of Section4 */
+/* Media Query */
+@media only screen and (max-width: 600px) {
+    .section4 h1{
+        font-size: 20px;
+    }
+}
