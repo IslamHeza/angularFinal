@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FreelancerPortfolio } from 'src/app/_models/freelancer-portfolio';
-import { HttpClient } from '@angular/common/http';
+import { PortfolioService } from 'src/app/service/portfolio.service';
 
 @Component({
   selector: 'app-list-portfolio',
@@ -9,36 +9,33 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ListPortfolioComponent implements OnInit {
-  constructor(public http:HttpClient) { }
-  
+
+  constructor( private portfoilioService:PortfolioService) { }
+
   //data
-  freelancerName:string='John Do';
-    portfolioList:FreelancerPortfolio[] =[ ]
-  
+  allPortfolios :any = [] ; 
+  freelancerName:string='John Do'; 
 
   ngOnInit(): void {
-    this.portfolioList=[
-      new FreelancerPortfolio(1,"Project1 Title","description 1 test test ", "assets/portfolio1.jpg"),
-      new FreelancerPortfolio(2,"Project2 Title","description 2 test test ", "assets/portfolio2.jpg"),
-      new FreelancerPortfolio(3,"Project3 Title","description 3 test test ", "assets/portfolio3.jpg"),
-      new FreelancerPortfolio(1,"Project1 Title","description 1 test test ", "assets/portfolio1.jpg"),
-      new FreelancerPortfolio(2,"Project2 Title","description 2 test test ", "assets/portfolio2.jpg"),
-      new FreelancerPortfolio(3,"Project3 Title","description 3 test test ", "assets/portfolio3.jpg"),
-    ];
+    this.getAllPortfolios();
   }
-  load(){
-    this.http.get <any> ("http://127.0.0.1:8000/api/posts").subscribe(data=>{
-      console.log(data);
-    })
+
+  //logic
+  getAllPortfolios(){
+    this.portfoilioService.getAllPortfolios().subscribe(res => {
+      console.log(res);   
+      this.allPortfolios= res ;   
+    });
   }
 
 
 
+  }
 
 
 
 
 
 
-}
+
 
