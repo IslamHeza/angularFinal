@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,10 +7,21 @@ import { Injectable } from '@angular/core';
 export class PortfolioService {
 
   constructor(private httpClient:HttpClient) { }
-  basrURL = "http://127.0.0.1:8000/api/portfolio/";
+
+  baseURL = "http://127.0.0.1:8000/api/portfolio/";
+  headers = new HttpHeaders({
+    'Content-Type':'application/json',
+    'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
+  })
 
   getAllPortfolios(){
-    return this.httpClient.get(this.basrURL);
+    return this.httpClient.get(this.baseURL);
+  }
+  getUser(id:any){
+    return this.httpClient.get(`${this.baseURL}${id}`)
   }
 
+  addPortfolio(portfolio:any){
+    return this.httpClient.post(this.baseURL , portfolio) ;
+  }
 }
