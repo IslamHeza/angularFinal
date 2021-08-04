@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Client } from 'src/app/_models/job';
+import { JobsService } from 'src/app/service/jobs.service';
+
 
 @Component({
   selector: 'app-jobs',
@@ -6,32 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jobs.component.css']
 })
 export class JobsComponent implements OnInit {
-
-  constructor() { }
   val:number=3
-  val2:number=5
-  val3:number=4
-
- /*
-  jobs = [{
-    "id": 1,
-    "name": "android",
-  },
-  {
-    "id": 2,
-    "name": "web",
-  },
-  {
-    "id": 3,
-    "name": "IOS",
-  }
-]*/
+  searchjob:String="";
 
 
+  jobs:Client[]=[];
 
+  constructor(public job: JobsService){}
 
   ngOnInit(): void {
+    this.jobs=this.job.all();
   }
-  
-  }
+ 
+
+}
+
+
+
+
  

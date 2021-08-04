@@ -51,6 +51,8 @@ import { RightinfoComponent } from './Components/setting/rightinfo/rightinfo.com
 import { AboutComponent } from './Components/about/about.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { JobsComponent } from './Components/jobs/jobs.component';
+import { JobPipe } from './Components/jobs/job.pipe';
+
 import { HomeSection1Component } from './Components/Home/home-section1/home-section1.component';
 import { HomeSection2Component } from './Components/Home/home-section2/home-section2.component';
 import { HomeSection3Component } from './Components/Home/home-section3/home-section3.component';
@@ -104,6 +106,8 @@ import { LoginComponent } from './Components/login/login.component';
     AboutComponent,
     ContactComponent,
     JobsComponent,
+    JobPipe,
+
     NavbarComponent,
     FooterComponent,
     HomeComponent,
