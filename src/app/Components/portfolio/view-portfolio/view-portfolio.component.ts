@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FreelancerPortfolio } from 'src/app/_models/freelancer-portfolio';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PortfolioService } from 'src/app/service/portfolio.service';
+import { Portfolio } from 'src/app/_models/Portfolio';
 
 @Component({
   selector: 'app-view-portfolio',
@@ -8,19 +10,31 @@ import { FreelancerPortfolio } from 'src/app/_models/freelancer-portfolio';
 })
 export class ViewPortfolioComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private portfolioService: PortfolioService,
+    private router: Router
+  ) {}
+  
   freelancerName:string='John Do';
-  portfolioList:FreelancerPortfolio[]=[];
 
+//   portfolioList:any[]=[ 1,
+//     "Project1 Title",
+//     " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor dicta libero alias doloremque aperiam quidem, odit totam, a expedita maxime quibusdam. Dicta quisquam consectetur facilis, dolor adipisci praesentium ut eaque",
+//     "assets/portfolio1.jpg",
+//     ['html' , 'css' , 'php'],
+//     '#'
+// ];
+
+  portfolio:Portfolio = new Portfolio();
+  data:any;
+  
   ngOnInit(): void {
-    this.portfolioList=[
-      new FreelancerPortfolio(
-        1,
-        "Project1 Title",
-        " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor dicta libero alias doloremque aperiam quidem, odit totam, a expedita maxime quibusdam. Dicta quisquam consectetur facilis, dolor adipisci praesentium ut eaque",
-        "assets/portfolio1.jpg",
-        ['html' , 'css' , 'php'],
-        '#'),
-    ];
+    this.portfolioService
+      .getPortfolio(this.route.snapshot.params.id)
+      .subscribe((res) => {
+        this.data = res;
+        this.portfolio = this.data;
+      });
   }
 }
