@@ -29,12 +29,12 @@ import { LoginComponent } from "./Components/login/login.component";
 
 const routes: Routes = [
   {path:"Catagories",component:CatagoriesComponent },
-  {path: "Catagories/:name",component: SelectedCatComponent },
+  {path:"Catagories/:name",component: SelectedCatComponent },
   {path:"dashboard",component:HomeFreelancerDashboardComponent},
   {path:"listportfolio",component:ListPortfolioComponent},
-  {path:"viewportfolio",component:ViewPortfolioComponent},
+  {path:"viewportfolio/:id",component:ViewPortfolioComponent},
   {path:"addportfolio",component:AddPortfolioComponent},
-  {path:"editportfolio" , component:EditPortfolioComponent},
+  {path:"editportfolio/:id" , component:EditPortfolioComponent},
   {path:"profile",component:ProfileComponent},
   {path:"setting",component:SettingComponent},
   {path:"editProfile",component:EditprofileComponent},
@@ -67,7 +67,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)],  
   exports: [RouterModule],
   providers: [WorkflowGuard],
 })

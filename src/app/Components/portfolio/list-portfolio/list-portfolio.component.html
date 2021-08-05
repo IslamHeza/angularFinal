@@ -10,9 +10,13 @@
         <div class="card col-lg 3 col-md-3 col-sm-12 col-xs-12 px-0 pb-2 m-4" *ngFor="let portfolio of allPortfolios;">
             <img src='assets/portfolio2.jpg' class="card-img-top" alt="...">
             <div class="card-bodyf">
-                <h5 class="card-title">{{portfolio.name}}</h5>
-                <p class="card-text">{{portfolio.description}}</p>
-                <a class="btn btn-primary" routerLink="/viewportfolio">View</a>
+                <h5 class="card-title mt-1">{{portfolio.name}}</h5>
+                <p class="card-text mb-2">{{portfolio.description}}</p>
+                <a class="btn btn-primary" routerLink="/viewportfolio/{{portfolio.id}}">View</a>
+                <a class="btn btn-success mx-1" routerLink="/editportfolio/{{portfolio.id}}">Edit</a>
+                <a class="btn btn-danger" (click)="deletePortfolio($event , portfolio.id)">Delete</a>
+
+
             </div>
         </div>
     </div>

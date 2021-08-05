@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FreelancerPortfolio } from 'src/app/_models/freelancer-portfolio';
+import { Portfolio } from 'src/app/_models/Portfolio';
 import { PortfolioService } from 'src/app/service/portfolio.service';
 
 @Component({
@@ -25,6 +25,13 @@ export class ListPortfolioComponent implements OnInit {
     this.portfoilioService.getAllPortfolios().subscribe(res => {
       console.log(res);   
       this.allPortfolios= res ;   
+    });
+  }
+
+  deletePortfolio(event:any , id:any){
+    event.preventDefault()
+    return this.portfoilioService.deletePortfolio(id).subscribe(res => {
+    this.getAllPortfolios() ;  
     });
   }
 

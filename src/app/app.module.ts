@@ -32,7 +32,6 @@ import { FormsModule } from '@angular/forms';
 import { ListPortfolioComponent } from './Components/portfolio/list-portfolio/list-portfolio.component';
 import { AddPortfolioComponent } from './Components/portfolio/add-portfolio/add-portfolio.component';
 import { EditPortfolioComponent } from './Components/portfolio/edit-portfolio/edit-portfolio.component';
-import { DeletePortfolioComponent } from './Components/portfolio/delete-portfolio/delete-portfolio.component';
 import {CardModule} from 'primeng/card';
 import { ViewPortfolioComponent } from './Components/portfolio/view-portfolio/view-portfolio.component';
 import { TagModule } from 'primeng/tag';
@@ -89,7 +88,6 @@ import { LoginComponent } from './Components/login/login.component';
     ListPortfolioComponent,
     AddPortfolioComponent,
     EditPortfolioComponent,
-    DeletePortfolioComponent,
     ViewPortfolioComponent,
     CatagoriesComponent,
     SelectedCatComponent,

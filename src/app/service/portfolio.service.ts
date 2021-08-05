@@ -17,11 +17,20 @@ export class PortfolioService {
   getAllPortfolios(){
     return this.httpClient.get(this.baseURL);
   }
-  getUser(id:any){
+  
+  getPortfolio(id:any){
     return this.httpClient.get(`${this.baseURL}${id}`)
   }
 
   addPortfolio(portfolio:any){
-    return this.httpClient.post(this.baseURL , portfolio) ;
+    return this.httpClient.post(this.baseURL , portfolio ,{headers:this.headers}) ;
   }
+
+  updatePortfolio(id:any,Portfolio:any){
+    return this.httpClient.put(`${this.baseURL}${id}`,Portfolio,{headers:this.headers});
+  }
+  deletePortfolio(id:any){
+    return this.httpClient.delete(this.baseURL + id,{headers:this.headers});
+  }
+
 }
