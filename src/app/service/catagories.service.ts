@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Catagory } from '../_models/catagory';
- 
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
