@@ -12,8 +12,16 @@ export class ProjectService {
     'Content-Type':'application/json',
     'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
   })
-
+  
+  getAllProject(){
+    return this.httpClient.get(this. baseUrl);
+  }
+  
   addPortproject(project:any){
     return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
+  }
+
+  deleteProject(id:any){
+    return this.httpClient.delete(this. baseUrl + id,{headers:this.headers});
   }
 }

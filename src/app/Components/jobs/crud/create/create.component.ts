@@ -27,7 +27,7 @@ export class CreateComponent implements OnInit {
    addproject(){
      return this.ProjectService.addPortproject(this.Project).subscribe(res=>{
        console.log(res);
-       this.router.navigate(['jobs']) ;
+       this.router.navigate(['listproject']) ;
      })
    }
 }

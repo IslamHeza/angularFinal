@@ -49,8 +49,7 @@ import { LeftinfoComponent } from './Components/setting/leftinfo/leftinfo.compon
 import { RightinfoComponent } from './Components/setting/rightinfo/rightinfo.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ContactComponent } from './Components/contact/contact.component';
-import { JobsComponent } from './Components/jobs/jobs.component';
-import { JobPipe } from './Components/jobs/job.pipe';
+ 
 
 import { HomeSection1Component } from './Components/Home/home-section1/home-section1.component';
 import { HomeSection2Component } from './Components/Home/home-section2/home-section2.component';
@@ -76,6 +75,8 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { LoginComponent } from './Components/login/login.component';
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
+import { ListComponent } from './Components/jobs/crud/list/list.component';
+import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
  
 
 @NgModule({
@@ -104,8 +105,8 @@ import { CreateComponent } from './Components/jobs/crud/create/create.component'
     RightinfoComponent,
     AboutComponent,
     ContactComponent,
-    JobsComponent,
-    JobPipe,
+     
+     
 
     NavbarComponent,
     FooterComponent,
@@ -129,6 +130,8 @@ import { CreateComponent } from './Components/jobs/crud/create/create.component'
     WorkComponent,
     LoginComponent,
     CreateComponent,
+    ListComponent,
+    ProjectPipe,
     
   ],
   imports: [
