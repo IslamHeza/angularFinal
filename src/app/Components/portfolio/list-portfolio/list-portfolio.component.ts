@@ -28,12 +28,17 @@ export class ListPortfolioComponent implements OnInit {
     });
   }
 
+  updatePortfolios(){
+    
+  }
+  
   deletePortfolio(event:any , id:any){
     event.preventDefault()
     return this.portfoilioService.deletePortfolio(id).subscribe(res => {
     this.getAllPortfolios() ;  
     });
   }
+
 
 
 
