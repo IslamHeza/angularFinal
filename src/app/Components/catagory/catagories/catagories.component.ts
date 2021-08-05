@@ -8,12 +8,25 @@ import { CatagoriesService } from 'src/app/service/catagories.service';
 })
 export class CatagoriesComponent implements OnInit {
 
-  catagories:Catagory[]=[];
+   
+  allcatagories:any=[];
+
   constructor( public catlist:CatagoriesService ) { }
 
   ngOnInit(): void {
-    this.catagories=this.catlist.listCatagories();
+    
+    this.getAllCatagories();
   }
+
+  getAllCatagories(){
+   return this.catlist.getAllCatagories().subscribe(res =>{
+      console.log(res);
+      this.allcatagories=res;
+    }
+    )
+  }
+
+    
 
 
 }

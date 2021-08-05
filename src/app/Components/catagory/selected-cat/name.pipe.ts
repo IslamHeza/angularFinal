@@ -1,21 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Workers } from 'src/app/_models/workers';
+import { User } from 'src/app/_models/user';
 @Pipe({
   name: 'name'
 })
 export class NamePipe implements PipeTransform {
 
-  transform(worker:Workers[],  searchName:String): Workers[] {
-    if (!worker || !searchName){
-      return worker ;
+  transform( Developers:User[],  searchName:String): User[] {
+    if (!Developers || !searchName){
+      return Developers ;
     }
 
-    return worker.filter(Workers => 
+    return Developers.filter( User => 
       
-      Workers.workername.toLowerCase().indexOf(searchName.toLowerCase())  !==-1  
+      User.fname.toLowerCase().indexOf(searchName.toLowerCase())  !==-1  
 
 
 )
   }
 
 }
+ 

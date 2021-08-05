@@ -23,19 +23,19 @@ export class UserService {
   }
   logout(){
     return this .httpClient.post(this.baseApi +"logout",{},{headers:this.headers})
-    
+
   }
   getAllUsers(){
     return this.httpClient.get(this.userUrl);
   }
   getUser(id:any){
-    return this.httpClient.get(`${this.userUrl}${id}`)
+    return this.httpClient.get(this.userUrl + id)
   }
   addUser(user:any){
     return this.httpClient.post(this.userUrl,user,{headers:this.headers});
   }
   updateUser(id:any,user:any){
-    return this.httpClient.put(`${this.userUrl}${id}`,user,{headers:this.headers});
+    return this.httpClient.put(this.userUrl + id,user,{headers:this.headers});
   }
   deleteUser(id:any){
     return this.httpClient.delete(this.userUrl + id,{headers:this.headers});

@@ -1,21 +1,21 @@
 import { Pipe, PipeTransform } from '@angular/core'; 
-import { Workers } from 'src/app/_models/workers';
+import { User } from 'src/app/_models/user';
 @Pipe({
   name: 'city'
-})
+}) 
 export class CityPipe implements PipeTransform {
 
-  transform(worker:Workers[],  searchCity:String): Workers[] {
-          if (!worker || !searchCity){
-            return worker ;
+  transform(Developers:User[]=[],  searchCity:String): User[] {
+          if (!Developers || !searchCity){
+            return Developers ;
           }
 
-          return worker.filter(Workers => 
+          return Developers.filter(User => 
             
-            Workers.workercity.toLowerCase().indexOf(searchCity.toLowerCase())  !==-1  
+            User.city.toLowerCase().indexOf(searchCity.toLowerCase())  !==-1  
       
     
     )
   }
 
-}
+} 

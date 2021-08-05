@@ -20,11 +20,11 @@
 <!--cattagories-->
 <div class="container"> 
 <div class="catagories  justify-content-center row  ">
-        <div *ngFor="let item of catagories " class="card cd col-xs-12 col-sm-4 col-md-3 col-lg-3 " >
-                <img src={{item.catimg}} class="card-img-top" alt="..." >
+        <div *ngFor="let item of  allcatagories " class="card cd col-xs-12 col-sm-4 col-md-3 col-lg-3 " >
+                <img src={{item.image}} class="card-img-top" alt="..." >
                 <div class="card-body">
-                <h5 class="card-title"><span>{{item.catid}}.</span>{{item.catname}}</h5>
-                <a routerLink="/Catagories/{{item.catname}}">Find Out More</a>
+                <h5 class="card-title"><span>{{item.id}}.</span>{{item.name}}</h5>
+                <a routerLink="/Catagories/{{item.name}}">Find Out More</a>
                 </div>
         </div>
  </div>
