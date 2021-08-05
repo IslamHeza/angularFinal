@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CatagoriesService } from 'src/app/service/catagories.service';
 import { ActivatedRoute } from '@angular/router';
-import { Workers } from 'src/app/_models/workers';
- 
+import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/_models/user';
+import { Catagory } from 'src/app/_models/catagory';
 @Component({
   selector: 'app-selected-cat',
   templateUrl: './selected-cat.component.html',
@@ -10,19 +11,37 @@ import { Workers } from 'src/app/_models/workers';
 })
 export class SelectedCatComponent implements OnInit {
    
-   worker:Workers[]=[];
+
+  
+   Developers:User[]=[];
+   catagories:Catagory[]=[];
    searchCity:String="";
    searchName:String="";
    searchRate:number=0 ;
-  constructor(public selectcat:CatagoriesService ,public ar:ActivatedRoute ) { }  
+   data:any ;
+   catagory:any=[];
+  constructor(public selectcat:CatagoriesService ,public ar:ActivatedRoute  ,private httpClient : HttpClient) { }  
+   
    
 
   ngOnInit(): void {
-    this.selectcat.ShowCatagory(this.ar.snapshot.params["name"]); //select catagory with name
-    this.worker=this.selectcat.listWorkers();
+     
+    this.httpClient.get("http://localhost:8000/api/catagories/name").subscribe(res=>{
+      this.Developers=res as User [] ;
+       
+    })
+    this.httpClient.get("http://localhost:8000/api/catagories").subscribe(res=>{
+      this.catagories=res as Catagory [] ;
+       
+    })
+
      
   }
-  
+
+
+    
+     
+
   readonly:boolean=true;
   cancel:boolean=false;
 }
