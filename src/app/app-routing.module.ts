@@ -36,7 +36,7 @@ const routes: Routes = [
   {path:"addportfolio",component:AddPortfolioComponent},
   {path:"editportfolio" , component:EditPortfolioComponent},
   {path:"profile",component:ProfileComponent},
-  {path:"setting",component:SettingComponent},
+  {path:"setting/:id",component:SettingComponent},
   {path:"editProfile",component:EditprofileComponent},
   {path:"contact",component:ContactComponent},
   {path:"about",component: AboutComponent},
