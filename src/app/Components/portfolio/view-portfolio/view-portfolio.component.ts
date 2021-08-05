@@ -18,14 +18,6 @@ export class ViewPortfolioComponent implements OnInit {
   
   freelancerName:string='John Do';
 
-//   portfolioList:any[]=[ 1,
-//     "Project1 Title",
-//     " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor dicta libero alias doloremque aperiam quidem, odit totam, a expedita maxime quibusdam. Dicta quisquam consectetur facilis, dolor adipisci praesentium ut eaque",
-//     "assets/portfolio1.jpg",
-//     ['html' , 'css' , 'php'],
-//     '#'
-// ];
-
   portfolio:Portfolio = new Portfolio();
   data:any;
   

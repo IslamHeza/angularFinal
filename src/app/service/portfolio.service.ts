@@ -33,4 +33,9 @@ export class PortfolioService {
     return this.httpClient.delete(this.baseURL + id,{headers:this.headers});
   }
 
+  countPortfolio(user_id:any){
+    return this.httpClient.get(`${this.baseURL}count/${user_id}`);
+  }
+
+
 }
