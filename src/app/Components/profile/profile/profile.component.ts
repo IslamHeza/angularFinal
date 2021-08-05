@@ -16,32 +16,27 @@ export class ProfileComponent implements OnInit {
   faUser=faUser;
   faComment=faComment;
   val:number=2;
-  allUsers:any=[];
+  // allUsers:any=[];
   user = new User;
   data:any;
   constructor(private userService:UserService,private router:Router,private route:ActivatedRoute) { }
   ngOnInit(): void {
-  this.getAllUsers();
-  this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
-    this.data = res;
-    this.user = this.data;
-  })
-  }
-  getAllUsers(){
-    return this.userService.getAllUsers().subscribe(res => {
-      // console.log(res);
-      this.allUsers = res;
+    this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
+      this.data = res;
+      this.user = this.data;
+      console.log(this.user);
     })
+  // }
+  // getAllUsers(){
+  //   return this.userService.getAllUsers().subscribe(res => {
+  //     // console.log(res);
+  //     this.allUsers = res;
+  //   })
   }
-  deleteUser(e:any,id:any){
-    e.preventDefault();
-    return this.userService.deleteUser(id).subscribe(res => {
-      this.getAllUsers();
-    })
-  }
-  updateUser(){
-    this.userService.updateUser(this.route.snapshot.params.id,this.user).subscribe(res =>{
-      return this.router.navigate(['']);
-    })
-  }
+  // deleteUser(e:any,id:any){
+  //   e.preventDefault();
+  //   return this.userService.deleteUser(id).subscribe(res => {
+  //     this.getAllUsers();
+  //   })
+  // }
 }
