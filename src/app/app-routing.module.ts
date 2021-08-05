@@ -35,7 +35,7 @@ const routes: Routes = [
   {path:"viewportfolio/:id",component:ViewPortfolioComponent},
   {path:"addportfolio",component:AddPortfolioComponent},
   {path:"editportfolio/:id" , component:EditPortfolioComponent},
-  {path:"profile",component:ProfileComponent},
+  {path:"profile/:id",component:ProfileComponent},
   {path:"setting/:id",component:SettingComponent},
   {path:"editProfile",component:EditprofileComponent},
   {path:"contact",component:ContactComponent},
@@ -68,7 +68,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],  
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [WorkflowGuard],
 })

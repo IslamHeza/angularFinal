@@ -17,11 +17,11 @@ export class RightinfoComponent implements OnInit {
       this.data = res;
       this.user = this.data;
     })
-    console.log(this.route.snapshot.params.id);
+    // console.log(this.route.snapshot.params.id);
   }
   updateUser(){
     this.userService.updateUser(this.route.snapshot.params.id,this.user).subscribe(res =>{
-      console.log(this.user);
+      // console.log(this.user);
       return this.router.navigate(["/profile"]);
     })
   }
