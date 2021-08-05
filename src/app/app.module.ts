@@ -75,7 +75,8 @@ import { WorkflowService } from './Components/SignUp/workflow/workflow.service';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { LoginComponent } from './Components/login/login.component';
-
+import { CreateComponent } from './Components/jobs/crud/create/create.component';
+ 
 
 @NgModule({
   declarations: [
@@ -126,8 +127,9 @@ import { LoginComponent } from './Components/login/login.component';
     SignUpComponent,
     SignUpNavbarComponent,
     WorkComponent,
-    LoginComponent
-
+    LoginComponent,
+    CreateComponent,
+    
   ],
   imports: [
     BrowserModule,

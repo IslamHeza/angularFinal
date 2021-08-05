@@ -25,7 +25,7 @@ import { WorkComponent } from "./Components/SignUp/work/work.component";
 
 import { ResultComponent } from "./Components/SignUp/result/result.component";
 import { LoginComponent } from "./Components/login/login.component";
-
+import { CreateComponent } from './Components/jobs/crud/create/create.component';
 
 const routes: Routes = [
   {path:"Catagories",component:CatagoriesComponent },
@@ -42,6 +42,7 @@ const routes: Routes = [
   {path:"about",component: AboutComponent},
   {path:"jobs",component:JobsComponent},
   {path:"home",component:HomeComponent},
+  {path:"addproject",component:CreateComponent},
 
 //signup
   // 1st Route
