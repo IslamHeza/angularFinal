@@ -13,7 +13,7 @@ city:any;
 street:any;
 overview:any;
 // skills:any;
-job:any;
+// job:any;
 university:any;
 specialization:any;
 experience:any;
