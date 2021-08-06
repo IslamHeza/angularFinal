@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/_models/user';
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-rightinfo',
@@ -14,8 +15,9 @@ export class RightinfoComponent implements OnInit {
   data:any;
   imageURL: string="";
   uploadForm: FormGroup;
+  // fd = new FormData();
 
-  constructor(private userService:UserService,private router:Router,private route:ActivatedRoute,public fb: FormBuilder) { this.uploadForm = this.fb.group({
+  constructor(private userService:UserService,private router:Router,private route:ActivatedRoute,public fb: FormBuilder,private http:HttpClient) { this.uploadForm = this.fb.group({
     avatar: [null],
     name: ['']
   })}
@@ -36,9 +38,16 @@ export class RightinfoComponent implements OnInit {
     this.user.image =(event.target).files[0].name;
     // console.log((event.target).files[0].name);
     const file = (event.target).files[0];
-    this.uploadForm.patchValue({
-      avatar: file
-    });
+    // const fd = new FormData();
+    // fd.append('file',file,file.name);
+    // console.log(fd.append(file,file.name));
+    // this.http.post('http://localhost/upload.php',fd)
+    // .subscribe(res =>{
+    //   console.log
+    // });
+    // this.uploadForm.patchValue({
+    //   avatar: file
+    // });
     // this.uploadForm.get('avatar').updateValueAndValidity();
 
     // File Preview
