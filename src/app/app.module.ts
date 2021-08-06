@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -49,7 +50,7 @@ import { LeftinfoComponent } from './Components/setting/leftinfo/leftinfo.compon
 import { RightinfoComponent } from './Components/setting/rightinfo/rightinfo.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ContactComponent } from './Components/contact/contact.component';
- 
+
 
 import { HomeSection1Component } from './Components/Home/home-section1/home-section1.component';
 import { HomeSection2Component } from './Components/Home/home-section2/home-section2.component';
@@ -77,7 +78,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
 import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
- 
+
 
 @NgModule({
   declarations: [
@@ -105,8 +106,8 @@ import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
     RightinfoComponent,
     AboutComponent,
     ContactComponent,
-     
-     
+
+
 
     NavbarComponent,
     FooterComponent,
@@ -132,7 +133,7 @@ import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
     CreateComponent,
     ListComponent,
     ProjectPipe,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -152,6 +153,7 @@ import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
     CarouselModule,
     FileUploadModule,
     HttpClientModule,
+    ReactiveFormsModule,
 
         //signup
         InputMaskModule,
