@@ -18,7 +18,7 @@ export class RightComponent implements OnInit {
     this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
       this.data = res;
       this.user = this.data;
-      console.log(this.user);
+      // console.log(this.user);
     })
   }
 }

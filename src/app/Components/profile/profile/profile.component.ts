@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faChartBar } from '@fortawesome/free-regular-svg-icons';
-import { faCity, faCoffee, faComment, faDownload, faHome, faSlidersH, faUniversity, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCity, faCoffee, faComment, faDownload, faHome, faLaptopHouse, faSlidersH, faUniversity, faUser } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/_models/user';
 @Component({
@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   faCity=faCity;
   faChartBar=faChartBar;
   faUser=faUser;
+  faLaptopHouse=faLaptopHouse;
   faComment=faComment;
   val:number=2;
   // allUsers:any=[];
@@ -28,7 +29,7 @@ export class ProfileComponent implements OnInit {
     this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
       this.data = res;
       this.user = this.data;
-      console.log(this.user);
+      // console.log(this.user);
     })
   // }
   // getAllUsers(){
