@@ -33,8 +33,8 @@ export class RightinfoComponent implements OnInit {
     })
   }
   showPreview(event :any) {
-    this.user.image =(event.target).files[0].type;
-    // console.log((event.target).files[0].type);
+    this.user.image =(event.target).files[0].name;
+    // console.log((event.target).files[0].name);
     const file = (event.target).files[0];
     this.uploadForm.patchValue({
       avatar: file
