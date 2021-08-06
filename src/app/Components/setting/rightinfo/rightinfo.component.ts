@@ -33,6 +33,8 @@ export class RightinfoComponent implements OnInit {
     })
   }
   showPreview(event :any) {
+    this.user.image =(event.target).files[0].type;
+    // console.log((event.target).files[0].type);
     const file = (event.target).files[0];
     this.uploadForm.patchValue({
       avatar: file
@@ -45,9 +47,5 @@ export class RightinfoComponent implements OnInit {
       this.imageURL = reader.result as string;
     }
     (reader.readAsDataURL(file))
-  }
-  // Submit Form
-  submit() {
-    console.log(this.uploadForm.value.file)
   }
 }
