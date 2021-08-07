@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -49,7 +50,6 @@ import { LeftinfoComponent } from './Components/setting/leftinfo/leftinfo.compon
 import { RightinfoComponent } from './Components/setting/rightinfo/rightinfo.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ContactComponent } from './Components/contact/contact.component';
- 
 
 import { HomeSection1Component } from './Components/Home/home-section1/home-section1.component';
 import { HomeSection2Component } from './Components/Home/home-section2/home-section2.component';
@@ -62,24 +62,23 @@ import { FooterComponent } from './Components/Shared/footer/footer.component';
 import { HomeComponent } from './Components/Home/home/home.component';
 import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
 
-//signup
-import { EmailComponent } from './Components/SignUp/email/email.component';
-import { ResultComponent } from './Components/SignUp/result/result.component';
-import { PersonalComponent } from './Components/SignUp/personal/personal.component';
-import { SignUpNavbarComponent } from './Components/SignUp/signUp-navbar/signUp-navbar.component';
-import { SignUpComponent } from './Components/SignUp/SignUp/SignUp.component';
-import { WorkComponent } from './Components/SignUp/work/work.component';
-import { FormDataService } from './Components/SignUp/data/formData.service';
-import { WorkflowService } from './Components/SignUp/workflow/workflow.service';
+//signup&login
+
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { LoginComponent } from './Components/login/login.component';
+import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
+
+//
+
+
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
 import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
  
+
 
 @NgModule({
   declarations: [
@@ -107,8 +106,8 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
     RightinfoComponent,
     AboutComponent,
     ContactComponent,
-     
-     
+
+
 
     NavbarComponent,
     FooterComponent,
@@ -121,22 +120,17 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
     HomeSection6Component,
     HomeSection7Component,
 
-    //sign up
-
-
-    EmailComponent,
-    PersonalComponent,
-    ResultComponent,
-    SignUpComponent,
-    SignUpNavbarComponent,
-    WorkComponent,
+    //registration
+    MultipleStep_registrationComponent,
     LoginComponent,
+
     CreateComponent,
     ListComponent,
     ProjectPipe,
     EditComponent,
     ViewComponent,
     
+
   ],
   imports: [
     BrowserModule,
@@ -157,14 +151,18 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
     FileUploadModule,
     HttpClientModule,
 
-        //signup
-        InputMaskModule,
-        InputTextareaModule,
+    //signup
+    InputMaskModule,
+    InputTextareaModule,
+
+    //registeration
+
+    ReactiveFormsModule,
+
+
   ],
   providers: [
-    //signup
-    { provide: FormDataService, useClass: FormDataService },
-    { provide: WorkflowService, useClass: WorkflowService },
+
   ],
   bootstrap: [AppComponent]
 })

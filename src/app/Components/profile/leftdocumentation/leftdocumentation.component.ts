@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCertificate, faFileContract, faFileSignature, faSignal } from '@fortawesome/free-solid-svg-icons';
+import { faCertificate, faCheckDouble, faFileContract, faFileSignature, faSignal, faUserCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-leftdocumentaion',
@@ -10,6 +10,8 @@ export class LeftdocumentationComponent implements OnInit {
 
   constructor() { }
   faFileContract=faFileSignature;
+  faBadgeCheck=faCheckDouble;
+  faUserCheck=faUserCheck;
   ngOnInit(): void {
   }
 

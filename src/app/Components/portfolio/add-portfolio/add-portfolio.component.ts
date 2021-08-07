@@ -20,7 +20,7 @@ export class AddPortfolioComponent implements OnInit {
 
   }
   newPortfolio: Portfolio = new Portfolio() ;
-  
+
   addPortfolio(){
     this.portfolioService.addPortfolio(this.newPortfolio).subscribe(res=>{
       console.log(res);

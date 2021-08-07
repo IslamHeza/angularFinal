@@ -15,7 +15,7 @@ export class ViewPortfolioComponent implements OnInit {
     private portfolioService: PortfolioService,
     private router: Router
   ) {}
-  
+
   freelancerName:string='John Do';
 
 //   portfolioList:any[]=[ 1,
@@ -28,7 +28,7 @@ export class ViewPortfolioComponent implements OnInit {
 
   portfolio:Portfolio = new Portfolio();
   data:any;
-  
+
   ngOnInit(): void {
     this.portfolioService
       .getPortfolio(this.route.snapshot.params.id)

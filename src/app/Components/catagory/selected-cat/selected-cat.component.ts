@@ -10,9 +10,9 @@ import { Catagory } from 'src/app/_models/catagory';
   styleUrls: ['./selected-cat.component.css']
 })
 export class SelectedCatComponent implements OnInit {
-   
 
-  
+
+
    Developers:User[]=[];
    catagories:Catagory[]=[];
    searchCity:String="";
@@ -20,27 +20,27 @@ export class SelectedCatComponent implements OnInit {
    searchRate:number=0 ;
    data:any ;
    catagory:any=[];
-  constructor(public selectcat:CatagoriesService ,public ar:ActivatedRoute  ,private httpClient : HttpClient) { }  
-   
-   
+  constructor(public selectcat:CatagoriesService ,public ar:ActivatedRoute  ,private httpClient : HttpClient) { }
+
+
 
   ngOnInit(): void {
-     
+
     this.httpClient.get("http://localhost:8000/api/catagories/name").subscribe(res=>{
       this.Developers=res as User [] ;
-       
+
     })
     this.httpClient.get("http://localhost:8000/api/catagories").subscribe(res=>{
       this.catagories=res as Catagory [] ;
-       
+
     })
 
-     
+
   }
 
 
-    
-     
+
+
 
   readonly:boolean=true;
   cancel:boolean=false;
