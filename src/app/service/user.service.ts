@@ -41,4 +41,12 @@ export class UserService {
   deleteUser(id:any){
     return this.httpClient.delete(this.userUrl + id,{headers:this.headers});
   }
+
+  getUserCategory(id:any){
+    return this.httpClient.get(this. userUrl +id+'/recent');
+
+  }
+
+
+
 }

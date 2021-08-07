@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CatagoriesService {
   allcatagories:any=[];
 
-    baseURL = "http://localhost:8000/api/catagories";
+    baseURL = "http://localhost:8000/api/catagories/";
 
 
   constructor(public r:Router , private httpClient : HttpClient) { }

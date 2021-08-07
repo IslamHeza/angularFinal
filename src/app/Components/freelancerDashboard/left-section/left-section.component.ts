@@ -46,7 +46,7 @@ export class LeftSectionComponent implements OnInit {
   }
 
   countProject(id: any) {
-    return this.projectService.countProject(id).subscribe((res) => {
+    return this.projectService.countProjects(id).subscribe((res) => {
       this.countOfProjects = res;
     });
   }
