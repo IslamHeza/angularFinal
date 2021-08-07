@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProgressComponent implements OnInit {
 
     constructor() { }
-  
+
     data: any;
     ngOnInit(){      this.data = {
       labels: ['Completed Projects','Current Projects','Pending Projects'],
@@ -25,6 +25,6 @@ export class ProgressComponent implements OnInit {
                   "#26A69A",
                   "#2979FF"
               ]
-          }]    
+          }]
       };
   }  }

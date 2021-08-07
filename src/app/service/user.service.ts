@@ -5,12 +5,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  userUrl = "http://127.0.0.1:8000/api/users/";
   baseApi= "http://127.0.0.1:8000/api/";
+  userUrl = `${this.baseApi}users/`;
   headers = new HttpHeaders({
     'Content-Type':'application/json',
-    'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
+    'Authorization':'Bearer '+JSON.parse(localStorage.getItem('token')||'{}')
   })
+  next: any;
   constructor(private httpClient:HttpClient) { }
   checkCookie(){
     return this.httpClient.get("http://localhost:8000/sanctum/csrf-cookie");

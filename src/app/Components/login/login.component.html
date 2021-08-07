@@ -17,14 +17,14 @@
 
                                 <div class="wrap-input100 validate-input" data-validate="Valid email is required:
                                         ex@abc.xyz">
-                                    <input class="input100" type="text" name="email">
+                                    <input class="input100" [(ngModel)]="email" type="text" name="email">
                                     <span class="focus-input100"></span>
                                     <span class="label-input100">Email</span>
                                 </div>
 
 
                                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                                    <input class="input100" type="password" name="pass">
+                                    <input class="input100" [(ngModel)]="password" type="password" name="pass">
                                     <span class="focus-input100"></span>
                                     <span class="label-input100">Password</span>
                                 </div>
@@ -46,7 +46,7 @@
 
 
                                 <div class="container-login100-form-btn">
-                                    <button class="login100-form-btn">
+                                    <button class="login100-form-btn" (click)="login()">
                                             Login
                                         </button>
                                 </div>
@@ -54,47 +54,43 @@
 
                             </form>
 
-                            <div class="login100-more" style="background-image:
-                                    url('../../../assets/myimg/login/bg-01.jpg');">
+                            <div class=" login100-more " style="background-image: url( '../../../assets/myimg/login/bg-01.jpg'); ">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                <!-- <div class="modal-footer ">
+                    <button class="btn btn-primary " data-bs-target="#exampleModalToggle2 " data-bs-toggle="modal " data-bs-dismiss="modal ">Open second modal</button>
                 </div> -->
             </div>
         </div>
     </div>
     <!-- model2 -->
-    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+    <div class="modal fade " id="exampleModalToggle2 " aria-hidden="true " aria-labelledby="exampleModalToggleLabel2 " tabindex="-1 ">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content ">
 
-                <div class="modal-body">
-                    <div class="container-login100">
-                        <div class="wrap-login100">
-                            <form class="login100-form validate-form">
-                                <span class="login100-form-title
-                                        p-b-43">
+                <div class="modal-body ">
+                    <div class="container-login100 ">
+                        <div class="wrap-login100 ">
+                            <form class="login100-form validate-form ">
+                                <span class="login100-form-title p-b-43 ">
                                         Forget Password
                                     </span>
 
 
-                                <div class="wrap-input100
-                                        validate-input" data-validate="Valid
-                                        email is required: ex@abc.xyz">
-                                    <input class="input100" type="text" name="email">
-                                    <span class="focus-input100"></span>
-                                    <span class="label-input100">Email</span>
+                                <div class="wrap-input100 validate-input " data-validate="Valid email is required: ex@abc.xyz ">
+                                    <input class="input100 " type="text " name="email ">
+                                    <span class="focus-input100 "></span>
+                                    <span class="label-input100 ">Email</span>
                                 </div>
 
 
 
 
-                                <div class="container-login100-form-btn">
-                                    <button class="login100-form-btn" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal" data-bs-dismiss="modal">
+                                <div class="container-login100-form-btn ">
+                                    <button class="login100-form-btn " data-bs-target="#exampleModalToggle3 " data-bs-toggle="modal " data-bs-dismiss="modal ">
 
 
                                         Forget Password
@@ -104,8 +100,7 @@
 
                             </form>
 
-                            <div class="login100-more" style="background-image:
-                                    url('../../../assets/myimg/login/bg-01.jpg');">
+                            <div class="login100-more " style="background-image: url( '../../../assets/myimg/login/bg-01.jpg'); ">
                             </div>
                         </div>
                     </div>
@@ -118,21 +113,20 @@
     <!-- modal3 -->
 
 
-    <div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+    <div class="modal fade " id="exampleModalToggle3 " aria-hidden="true " aria-labelledby="exampleModalToggleLabel3 " tabindex="-1 ">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content ">
 
-                <div class="modal-body">
-                    <div class="container-login100">
-                        <div class="wrap-login100">
-                            <form class="login100-form validate-form  validate2-form">
-                                <span class="login100-form-title
-                                        p-b-43">
+                <div class="modal-body ">
+                    <div class="container-login100 ">
+                        <div class="wrap-login100 ">
+                            <form class="login100-form validate-form validate2-form ">
+                                <span class="login100-form-title p-b-43 ">
                                         Reset Password
                                     </span>
 
 
-                                <div class="wrap-input100 validate-input validate2-input" data-validate="Password is required" data-validate2="Password doesn't match">
+                                <div class="wrap-input100 validate-input validate2-input " data-validate="Password is required " data-validate2="Password doesn 't match">
                                     <input class="input100" type="password" name="pass">
                                     <span class="focus-input100"></span>
                                     <span class="label-input100" id="pswd1">Password</span>
@@ -155,7 +149,7 @@
                             </form>
 
                             <div class="login100-more" style="background-image:
-                                    url('../../../assets/myimg/login/bg-01.jpg');">
+                                    url('../../../assets/myimg/login/bg-01.jpg ');">
                             </div>
                         </div>
                     </div>

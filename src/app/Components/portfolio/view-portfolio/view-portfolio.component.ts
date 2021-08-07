@@ -15,12 +15,12 @@ export class ViewPortfolioComponent implements OnInit {
     private portfolioService: PortfolioService,
     private router: Router
   ) {}
-  
+
   freelancerName:string='John Do';
 
   portfolio:Portfolio = new Portfolio();
   data:any;
-  
+
   ngOnInit(): void {
     this.portfolioService
       .getPortfolio(this.route.snapshot.params.id)

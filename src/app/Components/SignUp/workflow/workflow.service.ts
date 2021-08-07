@@ -5,7 +5,7 @@ import { STEPS }              from './workflow.model';
 @Injectable()
 export class WorkflowService {
   private workflow = [
-    { step: STEPS.personal, valid: false },
+    // { step: STEPS.personal, valid: false },
     { step: STEPS.email, valid: false },
     { step: STEPS.work, valid: false },
 

@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { Personal } from '../data/formData.model';
 import { FormDataService } from '../data/formData.service';
 import { InputMaskModule } from 'primeng/inputmask';
+import { UserService } from 'src/app/service/user.service';
+import { User } from 'src/app/_models/user';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-personal',
@@ -17,12 +20,31 @@ export class PersonalComponent implements OnInit {
 
   personal: Personal = new Personal;
 
-  value5: any;
+  // value5: any;
 
   val: any;
 
+  user = new User();
+  data: any;
+
+  // constructor(private userservice: UserService, private router: Router) {
+  // }
   constructor(private router: Router, private formDataService: FormDataService) {
   }
+  // ngOnInit() {
+
+  // }
+
+
+  // register() {
+
+  //   return this.userservice.register(this.user).subscribe(res => {
+  //     console.log(res);
+  //     this.data = res;
+  //     localStorage.setItem('token', JSON.stringify(this.data.token));
+  //     this.router.navigate(['/SignUp/email']);
+  //   })
+  // }
 
   ngOnInit() {
 

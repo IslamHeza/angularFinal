@@ -13,8 +13,8 @@ export class ListPortfolioComponent implements OnInit {
   constructor( private portfoilioService:PortfolioService) { }
 
   //data
-  allPortfolios :any = [] ; 
-  freelancerName:string='John Do'; 
+  allPortfolios :any = [] ;
+  freelancerName:string='John Do';
 
   ngOnInit(): void {
     this.getAllPortfolios();
@@ -23,19 +23,19 @@ export class ListPortfolioComponent implements OnInit {
   //logic
   getAllPortfolios(){
     this.portfoilioService.getAllPortfolios().subscribe(res => {
-      console.log(res);   
-      this.allPortfolios= res ;   
+      console.log(res);
+      this.allPortfolios= res ;
     });
   }
 
   updatePortfolios(){
-    
+
   }
-  
+
   deletePortfolio(event:any , id:any){
     event.preventDefault()
     return this.portfoilioService.deletePortfolio(id).subscribe(res => {
-    this.getAllPortfolios() ;  
+    this.getAllPortfolios() ;
     });
   }
 

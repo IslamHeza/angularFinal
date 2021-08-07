@@ -8,13 +8,13 @@ import { CatagoriesService } from 'src/app/service/catagories.service';
 })
 export class CatagoriesComponent implements OnInit {
 
-   
+
   allcatagories:any=[];
 
   constructor( public catlist:CatagoriesService ) { }
 
   ngOnInit(): void {
-    
+
     this.getAllCatagories();
   }
 
@@ -26,7 +26,7 @@ export class CatagoriesComponent implements OnInit {
     )
   }
 
-    
+
 
 
 }

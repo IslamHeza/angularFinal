@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
+import { User } from 'src/app/_models/user';
 import { Work } from '../data/formData.model';
 
 import { FormDataService } from '../data/formData.service';
@@ -16,7 +18,16 @@ export class WorkComponent implements OnInit {
   title = 'What do you do?';
   work: Work = new Work;
 
+
   form: any;
+
+  // user = new User();
+  // data: any;
+  //   constructor(private userservice: UserService, private router: Router) {
+  //   }
+  // ngOnInit(): void {
+
+  // }
   values: string[] = [];
   constructor(private router: Router, private formDataService: FormDataService) {
   }
