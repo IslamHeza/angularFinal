@@ -16,4 +16,9 @@ export class ProjectService {
   addPortproject(project:any){
     return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
   }
+
+  countProject(id:any){
+    return this.httpClient.get(`${this.baseUrl}count/${id}`);
+  }
+
 }
