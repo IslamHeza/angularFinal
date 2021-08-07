@@ -24,8 +24,11 @@ export class ListComponent implements OnInit {
     this.projectservice. getAllProject().subscribe(res => {
 
       console.log(res);   
-      this.  allprojects= res ;   
+      this.allprojects= res ;   
     });
+  }
+  updateProject(){
+
   }
 
   deleteProject(event:any , id:any){

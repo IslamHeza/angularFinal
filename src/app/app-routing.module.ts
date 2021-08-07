@@ -27,7 +27,9 @@ import { ResultComponent } from "./Components/SignUp/result/result.component";
 import { LoginComponent } from "./Components/login/login.component";
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
 import { ListComponent } from './Components/jobs/crud/list/list.component';
-
+import { EditComponent } from './Components/jobs/crud/edit/edit.component';
+import { ViewComponent } from './Components/jobs/crud/view/view.component';
+ 
 const routes: Routes = [
   {path:"Catagories",component:CatagoriesComponent },
   {path:"Catagories/:name",component: SelectedCatComponent },
@@ -45,6 +47,9 @@ const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"addproject",component:CreateComponent},
   {path:"listproject",component:ListComponent},
+  {path:"editproject/:id",component: EditComponent },
+  {path:"viewproject/:id",component: ViewComponent },
+  
 
 //signup
   // 1st Route

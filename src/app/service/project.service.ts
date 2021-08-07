@@ -16,10 +16,17 @@ export class ProjectService {
   getAllProject(){
     return this.httpClient.get(this. baseUrl);
   }
+  getProject(id:any){
+    return this.httpClient.get(this. baseUrl + id)
+  }
   
   addPortproject(project:any){
     return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
   }
+  updateProject(id:any,project:any){
+    return this.httpClient.put(`${this. baseUrl}${id}`, project ,{headers:this.headers});
+  }
+
 
   deleteProject(id:any){
     return this.httpClient.delete(this. baseUrl + id,{headers:this.headers});

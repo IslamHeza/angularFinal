@@ -77,6 +77,8 @@ import { LoginComponent } from './Components/login/login.component';
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
 import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
+import { EditComponent } from './Components/jobs/crud/edit/edit.component';
+import { ViewComponent } from './Components/jobs/crud/view/view.component';
  
 
 @NgModule({
@@ -132,6 +134,8 @@ import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
     CreateComponent,
     ListComponent,
     ProjectPipe,
+    EditComponent,
+    ViewComponent,
     
   ],
   imports: [

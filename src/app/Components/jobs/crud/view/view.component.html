@@ -1,10 +1,8 @@
 <div class="all">
     <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>
-    <div class="form-group col-sm-8 col-lg-3 filter  ">
-      <input type="text" [(ngModel)]="searchjob" class="form-control Search " placeholder="Search By Job's Name" />
-      </div>
+     
         <div class="container">
-          <div class="col1"  *ngFor="let project of  allprojects |project:searchjob " >
+          <div class="col1"  >
           <div class="card mb-3  headb"> 
           <div class="head" >
   
@@ -19,14 +17,8 @@
           <li> Budget : {{project.budget}}</li>
           <li> Final prise : {{project.final_price}} </li>
           <li> Location : {{project.location}}</li>
-          <li> Status : {{project.status}} </li>
+          <li> Status : {{project.status}}</li>
           </ul>
-  
-          <a class="btn btn-primary " routerLink="/viewproject/{{project.id}}" >View</a>
-          <a class="btn btn-success mx-1"  routerLink="/editproject/{{project.id}}">Edit</a>
-          <a class="btn btn-danger" (click)="deleteProject($event ,project.id)" >Delete</a>
-
-
         </div>
       </div>
       </div>
