@@ -55,15 +55,13 @@ console.log(this.user.category_id);
     return (this.selectedLink === name); // if current radio button is selected, return true, else return false
   }
 
-
   getAllCatagories(){
-    return this.catlist.getAllCatagories().subscribe(response =>{
-       console.log(response);
-       this.allcatagories=response;
+    return this.catlist.getAllCatagories().subscribe(res =>{
+       console.log(res);
+       this.allcatagories=res;
      }
      )
    }
-
 
 
 

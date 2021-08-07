@@ -13,7 +13,7 @@
                     <div class="col-lg-4">
                         <div class="photo text-center">
                             <!-- <a routerLink="/profile"> <img src="assets/img/{{user.image}}" alt="" class="rounded-circle mb-2"></a> -->
-                            <a routerLink="/profile"><img [src]="imageURL" alt="" class="rounded-circle mb-2" style="width: 100px; height: 100px;"></a>
+                            <img [src]="imageURL" alt="" class="rounded-circle mb-2" style="width: 100px; height: 100px;">
                         </div>
                         <div class="form-control col-md-5 mb-3 text-center">
                             <label for="formFileMultiple" class="form-label">Upload Image</label>
@@ -65,8 +65,8 @@
                             <div class='col-lg-6 col-sm-10 mb-2 '>
                                 <div class="form-control">
                                     <label class="control-label" for="phone_number">Phone Number</label>
-
-                                    <input class="form-control input-md m-1" #phone_number="ngModel" required minlength="4" id="phone_number" name="phone_number" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.phone_number">
+                                    <p-inputMask name="phoneno" #phone_number="ngModel" [(ngModel)]="user.phone_number" mask="9999 999 9999" max-length="10" class="ng-pristine ng-untouched"></p-inputMask>
+                                    <!-- <input class="form-control input-md m-1" #phone_number="ngModel" required minlength="4" id="phone_number" name="phone_number" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.phone_number"> -->
                                     <div *ngIf="phone_number.invalid && (phone_number.dirty || phone_number.touched)" class="alert alert-danger">
 
                                         <div *ngIf="phone_number.errors?.required">
@@ -142,15 +142,15 @@
                         </div>
                         <div class="row">
                             <div class='col-lg-12 col-sm-10 mb-2 '>
-                                <div class="form-control">
-                                    <label for="exampleFormControlTextarea1" class="form-label">OVERVIEW</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required minlength="4" #overview="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.overview">{{user.overview}}</textarea>
-                                    <div *ngIf="overview.invalid && (overview.dirty || overview.touched)" class="alert alert-danger">
+                                <div class="form-group">
+                                    <label class="control-label" for="overview">Overview</label>
+                                    <textarea class="form-control input-md" #overview="ngModel" minlength="50" required id="overview" name="overview" type="text" [(ngModel)]="user.overview"></textarea>
+                                    <div *ngIf="overview.invalid &&(overview.dirty || overview.touched)" class="alert alert-danger">
                                         <div *ngIf="overview.errors?.required">
-                                            national is required.
+                                            Overview is required.
                                         </div>
                                         <div *ngIf="overview.errors?.minlength">
-                                            Name must be at least 4 characters long.
+                                            Overview must be at least 50.
                                         </div>
                                     </div>
                                 </div>
