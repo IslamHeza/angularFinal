@@ -17,7 +17,7 @@ export class PortfolioService {
   getAllPortfolios(){
     return this.httpClient.get(this.baseURL);
   }
-  
+
   getPortfolio(id:any){
     return this.httpClient.get(`${this.baseURL}${id}`)
   }

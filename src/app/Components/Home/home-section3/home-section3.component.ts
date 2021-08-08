@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// import { get } from 'http';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CatagoriesService } from 'src/app/service/catagories.service';
 
 @Component({
   selector: 'app-home-section3',
@@ -8,9 +10,18 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HomeSection3Component implements OnInit {
 
-  constructor() { }
+  Categories:any=[];
+  constructor(private CategoryService : CatagoriesService) { }
 
   ngOnInit(): void {
+    this.getCategories();
+  }
+
+  getCategories() {
+    this.CategoryService.getAllCatagories().subscribe((res: any) => {
+      this.Categories = res;
+      console.log(res);
+    });
   }
   customOptions: OwlOptions = {
     loop: true,
