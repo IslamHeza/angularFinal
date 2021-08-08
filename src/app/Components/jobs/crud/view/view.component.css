@@ -1,0 +1,17 @@
+.Head{
+    height:400px;
+   
+    background-color: #f2f1ef;
+    margin-bottom: 1rem;
+
+}
+.head img{
+    width: 70px;
+    height: 70px;
+    border-radius: 10rem;
+    margin:1rem .5rem ;
+}
+h5{
+    display: inline;
+    margin: 2.1rem .5rem;
+}
