@@ -8,8 +8,7 @@ export class ProjectService {
   constructor(private httpClient:HttpClient) { }
 
   TopDevelopersURL= "http://127.0.0.1:8000/api/developers";
-  baseUrl="http://localhost:8000/api/project";
-  bothUrl=["http://127.0.0.1:8000/api/developers","http://localhost:8000/api/project"];
+  baseUrl="http://localhost:8000/api/project/";
   MostProjectsURL= "http://127.0.0.1:8000/api/mostProjects";
   headers = new HttpHeaders({
     'Content-Type':'application/json',

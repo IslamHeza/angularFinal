@@ -27,7 +27,7 @@ export class MultipleStep_registrationComponent implements OnInit {
   register() {
 console.log(this.user.category_id);
     return this.userservice.register(this.user).subscribe(res => {
-
+      
       console.log({res});
       this.data = res;
       //  localStorage.setItem('data',this.data);
