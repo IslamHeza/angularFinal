@@ -4,15 +4,15 @@
         <input type="text" [(ngModel)]="searchjob" class="form-control Search " placeholder="Search By Job's Name" />
     </div>
     <div class="container">
-        <div class="col1" *ngFor="let project of  allprojects |project:searchjob ">
+        <div class="col1" *ngFor="let project of allprojects  |project:searchjob " >
             <div class="card mb-3  headb">
-                <div class="head">
 
+                <div class="head">
                     <img src="./assets/img/profile.png" class="card-img-top" alt="...">
-                    <h5>name</h5>
+                    <h5>{{project.username}}</h5>
                 </div>
                 <div class="card-body">
-                    <h6 class="card-title">{{project.name}}</h6>
+                    <h6 class="card-title">{{project.name}} </h6>
                     <p class="card-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
                     <p-rating [(ngModel)]="project.rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
                     <ul>

@@ -9,4 +9,6 @@ export class Project {
     status:any;
     owner_id:any;
     developer_id:any;
+    username:any;
+    category_id:any;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/_models/project';
 import { ProjectService } from 'src/app/service/project.service';
+import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-list',
@@ -14,18 +15,29 @@ export class ListComponent implements OnInit {
 
 
    allprojects:any=[];
+   allusers:any=[]; 
 
   constructor(private  projectservice:ProjectService){}
 
   ngOnInit(): void {
      this.getAllProjects();
+     this. getDevelopers();
   }
-  getAllProjects(){
-    this.projectservice. getAllProject().subscribe(res => {
+ getAllProjects(){
+    this.projectservice.getAllProject().subscribe(res => {
       console.log(res);
       this.allprojects= res ;
     });
   }
+ 
+  getDevelopers(){
+    this.projectservice.getDevelopers().subscribe(res => {
+      console.log(res);
+      this.allusers= res ;
+      
+    });
+  }
+
   updateProject(){
 
   }
