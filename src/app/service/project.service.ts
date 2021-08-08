@@ -13,13 +13,23 @@ export class ProjectService {
     'Content-Type':'application/json',
     'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
   })
-  
+
   getAllProject(){
     return this.httpClient.get(this. baseUrl);
   }
-  
+  getProject(id:any){
+    return this.httpClient.get(this. baseUrl + id)
+  }
+
   addPortproject(project:any){
     return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
+  }
+  updateProject(id:any,project:any){
+    return this.httpClient.put(`${this. baseUrl}${id}`, project ,{headers:this.headers});
+  }
+
+  countProject(id :any){
+    return this.httpClient.get(this. baseUrl +'count'+ id);
   }
 
   deleteProject(id:any){

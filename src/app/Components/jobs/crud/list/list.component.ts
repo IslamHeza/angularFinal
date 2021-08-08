@@ -22,10 +22,12 @@ export class ListComponent implements OnInit {
   }
   getAllProjects(){
     this.projectservice. getAllProject().subscribe(res => {
-
-      console.log(res);   
-      this.  allprojects= res ;   
+      console.log(res);
+      this.allprojects= res ;
     });
+  }
+  updateProject(){
+
   }
 
   deleteProject(event:any , id:any){
@@ -35,6 +37,6 @@ export class ListComponent implements OnInit {
     });
   }
 
- 
+
 
 }

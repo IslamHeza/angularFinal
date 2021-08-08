@@ -23,6 +23,9 @@ import { LoginComponent } from "./Components/login/login.component";
 
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
 import { ListComponent } from './Components/jobs/crud/list/list.component';
+import { EditComponent } from './Components/jobs/crud/edit/edit.component';
+import { ViewComponent } from './Components/jobs/crud/view/view.component';
+
 
 
 const routes: Routes = [
@@ -33,7 +36,7 @@ const routes: Routes = [
   {path:"viewportfolio/:id",component:ViewPortfolioComponent},
   {path:"addportfolio",component:AddPortfolioComponent},
   {path:"editportfolio/:id" , component:EditPortfolioComponent},
-  {path:"profile/:id",component:ProfileComponent},
+  {path:"profile",component:ProfileComponent},
   {path:"setting/:id",component:SettingComponent},
   {path:"editProfile",component:EditprofileComponent},
   {path:"contact",component:ContactComponent},
@@ -41,6 +44,9 @@ const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"addproject",component:CreateComponent},
   {path:"listproject",component:ListComponent},
+  {path:"editproject/:id",component: EditComponent },
+  {path:"viewproject/:id",component: ViewComponent },
+
 
 //registration
 {path:'signUp',component:MultipleStep_registrationComponent},
@@ -48,12 +54,6 @@ const routes: Routes = [
   { path: "login", component:LoginComponent},
 
   {path:"",redirectTo:"home" , pathMatch:"full"}
-
-
-
-
-
-
 
 ];
 

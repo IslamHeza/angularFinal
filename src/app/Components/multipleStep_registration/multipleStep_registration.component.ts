@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { CatagoriesService } from 'src/app/service/catagories.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/_models/user';
 @Component({
@@ -11,16 +12,16 @@ import { User } from 'src/app/_models/user';
 export class MultipleStep_registrationComponent implements OnInit {
   values: string[] = [];
 
-
+  allcatagories:any=[];
   user = new User();
   data: any;
 
 
-  constructor(private userservice: UserService, private router: Router) {
+  constructor(private userservice: UserService, private router: Router , public catlist:CatagoriesService ) {
   }
+  ngOnInit(): void {
 
-  ngOnInit() {
-
+    this.getAllCatagories();
   }
 
   register() {
@@ -53,6 +54,21 @@ console.log(this.user.category_id);
 
     return (this.selectedLink === name); // if current radio button is selected, return true, else return false
   }
+
+  getAllCatagories(){
+    return this.catlist.getAllCatagories().subscribe(res =>{
+       console.log(res);
+       this.allcatagories=res;
+     }
+     )
+   }
+
+
+
+
+
+
+
 
 
 }
