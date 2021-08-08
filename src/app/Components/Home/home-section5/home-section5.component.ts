@@ -9,6 +9,7 @@ import { ProjectService } from 'src/app/service/project.service';
 export class HomeSection5Component implements OnInit {
 
   Projects: any = [];
+  numbers = Array(this.Projects.rate).fill(0).map((x,i)=>i);
   constructor(private ProjectsService: ProjectService) { }
 
   ngOnInit(): void {
@@ -17,8 +18,12 @@ export class HomeSection5Component implements OnInit {
   getProjects() {
     this.ProjectsService.getProjects().subscribe(res => {
       this.Projects = res;
-
+      console.log(this.numbers)
     });
+  
+
+      
+    
 
   }
 }
