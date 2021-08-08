@@ -10,17 +10,17 @@
             <div class="col-12 mt-md-3">
                 <div class="row justify-content-around">
 
-                    <owl-carousel-o [options]="customOptions"> 
-                        <ng-template carouselSlide>
+                    <owl-carousel-o [options]="customOptions" > 
+                        <ng-template carouselSlide *ngFor="let category of Categories">
                             <div class="col-md-4 justify-content-center">
                                 <a routerLink="/Catagories/:name">
                                     <div class="card " style="width: 18rem; height: 14rem;">
                                         <div class="imgCard">
-                                            <img src="/assets/images/Front.jpg" class="card-img-top img-fluid" alt="Responsive image">
+                                            <img src="/assets/images/{{category.image}}" class="card-img-top img-fluid" alt="Responsive image">
                                         </div>
                                         <div class="card-body ps-0">
                                             <div class="cat-div p-1">
-                                                <p class="Pro-Category m-1">Front-End </p>
+                                                <p class="Pro-Category m-1">{{category.name}}</p>
                                             </div>
                                            
                                         </div>
@@ -28,7 +28,7 @@
                                 </a>
                             </div>
                         </ng-template>  
-                        <ng-template carouselSlide>
+                        <!-- <ng-template carouselSlide>
                             <div class="col-md-4 justify-content-center">
                                 <a routerLink="/Catagories/:name">
                                     <div class="card " style="width: 18rem; height: 14rem;">
@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </ng-template>
+                        </ng-template> -->
                     </owl-carousel-o>
                     
                 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReviewsService } from 'src/app/service/reviews.service';
 
 @Component({
   selector: 'app-home-section6',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeSection6Component implements OnInit {
 
-  constructor() { }
+  Reviews:any = [];
+  constructor(private ReviewsService : ReviewsService) { }
 
   ngOnInit(): void {
+    this.getReviews();
+  }
+  getReviews() {
+    this.ReviewsService.getAllReviews().subscribe((res: any) => {
+      this.Reviews = res;
+      console.log(res);
+    });
   }
 
 }

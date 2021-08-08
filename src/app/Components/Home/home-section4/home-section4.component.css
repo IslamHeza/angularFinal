@@ -24,6 +24,10 @@
 .section4 .card-body{
     display: none;
 }
+.styleImgFst{
+    width: 100%;
+    height: auto;
+}
 .styleImg{
     width: 70px;
     height:70px;
