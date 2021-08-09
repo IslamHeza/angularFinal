@@ -16,16 +16,18 @@ export class EditComponent implements OnInit {
     private router: Router
     ){ }
 
-    project:Project  = new Project ();
+  //  project:Project = new Project ();
      data: any;
+     project:any=[];
 
   ngOnInit(): void {
-    this.ProjectService
-    .getProject(this.route.snapshot.params.id)
-    .subscribe((res) => {
-      this.data = res;
-      this.project = this.data;
-    });
+    this. ProjectService
+      .getProject(this.route.snapshot.params.id)
+      .subscribe((res) => {
+        this.data = res;
+        this.project= this.data;
+        console.log( this.project);
+      });
   }
   updateProject() {
     this.ProjectService

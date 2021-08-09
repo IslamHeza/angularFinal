@@ -26,7 +26,7 @@ export class ProjectService {
     return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
   }
   updateProject(id:any,project:any){
-    return this.httpClient.put(`${this. baseUrl}${id}`, project ,{headers:this.headers});
+    return this.httpClient.put(`${this.baseUrl}${id}`, project ,{headers:this.headers});
   }
 
   countProject(id :any){
