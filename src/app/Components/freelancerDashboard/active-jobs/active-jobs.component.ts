@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/service/project.service';
 import { Project } from 'src/app/_models/project';
 
@@ -8,7 +9,7 @@ import { Project } from 'src/app/_models/project';
   styleUrls: ['./active-jobs.component.css'],
 })
 export class ActiveJobsComponent implements OnInit {
-  constructor(private projectService: ProjectService) {}
+  constructor(private projectService: ProjectService , private route:Router) {}
 
   ActivProjects: any = [];
   data: any;
@@ -18,9 +19,12 @@ export class ActiveJobsComponent implements OnInit {
 
   getActiveProjects(id: any) {
     this.projectService.getActiveProjects(id).subscribe((res) => {
-      console.log(res);
       this.data = res;
       this.ActivProjects = this.data;
     });
+  }
+
+  viewProject(id:any){
+    this.route.navigate(['viewproject/'+id]);
   }
 }

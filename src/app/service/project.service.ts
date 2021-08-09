@@ -12,14 +12,14 @@ export class ProjectService {
     'Content-Type':'application/json',
     'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
   })
-  
+
   getAllProject(){
     return this.httpClient.get(this. baseUrl);
   }
   getProject(id:any){
     return this.httpClient.get(this. baseUrl + id)
   }
-  
+
   addPortproject(project:any){
     return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
   }
@@ -32,17 +32,18 @@ export class ProjectService {
     return this.httpClient.delete(this. baseUrl + id,{headers:this.headers});
   }
 
-  countProjects(id :any){
-    return this.httpClient.get(this. baseUrl +'count/'+ id);
+  countProjects(id :any , status:any){
+    return this.httpClient.get(this. baseUrl +'count/'+id+'/'+status);
   } 
 
   getActiveProjects(id:any){
     return this.httpClient.get(this. baseUrl +'active/'+ id);
   }
 
-  getRecentProject(){
-    return this.httpClient.get(this. baseUrl +'recent');
+  getRecentProject(category_id:any){
+    return this.httpClient.get(this. baseUrl +'recent/'+category_id);
   }
+
 
 
 }

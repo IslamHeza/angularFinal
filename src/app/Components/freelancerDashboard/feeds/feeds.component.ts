@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/service/project.service';
 import { Project } from 'src/app/_models/project';
 
@@ -9,20 +10,28 @@ import { Project } from 'src/app/_models/project';
 })
 export class FeedsComponent implements OnInit {
 
-  constructor(private projectService :ProjectService) { }
+  constructor(private projectService :ProjectService , private rout:Router) { }
 
-  recentProjects :Project = new Project() ;
-  data : any;
-
+  recentProjects : any;
+  developerCategory : any ;
+  
   ngOnInit(): void {
+    this.getRecentProject(1);
+  }
+  
+  getUserCategory(){
+
   }
 
-  getRecentProject(){
-    this.projectService.getRecentProject().subscribe((res) => {
+  getRecentProject(cateogry:any){
+    this.projectService.getRecentProject(cateogry).subscribe(res => {
       console.log(res);
-      this.data = res;
-      this.recentProjects = this.data;
+      this.recentProjects = res;
     });
+  }
+
+  viewProject(id:any){
+    this.rout.navigate(['viewproject/'+id]);
   }
 
 }

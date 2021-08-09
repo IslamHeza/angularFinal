@@ -47,8 +47,7 @@
             <hr>
             <h4 class="section-title">Skills Used In This Project </h4>
             <div class="tags">
-                <p-tag severity="success" class="tag">php</p-tag>
-                <p-tag severity="success" class="tag">laravel</p-tag>
+                <p-tag severity="success" class="tag" *ngFor="let skill of portfolio.skills">{{skill}}</p-tag>
             </div>
 
         </div>

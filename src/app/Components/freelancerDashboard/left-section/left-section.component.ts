@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PortfolioService } from 'src/app/service/portfolio.service';
 import { ProjectService } from 'src/app/service/project.service';
 import { UserService } from 'src/app/service/user.service';
@@ -13,8 +14,8 @@ export class LeftSectionComponent implements OnInit {
   constructor(
     private userService: UserService,
     private portfolioService: PortfolioService,
-    private projectService: ProjectService
-  ) {}
+    private projectService: ProjectService,
+    private rout :Router  ) {}
 
   readonly: boolean = true;
   cancel: boolean = false;
@@ -46,8 +47,12 @@ export class LeftSectionComponent implements OnInit {
   }
 
   countProject(id: any) {
-    return this.projectService.countProjects(id).subscribe((res) => {
+    return this.projectService.countProjects(id ,'done').subscribe((res) => {
       this.countOfProjects = res;
     });
+  }
+
+  viewProject(){
+    this.rout.navigate(['listportfolio']);
   }
 }

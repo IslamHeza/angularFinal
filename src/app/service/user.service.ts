@@ -44,7 +44,6 @@ export class UserService {
 
   getUserCategory(id:any){
     return this.httpClient.get(this. userUrl +id+'/recent');
-
   }
 
 
