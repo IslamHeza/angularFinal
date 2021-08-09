@@ -13,38 +13,30 @@ export class ListComponent implements OnInit {
   val:number=3
   searchjob:String="";
 
-
+  
    allprojects:any=[];
-   allusers:any=[]; 
-
-  constructor(private  projectservice:ProjectService){}
+    
+  constructor(private ProjectService:ProjectService){}
 
   ngOnInit(): void {
      this.getAllProjects();
-     this. getDevelopers();
+   
   }
+  
  getAllProjects(){
-    this.projectservice.getAllProject().subscribe(res => {
+    this.ProjectService.getAllProject().subscribe(res => {
       console.log(res);
       this.allprojects= res ;
     });
   }
- 
-  getDevelopers(){
-    this.projectservice.getDevelopers().subscribe(res => {
-      console.log(res);
-      this.allusers= res ;
-      
-    });
-  }
-
+  
+  
   updateProject(){
-
   }
 
   deleteProject(event:any , id:any){
     event.preventDefault()
-    return this.projectservice.deleteProject(id).subscribe(res => {
+    return this.ProjectService.deleteProject(id).subscribe(res => {
       this.getAllProjects();
     });
   }

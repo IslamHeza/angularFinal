@@ -11,4 +11,7 @@ export class Project {
     developer_id:any;
     image:any;
     category_id:any;
+    fname:any;
+    lname:any;
+    cat_name:any;
 }

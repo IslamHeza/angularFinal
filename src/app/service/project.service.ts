@@ -16,10 +16,10 @@ export class ProjectService {
   })
 
   getAllProject(){
-    return this.httpClient.get(this. baseUrl);
+    return this.httpClient.get(this.MostProjectsURL);
   }
   getProject(id:any){
-    return this.httpClient.get(this. baseUrl + id)
+    return this.httpClient.get(this.baseUrl + id)
   }
 
   addPortproject(project:any){
