@@ -20,10 +20,5 @@ export class HomeSection5Component implements OnInit {
       this.Projects = res;
       console.log(this.numbers)
     });
-  
-
-      
-    
-
   }
 }

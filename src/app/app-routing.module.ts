@@ -19,14 +19,14 @@ import { ViewPortfolioComponent } from './Components/portfolio/view-portfolio/vi
  //signup &login
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
 import { LoginComponent } from "./Components/Login/login/login.component";
+import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
+import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
 
 
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
 import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
-import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
-import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
 
 
 

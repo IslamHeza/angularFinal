@@ -15,21 +15,17 @@ export class ViewComponent implements OnInit {
     private router: Router
   ) {}
 
-  project: Project = new Project();
-  data: any;
+   project:any=[];
+ //  project:Project = new Project ()
 
   ngOnInit(): void {
     this.view();
   }
 
   view(){
-    this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(
-      (res) => {
-        this.data = res;
-        this.project = this.data;
-        console.log(res);
-        
-      }
-    );
+    this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
+        this.project = res;
+        console.log(this.project);
+      });
   }
 }

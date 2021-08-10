@@ -1,28 +1,27 @@
 <div class="all">
     <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>
-     
-        <div class="container">
-          <div class="col1"  >
-          <div class="card mb-3  headb"> 
-          <div class="head" >
-  
-          <img src="./assets/img/profile.png" class="card-img-top" alt="...">
-          <h5>name</h5>
-          </div>
-          <div class="card-body">
-          <h6 class="card-title">{{project.name}}</h6>
-          <p class="card-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
-          <p-rating [(ngModel)]="project.rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-          <ul>
-          <li> Budget : {{project.budget}}</li>
-          <li> Final prise : {{project.final_price}} </li>
-          <li> Location : {{project.location}}</li>
-          <li> Status : {{project.status}}</li>
-          </ul>
+
+    <div class="container">
+        <div class="col1">
+            <div class="card mb-3  headb">
+                <div class="head">
+                    <img src={ {project.image}} class="card-img-top" alt="...">
+                    <h4> {{(project.fname) + " " +(project.lname)}} </h4>
+                </div>
+                <div class="card-body">
+                    <p-rating [(ngModel)]="project.rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                    <h5 class="card-title">{{project.name}}</h5>
+
+                    <ul>
+                        <li> Category : {{project.cat_name}}</li>
+                        <li> Budget : {{project.budget}}</li>
+                        <li> Final prise :{{project.final_price}} </li>
+                        <li> Location :{{project.location}}</li>
+                    </ul>
+                    <p class="card-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
+
+                </div>
+            </div>
         </div>
-      </div>
-      </div>
-      </div>
     </div>
-    
-       
+</div>

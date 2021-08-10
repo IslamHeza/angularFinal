@@ -7,7 +7,8 @@ export class ProjectService {
 
   constructor(private httpClient:HttpClient) { }
 
-  baseUrl="http://localhost:8000/api/project";
+  TopDevelopersURL= "http://127.0.0.1:8000/api/developers";
+  baseUrl="http://localhost:8000/api/project/";
   MostProjectsURL= "http://127.0.0.1:8000/api/mostProjects";
   headers = new HttpHeaders({
     'Content-Type':'application/json',
@@ -15,17 +16,17 @@ export class ProjectService {
   })
 
   getAllProject(){
-    return this.httpClient.get(this. baseUrl);
+    return this.httpClient.get(this.MostProjectsURL);
   }
   getProject(id:any){
-    return this.httpClient.get(this. baseUrl + id)
+    return this.httpClient.get(this.baseUrl + id)
   }
 
   addPortproject(project:any){
     return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
   }
   updateProject(id:any,project:any){
-    return this.httpClient.put(`${this. baseUrl}${id}`, project ,{headers:this.headers});
+    return this.httpClient.put(`${this.baseUrl}${id}`, project ,{headers:this.headers});
   }
 
   countProject(id :any){
@@ -36,10 +37,15 @@ export class ProjectService {
     return this.httpClient.delete(this. baseUrl + id,{headers:this.headers});
   }
 
-
   getProjects(){
     return this.httpClient.get(this.MostProjectsURL);
   }
+  
+  getDevelopers(){
+    return this.httpClient.get(this.TopDevelopersURL);
+  }
+   
+  
 }
 
 
