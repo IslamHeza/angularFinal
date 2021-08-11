@@ -38,7 +38,7 @@ const routes: Routes = [
   {path:"viewportfolio/:id",component:ViewPortfolioComponent},
   {path:"addportfolio",component:AddPortfolioComponent},
   {path:"editportfolio/:id" , component:EditPortfolioComponent},
-  {path:"profile",component:ProfileComponent},
+  {path:"profile/:id",component:ProfileComponent},
   {path:"setting/:id",component:SettingComponent},
   {path:"editProfile",component:EditprofileComponent},
   {path:"contact",component:ContactComponent},
@@ -56,7 +56,7 @@ const routes: Routes = [
   { path: "login", component:LoginComponent},
   { path:"forgetPassword", component:ForgetPasswordComponent},
   { path:"resetPassword", component:ResetNewPasswordComponent},
- 
+
   {path:"",redirectTo:"home" , pathMatch:"full"}
 
 ];
