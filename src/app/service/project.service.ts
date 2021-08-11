@@ -16,7 +16,7 @@ export class ProjectService {
   })
 
   getAllProject(){
-    return this.httpClient.get(this.MostProjectsURL);
+    return this.httpClient.get(this.baseUrl);
   }
   getProject(id:any){
     return this.httpClient.get(this.baseUrl + id)

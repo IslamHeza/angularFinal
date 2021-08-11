@@ -84,6 +84,8 @@ import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -133,6 +135,7 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
     ProjectPipe,
     EditComponent,
     ViewComponent,
+    
 
 
   ],

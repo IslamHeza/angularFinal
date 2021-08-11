@@ -20,14 +20,14 @@ export class CreateComponent implements OnInit {
   
   constructor(private ProjectService:ProjectService , private router:Router ,public catlist:CatagoriesService ,private userservice: UserService) { }
     title:string = "hello" ;
-  skills: string[] = [""];
+ // skills: string[] = [""];
   multiple:boolean = true ;
   ngOnInit(): void {
 
     //this.Project.rate=1;
-    this.Project.developer_id=1;
-    this.Project.owner_id=1;
-    this.Project.image=" ";
+    this.Project.developer_id=0;
+    this.Project.owner_id=0;
+    this.Project.rate=0;
     this.getAllCatagories();
   }
 
