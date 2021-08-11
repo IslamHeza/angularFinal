@@ -7,7 +7,8 @@ export class ProjectService {
 
   constructor(private httpClient:HttpClient) { }
 
-  baseUrl="http://localhost:8000/api/project/"
+  baseUrl="http://localhost:8000/api/project/";
+  MostProjectsURL= "http://127.0.0.1:8000/api/mostProjects";
   headers = new HttpHeaders({
     'Content-Type':'application/json',
     'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
@@ -44,6 +45,9 @@ export class ProjectService {
     return this.httpClient.get(this. baseUrl +'recent/'+category_id);
   }
 
-
-
+  getProjects(){
+    return this.httpClient.get(this.MostProjectsURL);
+  }
 }
+
+

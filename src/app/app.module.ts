@@ -16,7 +16,9 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {FileUploadModule} from 'primeng/fileupload';
 
-
+//for toastr popup after uploading files
+import { CommonModule } from '@angular/common'; 
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -107,8 +109,6 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
     AboutComponent,
     ContactComponent,
 
-
-
     NavbarComponent,
     FooterComponent,
     HomeComponent,
@@ -150,6 +150,10 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
     CarouselModule,
     FileUploadModule,
     HttpClientModule,
+
+    //toastr
+    CommonModule,
+    ToastrModule.forRoot(),
 
     //signup
     InputMaskModule,

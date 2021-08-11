@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
+  TopDevelopersURL= "http://127.0.0.1:8000/api/developers";
   baseApi= "http://127.0.0.1:8000/api/";
   userUrl = `${this.baseApi}users/`;
   headers = new HttpHeaders({
@@ -48,4 +49,7 @@ export class UserService {
 
 
 
+  getDevelopers(){
+    return this.httpClient.get(this.TopDevelopersURL);
+  }
 }
