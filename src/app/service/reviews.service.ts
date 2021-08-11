@@ -11,7 +11,7 @@ export class ReviewsService {
   ShowReviewURL = 'http://127.0.0.1:8000/api/review/';
   headers = new HttpHeaders({
     'Content-Type':'application/json',
-    'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
+    'Authorization':'Bearer '+JSON.parse(localStorage.getItem('token')||'{}')
   })
   constructor(private httpClient:HttpClient) { }
 
@@ -19,8 +19,9 @@ export class ReviewsService {
     return this.httpClient.get(this.HomeReviewsURL);
   }
 
-  addReview(user:any){
-    return this.httpClient.post(this.AddReviewURL,user,{headers:this.headers});
+  addReview(review:any){
+    
+    return this.httpClient.post(this.AddReviewURL,review,{headers:this.headers});
   }
   showreviews(id:any){
     return this.httpClient.get(this.ShowReviewURL + id);

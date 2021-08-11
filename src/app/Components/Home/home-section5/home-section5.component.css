@@ -3,9 +3,12 @@
 .section5_1 .card{
     text-align: center;
 }
-.section5_1 svg {
-    font-size: 10px;
-    color: yellow;
+.p-rating .p-rating-icon .pi-star {
+    font-size: 10px !important;
+    color: yellow !important;
+}
+.p-rating .p-rating-icon{
+    font-size: 1rem !important;
 }
  .section5_1 .cat-project{
      font-size: 13px;

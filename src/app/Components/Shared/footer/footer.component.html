@@ -24,30 +24,20 @@
                 <small class="text-muted">Privacy Policy</small><br>
                 
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2" >
                 <h6>Our Categories</h6>
-                <a routerLink="/Catagories/:name">
-                    <small class="text-muted">Doctors</small>
+                <a routerLink="/Catagories/{{category.id}}" *ngFor="let category of Categories">
+                    <small class="text-muted">{{category.name}}</small>
+                    <br/>
                 </a>
                 <br>
-                <a routerLink="/Catagories/:name">
-                    <small class="text-muted">Writers</small>
-                </a>
-                <br>
-                <a routerLink="/Catagories/:name">
-                    <small class="text-muted">Designers</small>
-                </a>
-                <br>
-                <a routerLink="/Catagories/:name">
-                    <small class="text-muted">Engineers</small>
-                </a>
-                <br>
+                
             </div>
             <div class="col-md-4 mb-5">
                 <h6 class="mb-5">NewsLatter</h6>
                 <small class="text-muted mb-3">For any Suggestions</small><br>
-                <input type="text" class="mb-5 mt-3">
-                <button class="btn">Send</button>
+                    <input type="text" name="email" class="mb-5 mt-3" style="width: 150px;">
+                    <button class="btn" type="submit">Send</button>
             </div>
             <div class="row mt-5">
                 <hr>

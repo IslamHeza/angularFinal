@@ -20,6 +20,9 @@
                     <a class="btn btn-primary " routerLink="/viewproject/{{project.id}}">View</a>
                     <a class="btn btn-success mx-1" routerLink="/editproject/{{project.id}}">Edit</a>
                     <a class="btn btn-danger" (click)="deleteProject($event ,project.id)">Delete</a>
+                
+                        <a class="btn btn-info mx-1" routerLink="/addReview/{{project.id}}/{{project.developer_id}}">Rate</a>
+                    
 
 
                 </div>
