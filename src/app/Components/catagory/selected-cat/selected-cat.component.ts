@@ -20,24 +20,31 @@ export class SelectedCatComponent implements OnInit {
    searchRate:number=0 ;
    data:any ;
    catagory:any=[];
+   categoryName:any;
   constructor(public selectcat:CatagoriesService ,public ar:ActivatedRoute  ,private httpClient : HttpClient) { }
 
-
+ 
 
   ngOnInit(): void {
 
-    this.httpClient.get("http://localhost:8000/api/catagories/name").subscribe(res=>{
-      this.Developers=res as User [] ;
-
-    })
+   /* this.httpClient.get("http://localhost:8000/api/catagories/name").subscribe(res=>{
+      this.Developers=res as User [] ; 
+    })*/
+   
+    this. view();
     this.httpClient.get("http://localhost:8000/api/catagories").subscribe(res=>{
       this.catagories=res as Catagory [] ;
-
+     
     })
 
 
   }
-
+  view(){
+    this.selectcat.getCatagory(this.ar.snapshot.params.name).subscribe(res=>{
+         this.categoryName=this.ar.snapshot.params.name;
+        this.Developers=res as User [] ; 
+      })
+  }
 
 
 

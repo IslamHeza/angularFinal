@@ -68,8 +68,12 @@ import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
 
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { LoginComponent } from './Components/login/login.component';
+import { LoginComponent } from './Components/Login/login/login.component';
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
+import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
+import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
+
+
 
 //
 
@@ -79,8 +83,6 @@ import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
-
-
 
 @NgModule({
   declarations: [
@@ -123,6 +125,8 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
     //registration
     MultipleStep_registrationComponent,
     LoginComponent,
+    ForgetPasswordComponent,
+    ResetNewPasswordComponent,
 
     CreateComponent,
     ListComponent,
