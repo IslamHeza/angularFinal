@@ -18,7 +18,9 @@ import { ViewPortfolioComponent } from './Components/portfolio/view-portfolio/vi
 
  //signup &login
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
-import { LoginComponent } from "./Components/login/login.component";
+import { LoginComponent } from "./Components/Login/login/login.component";
+import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
+import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
 
 
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
@@ -37,7 +39,7 @@ const routes: Routes = [
   {path:"viewportfolio/:id",component:ViewPortfolioComponent},
   {path:"addportfolio",component:AddPortfolioComponent},
   {path:"editportfolio/:id" , component:EditPortfolioComponent},
-  {path:"profile",component:ProfileComponent},
+  {path:"profile/:id",component:ProfileComponent},
   {path:"setting/:id",component:SettingComponent},
   {path:"editProfile",component:EditprofileComponent},
   {path:"contact",component:ContactComponent},
@@ -55,6 +57,8 @@ const routes: Routes = [
 {path:'signUp',component:MultipleStep_registrationComponent},
   //login
   { path: "login", component:LoginComponent},
+  { path:"forgetPassword", component:ForgetPasswordComponent},
+  { path:"resetPassword", component:ResetNewPasswordComponent},
 
   {path:"",redirectTo:"home" , pathMatch:"full"}
 

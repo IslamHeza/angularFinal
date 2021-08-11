@@ -16,7 +16,9 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {FileUploadModule} from 'primeng/fileupload';
 
-
+//for toastr popup after uploading files
+import { CommonModule } from '@angular/common'; 
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,8 +68,12 @@ import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
 
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { LoginComponent } from './Components/login/login.component';
+import { LoginComponent } from './Components/Login/login/login.component';
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
+import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
+import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
+
+
 
 //
 
@@ -78,8 +84,6 @@ import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
 import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
-
-
 
 
 @NgModule({
@@ -109,8 +113,6 @@ import { AddReviewComponent } from './Components/jobs/add-review/add-review.comp
     AboutComponent,
     ContactComponent,
 
-
-
     NavbarComponent,
     FooterComponent,
     HomeComponent,
@@ -125,6 +127,8 @@ import { AddReviewComponent } from './Components/jobs/add-review/add-review.comp
     //registration
     MultipleStep_registrationComponent,
     LoginComponent,
+    ForgetPasswordComponent,
+    ResetNewPasswordComponent,
 
     CreateComponent,
     ListComponent,
@@ -154,6 +158,10 @@ import { AddReviewComponent } from './Components/jobs/add-review/add-review.comp
     CarouselModule,
     FileUploadModule,
     HttpClientModule,
+
+    //toastr
+    CommonModule,
+    ToastrModule.forRoot(),
 
     //signup
     InputMaskModule,

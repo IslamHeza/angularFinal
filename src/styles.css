@@ -27,5 +27,15 @@ body {
 }
 
 .containersign {
+    margin-top: 80px;
+}
+
+.containerlogin {
     margin-top: 150px;
+}
+
+.card-img-left {
+    width: 45%;
+    background: scroll center url('./assets/myimg/login/bg-01.jpg');
+    background-size: cover;
 }

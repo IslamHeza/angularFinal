@@ -13,7 +13,6 @@ export class ViewPortfolioComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private portfolioService: PortfolioService,
-    private router: Router
   ) {}
 
   freelancerName:string='John Do';
@@ -27,6 +26,7 @@ export class ViewPortfolioComponent implements OnInit {
       .subscribe((res) => {
         this.data = res;
         this.portfolio = this.data;
+        console.log(this.portfolio);
       });
   }
 }

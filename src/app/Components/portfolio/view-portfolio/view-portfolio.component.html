@@ -19,8 +19,8 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="assets/portfolio2.jpg" class="d-block w-100" alt="...">
-                    </div>
+                        <img src="http://localhost:8000/storage/images/portfolios/{{portfolio.images}}" class="d-block w-100" alt="{{portfolio.images}}">
+                    </div> 
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -47,8 +47,7 @@
             <hr>
             <h4 class="section-title">Skills Used In This Project </h4>
             <div class="tags">
-                <p-tag severity="success" class="tag">php</p-tag>
-                <p-tag severity="success" class="tag">laravel</p-tag>
+                <p-tag severity="success" class="tag" *ngFor="let skill of portfolio.skills">{{skill}}</p-tag>
             </div>
 
         </div>

@@ -25,3 +25,6 @@
     background-color: rgb(241, 240, 240);
 }
 
+.title{
+    cursor: pointer;
+  }

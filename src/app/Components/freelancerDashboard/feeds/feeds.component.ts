@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProjectService } from 'src/app/service/project.service';
+import { Project } from 'src/app/_models/project';
 
 @Component({
   selector: 'app-feeds',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private projectService :ProjectService , private rout:Router) { }
 
+  recentProjects : any;
+  developerCategory : any ;
+  
   ngOnInit(): void {
+    this.getRecentProject(1);
+  }
+  
+  getUserCategory(){
+
+  }
+
+  getRecentProject(cateogry:any){
+    this.projectService.getRecentProject(cateogry).subscribe(res => {
+      console.log(res);
+      this.recentProjects = res;
+    });
+  }
+
+  viewProject(id:any){
+    this.rout.navigate(['viewproject/'+id]);
   }
 
 }

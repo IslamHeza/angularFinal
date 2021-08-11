@@ -29,12 +29,21 @@ export class ProjectService {
     return this.httpClient.put(`${this.baseUrl}${id}`, project ,{headers:this.headers});
   }
 
-  countProject(id :any){
-    return this.httpClient.get(this. baseUrl +'count'+ id);
-  }
 
   deleteProject(id:any){
     return this.httpClient.delete(this. baseUrl + id,{headers:this.headers});
+  }
+
+  countProjects(id :any , status:any){
+    return this.httpClient.get(this. baseUrl +'count/'+id+'/'+status);
+  } 
+
+  getActiveProjects(id:any){
+    return this.httpClient.get(this. baseUrl +'active/'+ id);
+  }
+
+  getRecentProject(category_id:any){
+    return this.httpClient.get(this. baseUrl +'recent/'+category_id);
   }
 
   getProjects(){

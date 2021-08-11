@@ -7,42 +7,45 @@
 </div>
 <div class="container my-5 ">
     <div class="row justify-content-around">
-        <form class="col-10 box px-3" (ngSubmit)="addPortfolio()">
+
+        <form class="col-10 box px-5" (ngSubmit)="onSubmit()" [formGroup]="form">
             <div class="form-group row my-3">
-                <label class="col-sm-2 col-form-label">Title</label>
-                <div class="col-sm-10">
-                    <input type="text" name="name" [(ngModel)]="newPortfolio.name" class="form-control" placeholder="Enter project title" />
+                <label class="col-sm-3 col-form-label">Title</label>
+                <div class="col-sm-9">
+                    <input class="form-control input-md m-1" formControlName="name" type="text">
                 </div>
             </div>
             <div class="form-group row my-3">
-                <label class="col-sm-2 col-form-label">Description</label>
-                <div class="col-sm-10">
-                    <textarea type="Text" name="description" [(ngModel)]="newPortfolio.description" class="form-control" placeholder="Enter project description"></textarea>
+                <label class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                    <input class="form-control input-md m-1" formControlName="description" type="text">
                 </div>
             </div>
             <div class="form-group row my-3">
-                <label class="col-sm-2 col-form-label">Link</label>
-                <div class="col-sm-10">
-                    <input type="Text" name="link" [(ngModel)]="newPortfolio.link" class="form-control" placeholder="Enter link for this project">
+                <label class="col-sm-3 col-form-label">Link</label>
+                <div class="col-sm-9">
+                    <input class="form-control input-md m-1" type="text" formControlName="link">
                 </div>
             </div>
-            <!-- <div class="form-group row my-3">
-                <label class="col-sm-2 col-form-label">Related Skills</label>
-                <p-chips [(ngModel)]="skills" name="skills" class="col-sm-10"></p-chips>
-            </div> -->
-            <!-- <div class="form-group row my-3">
-                <label class="col-sm-2 col-form-label">Images</label>
-                <div class="col-sm-10">
-                    <p-fileUpload name="portfolioImages[]" url="./upload.php" [multiple]="multiple" accept="image/*">
-                    </p-fileUpload>
-                </div>
-            </div> -->
             <div class="form-group row my-3">
-                <label class="col-sm-2 col-form-label"></label>
-                <div class="col-sm-10">
+                <label class="col-sm-3 col-form-label">Related Skills</label>
+                <p-chips class="col-sm-9" formControlName="skills"></p-chips>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Image</label>
+                <div class="col-sm-9">
+                    <input  type="file" class="form-control"  (change)="uploadImage($event)">
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
                     <button type="submit" class="btn btn-success">Add Portfolio</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+
+

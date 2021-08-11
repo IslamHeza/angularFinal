@@ -21,6 +21,4 @@ rate:any;
 credit:any;
 type:any;
 category_id:any;
-
-
 }

@@ -4,5 +4,6 @@ export class Portfolio {
   description: any;
   link: any;
   user_id : any ;
-  // User:any;
+  skills:any  = [];
+  images:any ;
 }
