@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-2" >
                 <h6>Our Categories</h6>
-                <a routerLink="/Catagories/{{category.id}}" *ngFor="let category of Categories">
+                <a routerLink="Catagories/:name" *ngFor="let category of Categories">
                     <small class="text-muted">{{category.name}}</small>
                     <br/>
                 </a>

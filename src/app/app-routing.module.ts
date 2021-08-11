@@ -18,9 +18,9 @@ import { ViewPortfolioComponent } from './Components/portfolio/view-portfolio/vi
 
  //signup &login
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
-import { LoginComponent } from "./Components/Login/login/login.component";
-import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
-import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
+import { LoginComponent } from "./Components/login/login/login.component";
+import { ResetNewPasswordComponent } from './Components/login/ResetNewPassword/ResetNewPassword.component';
+import { ForgetPasswordComponent } from "./Components/login/forgetPassword/forgetPassword.component";
 
 
 import { CreateComponent } from './Components/jobs/crud/create/create.component';

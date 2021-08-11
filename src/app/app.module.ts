@@ -17,7 +17,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import {FileUploadModule} from 'primeng/fileupload';
 
 //for toastr popup after uploading files
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -136,7 +136,7 @@ import { AddReviewComponent } from './Components/jobs/add-review/add-review.comp
     EditComponent,
     ViewComponent,
     AddReviewComponent,
-    
+
 
 
   ],
