@@ -68,10 +68,10 @@ import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
 
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { LoginComponent } from './Components/Login/login/login.component';
+import { LoginComponent } from './Components/login/login/login.component';
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
-import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
-import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
+import { ResetNewPasswordComponent } from './Components/login/ResetNewPassword/ResetNewPassword.component';
+import { ForgetPasswordComponent } from './Components/login/forgetPassword/forgetPassword.component';
 
 
 
