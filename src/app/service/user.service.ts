@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
   TopDevelopersURL= "http://127.0.0.1:8000/api/developers";
   baseApi= "http://127.0.0.1:8000/api/";
+  photoApi="http://127.0.0.1:8000/api/upload/"
   userUrl = `${this.baseApi}users/`;
   headers = new HttpHeaders({
     'Content-Type':'application/json',
@@ -41,6 +42,11 @@ export class UserService {
   }
   deleteUser(id:any){
     return this.httpClient.delete(this.userUrl + id,{headers:this.headers});
+  }
+  uploadData(data:any,id:number){
+    const head = new HttpHeaders;
+    return this.httpClient.post(this.photoApi +id,data,{headers:head});
+
   }
 
   getUserCategory(id:any){
