@@ -13,9 +13,13 @@ export class ProjectService {
   headers = new HttpHeaders({
     'Content-Type':'application/json',
     'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
-  })
-
+  });
+   
   getAllProject(){
+    return this.httpClient.get(this.MostProjectsURL);
+  }
+
+  getAllProjects(){
     return this.httpClient.get(this.baseUrl);
   }
   getProject(id:any){

@@ -27,12 +27,12 @@ export class SelectedCatComponent implements OnInit {
 
   ngOnInit(): void {
 
-   /* this.httpClient.get("http://localhost:8000/api/catagories/name").subscribe(res=>{
+   /*this.httpClient.get("http://localhost:8000/api/categories/name").subscribe(res=>{
       this.Developers=res as User [] ; 
     })*/
    
-    this. view();
-    this.httpClient.get("http://localhost:8000/api/catagories").subscribe(res=>{
+    this.view();
+    this.httpClient.get("http://localhost:8000/api/categories").subscribe(res=>{
       this.catagories=res as Catagory [] ;
      
     })
@@ -42,7 +42,7 @@ export class SelectedCatComponent implements OnInit {
   view(){
     this.selectcat.getCatagory(this.ar.snapshot.params.name).subscribe(res=>{
          this.categoryName=this.ar.snapshot.params.name;
-        this.Developers=res as User [] ; 
+        this.Developers=res as User []; 
       })
   }
 
