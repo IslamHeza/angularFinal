@@ -27,12 +27,13 @@ import { CreateComponent } from './Components/jobs/crud/create/create.component'
 import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
+import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
 
 
 
 const routes: Routes = [
-  {path:"Catagories",component:CatagoriesComponent },
-  {path:"Catagories/:name",component: SelectedCatComponent },
+  {path:"Categories",component:CatagoriesComponent },
+  {path:"Categories/:name",component: SelectedCatComponent },
   {path:"dashboard",component:HomeFreelancerDashboardComponent},
   {path:"listportfolio",component:ListPortfolioComponent},
   {path:"viewportfolio/:id",component:ViewPortfolioComponent},
@@ -52,6 +53,8 @@ const routes: Routes = [
   {path:"listproject",component:ListComponent},
   {path:"editproject/:id",component: EditComponent },
   {path:"viewproject/:id",component: ViewComponent },
+  {path:"addReview/:project_id/:developer_id",component: AddReviewComponent },
+
 
 
 //registration

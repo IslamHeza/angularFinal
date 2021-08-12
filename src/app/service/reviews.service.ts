@@ -19,8 +19,9 @@ export class ReviewsService {
     return this.httpClient.get(this.HomeReviewsURL);
   }
 
-  addReview(user:any){
-    return this.httpClient.post(this.AddReviewURL,user,{headers:this.headers});
+  addReview(review:any){
+
+    return this.httpClient.post(this.AddReviewURL,review,{headers:this.headers});
   }
   showreviews(id:any){
     return this.httpClient.get(this.ShowReviewURL + id);
