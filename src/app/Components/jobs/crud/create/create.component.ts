@@ -24,10 +24,10 @@ export class CreateComponent implements OnInit {
   multiple:boolean = true ;
   ngOnInit(): void {
 
-    //this.Project.rate=1;
+    /*this.Project.rate=1;
     this.Project.developer_id=1;
     this.Project.owner_id=1;
-    this.Project.image=" ";
+    this.Project.image=" ";*/
     this.getAllCatagories();
   }
 

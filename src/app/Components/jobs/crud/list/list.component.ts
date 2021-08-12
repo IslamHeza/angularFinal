@@ -15,22 +15,23 @@ export class ListComponent implements OnInit {
 
   
    allprojects:any=[];
-    
+    ob: Project=new  Project();
   constructor(private ProjectService:ProjectService){}
 
   ngOnInit(): void {
-     this.getAllProjects();
+    this.getAllProjects();
+
+    
    
   }
   
  getAllProjects(){
-    this.ProjectService.getAllProject().subscribe(res => {
+    this.ProjectService.allProject().subscribe(res => {
       console.log(res);
       this.allprojects= res ;
     });
   }
-  
-  
+ 
   updateProject(){
   }
 

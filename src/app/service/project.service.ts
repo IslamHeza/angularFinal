@@ -9,7 +9,7 @@ export class ProjectService {
 
   TopDevelopersURL= "http://127.0.0.1:8000/api/developers";
   baseUrl="http://localhost:8000/api/project/";
-  MostProjectsURL= "http://127.0.0.1:8000/api/mostProjects";
+  MostProjectsURL= "http://localhost:8000/api/mostProjects";
   headers = new HttpHeaders({
     'Content-Type':'application/json',
     'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
@@ -18,13 +18,20 @@ export class ProjectService {
   getAllProject(){
     return this.httpClient.get(this.MostProjectsURL);
   }
-  getProject(id:any){
+  allProject(){
+    return this.httpClient.get(this.baseUrl);
+  }
+ /* getProject(id:any){
     return this.httpClient.get(this.baseUrl + id)
+  }*/
+  getProject(id:any){
+    return this.httpClient.get(this.baseUrl + id);
   }
 
   addPortproject(project:any){
     return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
   }
+  
   updateProject(id:any,project:any){
     return this.httpClient.put(`${this.baseUrl}${id}`, project ,{headers:this.headers});
   }
@@ -50,11 +57,12 @@ export class ProjectService {
     return this.httpClient.get(this.MostProjectsURL);
   }
   
+  
   getDevelopers(){
     return this.httpClient.get(this.TopDevelopersURL);
   }
    
-  
+
 }
 
 

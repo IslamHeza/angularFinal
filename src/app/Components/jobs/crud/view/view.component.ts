@@ -10,22 +10,18 @@ import { ProjectService } from 'src/app/service/project.service';
 })
 export class ViewComponent implements OnInit {
   constructor(
-    private route: ActivatedRoute,
-    private ProjectService: ProjectService,
-    private router: Router
-  ) {}
+    private route: ActivatedRoute,private ProjectService: ProjectService) {}
 
-   project:any=[];
- //  project:Project = new Project ()
+   data:any=[];
+   project: Project= new  Project();
 
   ngOnInit(): void {
-    this.view();
+    this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
+      this.data = res;
+      this. project=  this.data;
+      console.log(this.project);
+    });
+}
   }
 
-  view(){
-    this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
-        this.project = res;
-        console.log(this.project);
-      });
-  }
-}
+
