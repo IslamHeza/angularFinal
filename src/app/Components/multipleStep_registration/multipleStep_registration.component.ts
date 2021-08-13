@@ -31,6 +31,7 @@ console.log(this.user.category_id);
       this.data = res;
       //  localStorage.setItem('data',this.data);
     localStorage.setItem('token', JSON.stringify(this.data.token));
+    // this.userservice.isLoggedin = true;
       this.router.navigate(['']);
     })
   }
@@ -64,4 +65,13 @@ console.log(this.user.category_id);
 
 
 
+
+
+
+
+
+
+
 }
+
+

@@ -12,12 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {FileUploadModule} from 'primeng/fileupload';
 
 //for toastr popup after uploading files
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -83,6 +84,8 @@ import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
+import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
+
 
 
 
@@ -135,7 +138,8 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
     ProjectPipe,
     EditComponent,
     ViewComponent,
-    
+    AddReviewComponent,
+
 
 
   ],

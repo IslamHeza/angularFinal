@@ -14,6 +14,7 @@ export class UserService {
     'Authorization':'Bearer '+JSON.parse(localStorage.getItem('token')||'{}')
   })
   next: any;
+  isLoggedin: boolean = false;
   constructor(private httpClient:HttpClient) { }
   checkCookie(){
     return this.httpClient.get("http://localhost:8000/sanctum/csrf-cookie");
@@ -22,12 +23,34 @@ export class UserService {
     return this.httpClient.post(this.baseApi + "register", user);
   }
   login(cred:any){
+
     return this.httpClient.post(this.baseApi + "login", cred,{withCredentials:true});
+
   }
   logout(){
     return this .httpClient.post(this.baseApi +"logout",{},{headers:this.headers})
 
   }
+  isLoggedIn() {
+
+    if (JSON.parse(localStorage.getItem('token')!).auth_token == null) {
+      this.isLoggedin = false;
+      return this.isLoggedin;
+    }
+    else {
+      return true;
+    }
+  }
+  // isLoggedIn() {
+
+  //   if (JSON.parse(localStorage.getItem('token')!).auth_token =='{}') {
+  //     this.isLoggedin = false;
+  //     return this.isLoggedin;
+  //   }
+  //   else {
+  //     return false;
+  //   }
+  // }
   getAllUsers(){
     return this.httpClient.get(this.userUrl);
   }

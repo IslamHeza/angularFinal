@@ -16,6 +16,7 @@ export class ViewComponent implements OnInit {
   ) {}
 
    project:any=[];
+   rate: number = 0;
  //  project:Project = new Project ()
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class ViewComponent implements OnInit {
   view(){
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
         this.project = res;
+        this.rate = this.project.rate;
         console.log(this.project);
       });
   }

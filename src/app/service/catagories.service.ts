@@ -12,11 +12,13 @@ export class CatagoriesService {
     baseURL = "http://localhost:8000/api/categories/";
 
 
+
+
   constructor(public r:Router , private httpClient : HttpClient) { }
 
     getAllCatagories(){
 
-      return this.httpClient.get(this.baseURL );
+      return this.httpClient.get(this.baseURL);
   }
   getCatagory(name:any){
     return this.httpClient.get(this.baseURL + name)
