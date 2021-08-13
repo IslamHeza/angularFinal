@@ -73,6 +73,8 @@ import { LoginComponent } from './Components/Login/login/login.component';
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
 import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
 import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
+import { SubmitPurposalComponent } from './Components/jobs/submit-purposal/submit-purposal.component';
+import { PassingDynamicDataComponent } from './Components/multipleStep_registration/Passing-dynamic-data/Passing-dynamic-data.component';
 
 
 
@@ -85,8 +87,6 @@ import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
 import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
-import { SubmitPurposalComponent } from './Components/jobs/submit-purposal/submit-purposal.component';
-import { PassingDynamicDataComponent } from './Components/multipleStep_registration/Passing-dynamic-data/Passing-dynamic-data.component';
 
 
 @NgModule({

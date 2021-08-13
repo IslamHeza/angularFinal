@@ -18,6 +18,10 @@ export class ProjectService {
   getAllProject(){
     return this.httpClient.get(this.MostProjectsURL);
   }
+
+  getAllProjects(){
+    return this.httpClient.get(this.baseUrl);
+  }
   getProject(id:any){
     return this.httpClient.get(this.baseUrl + id)
   }

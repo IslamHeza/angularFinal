@@ -22,6 +22,7 @@ import { LoginComponent } from "./Components/Login/login/login.component";
 import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
 import { ForgetPasswordComponent } from "./Components/Login/forgetPassword/forgetPassword.component";
 //submit purposal
+import { SubmitPurposalComponent } from './Components/jobs/submit-purposal/submit-purposal.component';
 
 
 
@@ -30,7 +31,6 @@ import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
 import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
-import { SubmitPurposalComponent } from './Components/jobs/submit-purposal/submit-purposal.component';
 
 
 

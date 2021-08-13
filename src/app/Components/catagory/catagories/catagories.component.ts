@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Catagory } from 'src/app/_models/catagory';
 import { CatagoriesService } from 'src/app/service/catagories.service';
-import { UserService } from 'src/app/service/user.service';
 @Component({
   selector: 'app-catagories',
   templateUrl: './catagories.component.html',
@@ -9,15 +8,18 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class CatagoriesComponent implements OnInit {
 
-  data: any;
+  // data: any;
+  // allcatagories:any=[];
+
+  // constructor( private userservice: UserService,public catlist:CatagoriesService ) { }
+
   allcatagories:any=[];
 
-  constructor( private userservice: UserService,public catlist:CatagoriesService ) { }
+  constructor( public catlist:CatagoriesService ) { }
 
   ngOnInit(): void {
 
     this.getAllCatagories();
-
   }
 
   getAllCatagories(){

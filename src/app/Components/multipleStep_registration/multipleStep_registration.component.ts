@@ -5,7 +5,7 @@ import { CatagoriesService } from 'src/app/service/catagories.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/_models/user';
 
-import { Location } from '@angular/common';
+// import { Location } from '@angular/common';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class MultipleStep_registrationComponent implements OnInit {
   ngOnInit(): void {
 
     this.getAllCatagories();
-    console.log(this.location.getState());
+    // console.log(this.location.getState());
   }
 
   register() {
