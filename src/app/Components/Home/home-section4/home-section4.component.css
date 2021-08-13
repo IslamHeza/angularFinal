@@ -1,5 +1,14 @@
 /* Section4 */
 
+.section4 .dev_name {
+    text-align: center;
+}
+
+.section4 .dev_name p {
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .section4 .card {
     /* border:none; */
     text-align: center;

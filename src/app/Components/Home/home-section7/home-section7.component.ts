@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-section7',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeSection7Component implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
+  // isLoggedin: boolean = false;
+  // isLoggedIn() {
+  // if (JSON.parse(localStorage.getItem('token')!).auth_token == null) {
+  //     this.isLoggedin = false;
+  //     return this.router.navigate(['/login']);
+  //   }
+  //   else {
+  //   return this.router.navigate(['']);
+  //   }
+  // }
 
 }

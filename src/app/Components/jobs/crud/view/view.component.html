@@ -1,5 +1,5 @@
 <div class="all">
-    <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>
+   <!-- <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>-->
 
     <div class="container">
         <div class="col1">
@@ -9,16 +9,21 @@
                     <h4> {{(project.fname) + " " +(project.lname)}} </h4>
                 </div>
                 <div class="card-body">
-                    <p-rating [(ngModel)]="project.rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                    <h5 class="card-title">{{project.name}}</h5>
+                   <!--  <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>-->
+                   <!-- <h5 class="card-title">{{project.name}}</h5>-->
 
                     <ul>
-                        <li> Category: {{project.cat_name}}</li>
-                        <li> Budget: {{project.budget}}</li>
-                        <li> Final prise :{{project.final_price}} </li>
-                        <li> Location :{{project.location}}</li>
-                    </ul>
-                    <p class="card-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
+                        <li><p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating></li>
+
+                        <li><p> Project's name : </p> {{project.name}}</li>
+                        <li><p> Category : </p> {{project.cat_name}}</li>
+                        <li><p> Budget : </p>{{project.budget}}</li>
+                        <li><p> Final prise : </p>{{project.final_price}} </li>
+                        <li><p> Location : </p>{{project.location}}</li>
+                        <li><p> Description : </p>{{project.description}}</li>
+
+                    </ul>      
+                   <!--<p class="card-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>-->
 
                 </div>
             </div>

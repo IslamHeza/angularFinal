@@ -14,7 +14,7 @@ export class PortfolioService {
   baseURL = "http://127.0.0.1:8000/api/portfolio/";
   headers = new HttpHeaders({
     'Content-Type':'application/json',
-    'Authorization':'Bearer'+JSON.parse(localStorage.getItem('token')||'{}')
+    'Authorization':'Bearer '+JSON.parse(localStorage.getItem('token')||'{}')
   })
 
   getAllPortfolios(){

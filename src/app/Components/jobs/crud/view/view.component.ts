@@ -12,16 +12,18 @@ export class ViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,private ProjectService: ProjectService) {}
 
-   data:any=[];
-   project: Project= new  Project();
+   project:any=[];
+   rate: number = 0;
+ //  project:Project = new Project ()
 
   ngOnInit(): void {
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
-      this.data = res;
-      this. project=  this.data;
-      console.log(this.project);
-    });
-}
+        this.project = res;
+        this.rate = this.project.rate;
+        console.log(this.project);
+      });
   }
+}
+  
 
 

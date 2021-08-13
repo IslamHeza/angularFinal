@@ -1,9 +1,11 @@
 .Head{
     height:400px;
-   
     background-color: #f2f1ef;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
 
+}
+.container{
+    margin: 8em;
 }
 .head img{
     width: 70px;
@@ -17,4 +19,15 @@ h4{
 }
 h5{
     margin-left: 30px;
+}
+li p ,h4{
+    font-weight: bold;
+    color:black;
+    font-size: larger;
+    display: inline;
+}
+.card{
+   border-style: none;
+  
+   margin: 3em;
 }
