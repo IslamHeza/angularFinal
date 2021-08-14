@@ -9,9 +9,9 @@ export class Project {
     status:any;
     owner_id:any;
     developer_id:any;
-    image:any;
     category_id:any;
     fname:any;
     lname:any;
     cat_name:any;
+    image:any;
 }

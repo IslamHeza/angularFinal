@@ -87,6 +87,8 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
 import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

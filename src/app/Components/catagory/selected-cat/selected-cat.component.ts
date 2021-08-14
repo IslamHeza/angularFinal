@@ -10,10 +10,8 @@ import { Catagory } from 'src/app/_models/catagory';
   styleUrls: ['./selected-cat.component.css']
 })
 export class SelectedCatComponent implements OnInit {
-
-
-
-   Developers:User[]=[];
+   developers:User= new User();
+   Developers:any=[];
    catagories:Catagory[]=[];
    searchCity:String="";
    searchName:String="";
@@ -22,27 +20,18 @@ export class SelectedCatComponent implements OnInit {
    catagory:any=[];
    categoryName:any;
   constructor(public selectcat:CatagoriesService ,public ar:ActivatedRoute  ,private httpClient : HttpClient) { }
-
-
-
-  ngOnInit(): void {
-
-   /* this.httpClient.get("http://localhost:8000/api/catagories/name").subscribe(res=>{
-      this.Developers=res as User [] ;
-    })*/
-
+   ngOnInit(): void {
     this.view();
     this.httpClient.get("http://localhost:8000/api/categories/").subscribe(res=>{
       this.catagories=res as Catagory [] ;
 
     })
-
-
-  }
+}
   view(){
     this.selectcat.getCatagory(this.ar.snapshot.params.name).subscribe(res=>{
-         this.categoryName=this.ar.snapshot.params.name;
-        this.Developers=res as User [] ;
+        this.categoryName=this.ar.snapshot.params.name;
+        this.Developers=res as User [];
+        console.log(res);
       })
   }
 
