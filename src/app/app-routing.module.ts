@@ -58,7 +58,7 @@ const routes: Routes = [
   {path:"viewproject/:id",component: ViewComponent },
 
 
-  {path:"addReview/:project_id/:developer_id",component: AddReviewComponent },
+  {path:"addReview/:id/:developer_id",component: AddReviewComponent },
 
 
 

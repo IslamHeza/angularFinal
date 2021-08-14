@@ -76,7 +76,7 @@ import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forge
 import { SubmitPurposalComponent } from './Components/jobs/submit-purposal/submit-purposal.component';
 import { PassingDynamicDataComponent } from './Components/multipleStep_registration/Passing-dynamic-data/Passing-dynamic-data.component';
 
-
+// import {CalendarModule} from 'primeng/calendar';
 
 //
 

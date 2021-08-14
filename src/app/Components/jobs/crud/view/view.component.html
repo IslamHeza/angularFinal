@@ -17,7 +17,7 @@
                         <li> Budget : {{project.budget}}</li>
                         <li> Final prise :{{project.final_price}} </li>
                         <li> Location :{{project.location}}</li>
-                        <li> Review :{{review.review}}</li>
+                        <!-- <li> Review :{{review.review}}</li> -->
                     </ul>
                     <p class="card-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
                     <div>
@@ -28,6 +28,26 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="all">
+
+    <div class="container">
+        <div class="col1" *ngFor="let purposal of allpurposals">
+            <div class="card mb-3  headb">
+                <div class="card-body">
+                    <h6>purposal</h6>
+                    <ul>
+
+                        <li> Cover letter : {{purposal.cover_letter}}</li>
+                        <li> Budget : {{purposal.budget}}</li>
+                        <li> Time :{{purposal.time}} </li>
+
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

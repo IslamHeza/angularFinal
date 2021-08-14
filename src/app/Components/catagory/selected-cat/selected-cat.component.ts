@@ -18,11 +18,17 @@ export class SelectedCatComponent implements OnInit {
    searchCity:String="";
    searchName:String="";
    searchRate:number=0 ;
-   data:any ;
+
    catagory:any=[];
    categoryName:any;
+
+   data:any ;
+   id:any ;
+  type:any ;
   constructor(public selectcat:CatagoriesService ,public ar:ActivatedRoute  ,private httpClient : HttpClient) { }
 
+
+  //  retrievedObject = localStorage.getItem('data');
 
 
   ngOnInit(): void {
@@ -30,6 +36,13 @@ export class SelectedCatComponent implements OnInit {
    /* this.httpClient.get("http://localhost:8000/api/catagories/name").subscribe(res=>{
       this.Developers=res as User [] ;
     })*/
+
+    console.log(this.data = JSON.parse(localStorage.getItem('data')!));
+    console.log(this.id = JSON.parse(localStorage.getItem('id')!));
+    console.log(this.type = JSON.parse(localStorage.getItem('type')!));
+    // console.log('retrievedObject: ', JSON.parse(this.retrievedObject!))
+    // console.log(localStorage.getItem('data'))
+
 
     this.view();
     this.httpClient.get("http://localhost:8000/api/categories/").subscribe(res=>{

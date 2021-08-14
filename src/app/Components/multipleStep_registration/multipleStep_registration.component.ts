@@ -21,7 +21,7 @@ export class MultipleStep_registrationComponent implements OnInit {
   data: any;
   // passingdata:any;
 
-  constructor(private userservice: UserService, private location:Location , private activatedRoute:ActivatedRoute,private router: Router , public catlist:CatagoriesService ) {
+  constructor(private userservice: UserService, private activatedRoute:ActivatedRoute,private router: Router , public catlist:CatagoriesService ) {
 
   }
   ngOnInit(): void {
@@ -35,10 +35,13 @@ console.log(this.user.category_id);
     return this.userservice.register(this.user).subscribe(res => {
       console.log({res});
       this.data = res;
-      //  localStorage.setItem('data',this.data);
+
     localStorage.setItem('token', JSON.stringify(this.data.token));
+    localStorage.setItem('data',JSON.stringify(this.data));
     // this.userservice.isLoggedin = true;
     console.log(this.data.user.id);
+    localStorage.setItem('id',JSON.stringify((this.data.user.id)));
+    localStorage.setItem('type',JSON.stringify((this.data.user.type)));
     // this.router.navigateByUrl('/home', { state: this.passingdata });
       this.router.navigate(['']);
     })

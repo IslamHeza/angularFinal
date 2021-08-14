@@ -20,6 +20,8 @@ export class NavbarComponent implements OnInit {
     this.userservice.logout
     this.userservice.logout().subscribe(res => {
       localStorage.removeItem('token');
+      localStorage.removeItem('id');
+      localStorage.removeItem('type');
       // this.isLoggedin = false;
       this.router.navigate(['']);
     })

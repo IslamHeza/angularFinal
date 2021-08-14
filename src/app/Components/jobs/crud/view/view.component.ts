@@ -6,6 +6,8 @@ import { ReviewsService } from 'src/app/service/reviews.service';
 import { Review } from 'src/app/_models/review';
 import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/service/user.service';
+import { PurposalService } from 'src/app/service/purposal.service';
+import { Purposal } from 'src/app/_models/purposal';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -18,6 +20,7 @@ export class ViewComponent implements OnInit {
     private router: Router,
     private ReviewService :ReviewsService,
     private userservice: UserService,
+    private purposalservice:PurposalService,
   ) {}
 
    project:any=[];
@@ -25,12 +28,15 @@ export class ViewComponent implements OnInit {
    review =new Review();
    data: any;
    user:any;
+   purposal:any=[];
+   allpurposals:any=[];
  //  project:Project = new Project ()
 
   ngOnInit(): void {
     this.view();
     this.showreview();
-
+    this.get_allpurposal();
+    this.get_purposal();
   }
 
   view(){
@@ -39,7 +45,7 @@ export class ViewComponent implements OnInit {
         this.rate = this.project.rate;
         this.showreview
         console.log(this.project);
-
+        // localStorage.setItem('project_id',JSON.stringify((this.project.id)));
       });
 
   }
@@ -52,5 +58,19 @@ export class ViewComponent implements OnInit {
     });
   }
 
+  get_allpurposal(){
 
+    this.purposalservice.getAllPurposals().subscribe(purposalres => {
+      console.log(purposalres);
+      this.allpurposals=purposalres ;
+    });
+
+  }
+  get_purposal(){
+    // project_id=this.id = JSON.parse(localStorage.getItem('project_id')!);
+    this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
+      this.data=response;
+      console.log(this.data);
+    });
+  }
 }
