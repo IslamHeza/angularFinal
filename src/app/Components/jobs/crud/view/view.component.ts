@@ -43,7 +43,7 @@ export class ViewComponent implements OnInit {
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
         this.project = res;
         this.rate = this.project.rate;
-        this.showreview
+        // this.showreview
         console.log(this.project);
         // localStorage.setItem('project_id',JSON.stringify((this.project.id)));
       });
@@ -63,14 +63,26 @@ export class ViewComponent implements OnInit {
     this.purposalservice.getAllPurposals().subscribe(purposalres => {
       console.log(purposalres);
       this.allpurposals=purposalres ;
+
     });
 
   }
   get_purposal(){
-    // project_id=this.id = JSON.parse(localStorage.getItem('project_id')!);
+
     this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
       this.data=response;
       console.log(this.data);
     });
   }
+
+accept_purposal(){
+  this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
+    this.project = res;
+    this.project.status='proccessing';
+    // res='processing';
+  })
+  // this.project.status='proccessing'
+
+}
+
 }

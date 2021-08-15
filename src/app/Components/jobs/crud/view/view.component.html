@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
                     <h5 class="card-title">{{project.name}}</h5>
-
+                    <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
                     <ul>
                         <li> Category : {{project.cat_name}}</li>
                         <li> Budget : {{project.budget}}</li>
@@ -47,8 +47,13 @@
                         <li> Time :{{purposal.time}} </li>
 
                     </ul>
+                    <div>
+                        <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()">
+
+Accept Purposal
+</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
