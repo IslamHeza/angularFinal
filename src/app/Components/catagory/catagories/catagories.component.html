@@ -21,7 +21,7 @@
 <div class="container">
     <div class="catagories  justify-content-center row  ">
         <div *ngFor="let item of  allcatagories " class="card cd col-xs-12 col-sm-4 col-md-3 col-lg-3 ">
-            <img src={{item.image}} class="card-img-top" alt="...">
+            <img src="http://localhost:8000/storage/{{item.image}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title"><span>{{item.id}}.</span>{{item.name}}</h5>
                 <a routerLink="/Catagories/{{item.name}}">Find Out More</a>

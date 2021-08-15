@@ -19,13 +19,9 @@ export class FeedsComponent implements OnInit {
     this.getRecentProject(1);
   }
   
-  getUserCategory(){
-
-  }
 
   getRecentProject(cateogry:any){
     this.projectService.getRecentProject(cateogry).subscribe(res => {
-      console.log(res);
       this.recentProjects = res;
     });
   }

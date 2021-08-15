@@ -64,4 +64,5 @@ export class AddPortfolioComponent implements OnInit {
       this.router.navigate(['listportfolio']);
     });
   }
+
 }

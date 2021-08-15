@@ -27,7 +27,7 @@ export class LeftSectionComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getUser(2);
+    this.getUser(1);
     this.countPortfolio(1);
     this.countProject(1);
   }
