@@ -7,7 +7,7 @@ import { CatagoriesService } from 'src/app/service/catagories.service';
   styleUrls: ['./home-section1.component.css']
 })
 export class HomeSection1Component implements OnInit {
-
+  searchName:String="";
   Categories:any = [];
   category_id :any;
   changeRate(evant:any){

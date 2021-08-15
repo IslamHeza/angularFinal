@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router ,ActivatedRoute } from '@angular/router';
 import { CatagoriesService } from 'src/app/service/catagories.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/_models/user';
+
+// import { Location } from '@angular/common';
+
+
 @Component({
   selector: 'app-multipleStep_registration',
   templateUrl: './multipleStep_registration.component.html',
@@ -15,13 +19,15 @@ export class MultipleStep_registrationComponent implements OnInit {
   allcatagories:any=[];
   user = new User();
   data: any;
+  // passingdata:any;
 
+  constructor(private userservice: UserService, private activatedRoute:ActivatedRoute,private router: Router , public catlist:CatagoriesService ) {
 
-  constructor(private userservice: UserService, private router: Router , public catlist:CatagoriesService ) {
   }
   ngOnInit(): void {
 
     this.getAllCatagories();
+    // console.log(this.location.getState());
   }
 
   register() {
@@ -29,12 +35,19 @@ console.log(this.user.category_id);
     return this.userservice.register(this.user).subscribe(res => {
       console.log({res});
       this.data = res;
-      //  localStorage.setItem('data',this.data);
+
     localStorage.setItem('token', JSON.stringify(this.data.token));
+    localStorage.setItem('data',JSON.stringify(this.data));
     // this.userservice.isLoggedin = true;
+    console.log(this.data.user.id);
+    localStorage.setItem('id',JSON.stringify((this.data.user.id)));
+    localStorage.setItem('type',JSON.stringify((this.data.user.type)));
+    // this.router.navigateByUrl('/home', { state: this.passingdata });
       this.router.navigate(['']);
     })
-  }
+
+  };
+
 
 
   private selectedLink: string = "Developer";

@@ -21,6 +21,9 @@ import { MultipleStep_registrationComponent } from './Components/multipleStep_re
 import { LoginComponent } from "./Components/Login/login/login.component";
 import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
 import { ForgetPasswordComponent } from "./Components/Login/forgetPassword/forgetPassword.component";
+//submit purposal
+import { SubmitPurposalComponent } from './Components/jobs/submit-purposal/submit-purposal.component';
+
 
 
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
@@ -53,7 +56,9 @@ const routes: Routes = [
   {path:"listproject",component:ListComponent},
   {path:"editproject/:id",component: EditComponent },
   {path:"viewproject/:id",component: ViewComponent },
-  {path:"addReview/:project_id/:developer_id",component: AddReviewComponent },
+
+
+  {path:"addReview/:id/:developer_id",component: AddReviewComponent },
 
 
 
@@ -63,6 +68,10 @@ const routes: Routes = [
   { path: "login", component:LoginComponent},
   { path:"forgetPassword", component:ForgetPasswordComponent},
   { path:"resetPassword", component:ResetNewPasswordComponent},
+//purposal
+{ path:"purposal/:id", component:SubmitPurposalComponent},
+
+
 
   {path:"",redirectTo:"home" , pathMatch:"full"}
 

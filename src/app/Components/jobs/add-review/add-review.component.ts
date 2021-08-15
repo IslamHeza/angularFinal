@@ -21,7 +21,9 @@ export class AddReviewComponent implements OnInit {
     this.Review.rate = this.rate;
     console.log(this.rate);
   }
-  constructor( private ReviewService: ReviewsService , private router:Router , private route: ActivatedRoute) { }
+  constructor( private ReviewService: ReviewsService , private router:Router , private route: ActivatedRoute) {
+
+  }
 
 
   ngOnInit(): void {

@@ -1,23 +1,46 @@
 
 
-    <div class="container">
+       <div class="container">
            <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>
- <div class="col1">
-       
-           
+              <div class="col1">
                    <img src={{project.image}} class="card-img-top" alt="...">
                     <h4 > {{(project.fname) + " " +(project.lname)}} </h4>
-              
+                    <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
                     <ul class="dd">
                         <li> <p-rating  [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating></li>
-
                         <li><p> Project's name : </p> {{project.name}} </li>
                         <li><p > Category : </p> {{project.cat_name}}</li>
                         <li style="width: 60%;"><p > Description : </p>{{project.description}}</li>
                         <li><p > Budget : </p>{{project.budget}}</li>
-                       <!-- <li><p> Final prise : </p>{{project.final_price}} </li>-->
                         <li><p > Location : </p>{{project.location}}</li>
-
-                    </ul>      
-</div> </div>
+                  </ul>      
+               </div>
+             </div>
     
+                        <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a Purposal</button>
+                   
+
+<div class="all">
+
+    <div class="container">
+        <div class="col1" *ngFor="let purposal of allpurposals">
+            <div class="card mb-3  headb">
+                <div class="card-body">
+                    <h6>purposal</h6>
+                    <ul>
+
+                        <li> Cover letter : {{purposal.cover_letter}}</li>
+                        <li> Budget : {{purposal.budget}}</li>
+                        <li> Time :{{purposal.time}} </li>
+
+                    </ul>
+                    <div>
+                        <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()">
+
+Accept Purposal
+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

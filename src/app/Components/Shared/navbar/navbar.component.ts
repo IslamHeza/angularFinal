@@ -20,21 +20,23 @@ export class NavbarComponent implements OnInit {
     this.userservice.logout
     this.userservice.logout().subscribe(res => {
       localStorage.removeItem('token');
-      this.isLoggedin = false;
+      localStorage.removeItem('id');
+      localStorage.removeItem('type');
+      // this.isLoggedin = false;
       this.router.navigate(['']);
     })
     }
 
-    isLoggedIn() {
+    // isLoggedIn() {
 
-      if (JSON.parse(localStorage.getItem('token')!).auth_token == null) {
-        this.isLoggedin = false;
-        return this.isLoggedin;
-      }
-      else {
-        return true;
-      }
-    }
+    //   if (JSON.parse(localStorage.getItem('token')!).auth_token == null) {
+    //     this.isLoggedin = false;
+    //     return this.isLoggedin;
+    //   }
+    //   else {
+    //     return true;
+    //   }
+    // }
 
 
 

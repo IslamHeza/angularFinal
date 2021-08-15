@@ -6,7 +6,7 @@ import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/_models/user';
 import { CatagoriesService } from 'src/app/service/catagories.service';
 
-@Component({  
+@Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
@@ -17,9 +17,9 @@ export class CreateComponent implements OnInit {
   allcatagories:any=[];
    user = new User();
    data: any;
-  
+
   constructor(private ProjectService:ProjectService , private router:Router ,public catlist:CatagoriesService ,private userservice: UserService) { }
-    
+
   multiple:boolean = true ;
   ngOnInit(): void {
 
@@ -28,7 +28,7 @@ export class CreateComponent implements OnInit {
     this.Project.rate=0;
     this.Project.status=" ";
     this.Project.final_price=0;*/
-    
+
     this.getAllCatagories();
   }
 
@@ -39,7 +39,7 @@ export class CreateComponent implements OnInit {
 
      })
    }
-   
+
 
    getAllCatagories(){
     return this.catlist.getAllCatagories().subscribe(res =>{

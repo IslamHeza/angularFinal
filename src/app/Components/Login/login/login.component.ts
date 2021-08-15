@@ -30,9 +30,9 @@ return this.userservice.checkCookie().subscribe(res=>
       this.data = res;
       localStorage.setItem('token', JSON.stringify(this.data.token));
       console.log(this.data.token);
-      this.userservice.isLoggedin = true;
-      this.router.navigate(['']);
 
+      this.router.navigate(['']);
+      // this.userservice.isLoggedin = true;
     })
 
   })

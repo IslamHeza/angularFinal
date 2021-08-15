@@ -8,6 +8,10 @@ import { CatagoriesService } from 'src/app/service/catagories.service';
 })
 export class CatagoriesComponent implements OnInit {
 
+  // data: any;
+  // allcatagories:any=[];
+
+  // constructor( private userservice: UserService,public catlist:CatagoriesService ) { }
 
   allcatagories:any=[];
 
