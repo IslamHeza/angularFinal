@@ -11,13 +11,13 @@
           <li >
               <label for="name" id="l">Name</label>
               <input #n1="ngModel" class="form-control" type="text" [(ngModel)]="model.name" required    name="name" />
-              <span class="myspan" *ngIf="n1.errors?.required && n1.touched">Please Enter Your Name</span>
+              <span class="myspan" *ngIf="n1.errors?.required && n1.touched"> Enter Your Name</span>
           </li>
 
           <li>
              <label for="email" id="l">email <span class="req"></span></label>
              <input  #n2="ngModel" class="form-control" type="email" [(ngModel)]="model.email" required   name="email"/>
-             <span class="myspan" *ngIf="n2.errors?.required && n2.touched">Please Enter Your Email</span>
+             <span class="myspan" *ngIf="n2.errors?.required && n2.touched"> Enter Your Email</span>
 
           </li>    
         
