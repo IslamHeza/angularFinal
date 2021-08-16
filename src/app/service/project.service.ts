@@ -14,7 +14,8 @@ export class ProjectService {
   TopDevelopersURL= "http://127.0.0.1:8000/api/developers";
   baseUrl="http://localhost:8000/api/project/";
   Url="http://localhost:8000/api/contact";
-
+  RUrl="http://localhost:8000/api//review/";
+  
   MostProjectsURL= "http://localhost:8000/api/mostProjects";
   headers = new HttpHeaders({
     'Content-Type':'application/json',
@@ -31,6 +32,7 @@ export class ProjectService {
   getProject(id:any){
     return this.httpClient.get(this.baseUrl + id)
   }
+ 
  
   addPortproject(project:any){
     return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
