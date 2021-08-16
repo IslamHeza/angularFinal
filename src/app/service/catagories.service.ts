@@ -16,9 +16,11 @@ export class CatagoriesService {
 
     getAllCatagories(){
 
-      return this.httpClient.get(this.baseURL );
+      return this.httpClient.get(this.baseURL);
   }
   getCatagory(name:any){
-    return this.httpClient.get(this.baseURL + name)
+    return this.httpClient.get(this.baseURL+name )
   }
+ 
+  
 }

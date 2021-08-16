@@ -14,9 +14,9 @@ export class ProgressComponent implements OnInit {
   completed: any = 0;
 
   ngOnInit() {
-    this.countProjects(1, 'pending');
-    this.countProjects(1,'proccessing');
-    this.countProjects(1,'done');
+    this.countProjects(2, 'pending');
+    this.countProjects(2,'processing');
+    this.countProjects(2,'done');
 
     // this.chart();
     // this.pending = this.countProjects(1, 'pending');
@@ -29,7 +29,7 @@ export class ProgressComponent implements OnInit {
     this.projectService.countProjects(id, status).subscribe((res) => {
       if (status == 'pending') {
         this.pending = res;
-      } else if (status == 'proccessing') {
+      } else if (status == 'processing') {
         this.processing = res;
       } else {
         this.completed = res;

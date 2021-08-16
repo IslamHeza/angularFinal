@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/_models/contact';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectService } from 'src/app/service/project.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,33 +10,40 @@ import { Contact } from 'src/app/_models/contact';
 })
 export class ContactComponent implements OnInit {
 
-  
-  name:string ="" ;
-  email:string ="" ;
-  message:string ="" ;
-  con:Contact=new Contact();
-  constructor(){}
+ 
+ 
+  model:Contact = new Contact();
+ // mes=false;
+  //submitted = false;
+  /*onSubmit(){ 
+    this.submitted = true; }*/
 
- save(){
-   console.log(this.name,this.email,this.message);
- this.mes=true
-
-}
-
-
-
-
-
-  mes=false;
-  submitted = false;
-  onSubmit(){ 
-    this.submitted = true; }
-
-
-
-  
+data:any;
+  constructor(private route: ActivatedRoute,private contactService: ProjectService) {}
 
   ngOnInit(): void {
+      this.save();
+      
+}
+
+ save(){
+  return this.contactService.contact(this.model).subscribe(res => {
+     this.data= res ;
+     console.log(res);
+    
+  });
+ 
+
   }
+
+
+
+
+
+
+  
+
+ 
+  
 
 }

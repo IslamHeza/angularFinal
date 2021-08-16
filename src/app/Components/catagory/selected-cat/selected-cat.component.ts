@@ -10,39 +10,51 @@ import { Catagory } from 'src/app/_models/catagory';
   styleUrls: ['./selected-cat.component.css']
 })
 export class SelectedCatComponent implements OnInit {
-
-
-
-   Developers:User[]=[];
+   developers:User= new User();
+   Developers:any=[];
    catagories:Catagory[]=[];
    searchCity:String="";
    searchName:String="";
    searchRate:number=0 ;
-   data:any ;
+
    catagory:any=[];
    categoryName:any;
+
+   data:any ;
+   id:any ;
+  type:any ;
   constructor(public selectcat:CatagoriesService ,public ar:ActivatedRoute  ,private httpClient : HttpClient) { }
 
- 
+
+  //  retrievedObject = localStorage.getItem('data');
+
 
   ngOnInit(): void {
 
-   /* this.httpClient.get("http://localhost:8000/api/catagories/name").subscribe(res=>{
-      this.Developers=res as User [] ; 
+   /* this.httpClient.get("http://localhost:8000/api/categories/name").subscribe(res=>{
+      console.log(res);
+      this.Developers=res as User [] ;
     })*/
-   
-    this. view();
-    this.httpClient.get("http://localhost:8000/api/catagories").subscribe(res=>{
+
+    console.log(this.data = JSON.parse(localStorage.getItem('data')!));
+    console.log(this.id = JSON.parse(localStorage.getItem('id')!));
+    console.log(this.type = JSON.parse(localStorage.getItem('type')!));
+    // console.log('retrievedObject: ', JSON.parse(this.retrievedObject!))
+    // console.log(localStorage.getItem('data'))
+
+
+    this.view();
+    this.httpClient.get("http://localhost:8000/api/categories/").subscribe(res=>{
       this.catagories=res as Catagory [] ;
-     
+
     })
-
-
-  }
+}
   view(){
     this.selectcat.getCatagory(this.ar.snapshot.params.name).subscribe(res=>{
+         console.log(res);
          this.categoryName=this.ar.snapshot.params.name;
-        this.Developers=res as User [] ; 
+        this.Developers=res as User [] ;
+        
       })
   }
 

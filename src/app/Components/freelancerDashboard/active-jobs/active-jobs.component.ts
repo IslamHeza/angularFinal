@@ -14,7 +14,7 @@ export class ActiveJobsComponent implements OnInit {
   ActivProjects: any = [];
   data: any;
   ngOnInit(): void {
-    this.getActiveProjects(1);
+    this.getActiveProjects(2);
   }
 
   getActiveProjects(id: any) {

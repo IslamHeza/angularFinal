@@ -13,24 +13,24 @@ export class ListComponent implements OnInit {
   val:number=3
   searchjob:String="";
 
-  
+
    allprojects:any=[];
-    
+
   constructor(private ProjectService:ProjectService){}
 
   ngOnInit(): void {
      this.getAllProjects();
-   
+
   }
-  
+
  getAllProjects(){
-    this.ProjectService.getAllProject().subscribe(res => {
+    this.ProjectService.getAllProjects().subscribe(res => {
       console.log(res);
       this.allprojects= res ;
     });
   }
-  
-  
+
+
   updateProject(){
   }
 

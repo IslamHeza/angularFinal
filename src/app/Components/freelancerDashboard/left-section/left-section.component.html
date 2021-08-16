@@ -1,9 +1,9 @@
 <div class="row profile bg p-2">
     <div class="col-5">
-        <img class="profile-img" src="assets/{{user.image}}">
+        <img class="profile-img" src="http://localhost:8000/storage/users/{{user.image}}">
     </div>
     <div class="col-7">
-        Welcome.. {{user.fname}} {{user.lname}}
+        Welcome.. {{user.name}} {{user.lname}}
     </div>
     <hr class="mt-3 mb-1">
     <a class="btn btn-primary btn-sm " routerLink="/editProfile" role="button"> Edit Your Profile</a>

@@ -12,12 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {FileUploadModule} from 'primeng/fileupload';
 
 //for toastr popup after uploading files
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -72,8 +73,10 @@ import { LoginComponent } from './Components/Login/login/login.component';
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
 import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
 import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
+import { SubmitPurposalComponent } from './Components/jobs/submit-purposal/submit-purposal.component';
+import { PassingDynamicDataComponent } from './Components/multipleStep_registration/Passing-dynamic-data/Passing-dynamic-data.component';
 
-
+// import {CalendarModule} from 'primeng/calendar';
 
 //
 
@@ -83,6 +86,8 @@ import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
+import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
+
 
 @NgModule({
   declarations: [
@@ -127,12 +132,19 @@ import { ViewComponent } from './Components/jobs/crud/view/view.component';
     LoginComponent,
     ForgetPasswordComponent,
     ResetNewPasswordComponent,
+//submit porposal on project
+SubmitPurposalComponent,
+//passing data
+PassingDynamicDataComponent,
 
     CreateComponent,
     ListComponent,
     ProjectPipe,
     EditComponent,
     ViewComponent,
+    AddReviewComponent,
+    
+
 
 
   ],

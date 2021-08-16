@@ -5,19 +5,24 @@
 
     <div class="tab-content">
         <!-- (ngSubmit)="edit()" -->
-        <form #userForm="ngForm" novalidate enctype="multipart/form-data">
-            <div class="tab-pane fade show active ">
+        <form #userForm="ngForm" novalidate enctype="multipart/form-data" [formGroup]="form">
+            <!-- <form (ngSubmit)="onSubmit()" novalidate enctype="multipart/form-data" [formGroup]="form"> -->
+            <div class="tab-pane fade show active">
                 <h4 class="head text-center ">ُEdit Your Profile</h4>
                 <br/>
                 <div class="row justify-content-center">
                     <div class="col-lg-4">
                         <div class="photo text-center">
                             <!-- <a routerLink="/profile"> <img src="assets/img/{{user.image}}" alt="" class="rounded-circle mb-2"></a> -->
-                            <img [src]="imageURL" alt="" class="rounded-circle mb-2" style="width: 100px; height: 100px;">
+                            <img [src]="imageSrc" alt="" class="rounded-circle mb-2" style="width: 100px; height: 100px;">
                         </div>
                         <div class="form-control col-md-5 mb-3 text-center">
                             <label for="formFileMultiple" class="form-label">Upload Image</label>
-                            <input class="form-control" type="file" id="formFileMultiple" accept="image/*" (change)="showPreview($event)">
+                            <input type="file" formControlName="image" name="image" id="formFileMultiple" class="form-control" accept="image/*" (change)="uploadImage($event)">
+                            <!-- accept="image/*" (change)="uploadImage($event)" [ngClass]="{'is-invalid':submitted && f.image.errors}"> -->
+                            <!-- <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                            <div *ngIf="f.image.errors.required">Image is requqired</div>
+                          </div> -->
                         </div>
                     </div>
                 </div>
@@ -28,7 +33,7 @@
                             <div class='col-lg-6 col-sm-10 mb-2 '>
                                 <div class="form-control  ">
                                     <label class="control-label" for="fname">First Name</label>
-                                    <input class="form-control input-md m-1" #fname="ngModel" required minlength="4" id="fname" name="fname" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.fname">
+                                    <input class="form-control input-md m-1" #fname="ngModel" required minlength="4" id="fname" name="fname" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.name">
                                     <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="alert alert-danger">
                                         <div *ngIf="fname.errors?.required">
                                             Name is required.
@@ -65,7 +70,7 @@
                             <div class='col-lg-6 col-sm-10 mb-2 '>
                                 <div class="form-control">
                                     <label class="control-label" for="phone_number">Phone Number</label>
-                                    <p-inputMask name="phoneno" #phone_number="ngModel" [(ngModel)]="user.phone_number" mask="9999 999 9999" max-length="10" class="ng-pristine ng-untouched"></p-inputMask>
+                                    <p-inputMask name="phoneno" #phone_number="ngModel" [(ngModel)]="user.phone_number" mask="9999 999 9999" max-length="10" class="ng-pristine ng-untouched" [ngModelOptions]="{standalone: true}"></p-inputMask>
                                     <!-- <input class="form-control input-md m-1" #phone_number="ngModel" required minlength="4" id="phone_number" name="phone_number" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.phone_number"> -->
                                     <div *ngIf="phone_number.invalid && (phone_number.dirty || phone_number.touched)" class="alert alert-danger">
 
@@ -79,19 +84,6 @@
 
                                 </div>
                             </div>
-
-                            <!-- <div class="form-control">
-                              <label class="control-label" for="phonenumber">phone number</label>
-                              <input class="form-control input-md" #phonenumber="ngModel" name="phonenumber " type="text " id="phonenumber " placeholder="phone number " [ngModelOptions]="{standalone: true}" [(ngModel)]="personal.phonenumber">
-                              <div class="alert alert-danger " [hidden]="phonenumber.valid || phonenumber.pristine ">phone number must be valid</div>
-                          </div> -->
-
-                            <!-- <div class="p-field p-col-12 p-md-4">
-                            <span class="p-float-label">
-                          <p-inputMask inputId="inputmask" mask="99/99/9999" [ngModelOptions]="{standalone: true}" [(ngModel)]="value5"></p-inputMask>
-                          <label for="inputmask">InputMask</label>
-                      </span>
-                        </div>-->
                         </div>
 
                         <div class="row">
@@ -144,7 +136,7 @@
                             <div class='col-lg-12 col-sm-10 mb-2 '>
                                 <div class="form-group">
                                     <label class="control-label" for="overview">Overview</label>
-                                    <textarea class="form-control input-md" #overview="ngModel" minlength="50" required id="overview" name="overview" type="text" [(ngModel)]="user.overview"></textarea>
+                                    <textarea class="form-control input-md" #overview="ngModel" minlength="50" required id="overview" name="overview" type="text" [(ngModel)]="user.overview" [ngModelOptions]="{standalone: true}"></textarea>
                                     <div *ngIf="overview.invalid &&(overview.dirty || overview.touched)" class="alert alert-danger">
                                         <div *ngIf="overview.errors?.required">
                                             Overview is required.
@@ -191,22 +183,6 @@
                         </div>
 
                         <div class="row">
-                            <!-- <div class='col-lg-6 col-sm-10 mb-2 '>
-                                <div class="form-control">
-                                    <label class="control-label" for="street">Job</label>
-
-                                    <input class="form-control input-md m-1" #job="ngModel" required minlength="4" id="job" name="job" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.job">
-                                    <div *ngIf="job.invalid && (job.dirty || job.touched)" class="alert alert-danger">
-
-                                        <div *ngIf="job.errors?.required">
-                                            national is required.
-                                        </div>
-                                        <div *ngIf="job.errors?.minlength">
-                                            Name must be at least 4 characters long.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class='col-lg-6 col-sm-10 mb-2 '>
                                 <div class="form-control">
                                     <label class="control-label" for="city">experience</label>
@@ -221,37 +197,24 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="city">type</label>
+                                    <input class="form-control input-md m-1" #type="ngModel" required minlength="4" id="type" name="type" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.type" readonly>
+                                    <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+                                        <div *ngIf="type.errors?.required">
+                                            national is required.
+                                        </div>
+                                        <div *ngIf="type.errors?.minlength">
+                                            Name must be at least 4 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- <div class="radio p-4">
-                                  <div class="form-check  ">
-                                      <input class="form-check-input" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.gender" type="radio" name="gridRadios" required id="gridRadios1" value="option1" *ngIf="city.value" checked>
-                                      <label class="form-check-label" for="gridRadios1">Male</label>
-                                  </div>
-                                  <div class="form-check">
-                                      <input class="form-check-input" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.gender" type="radio" name="gridRadios" required id="gridRadios2" value="option2">
-                                      <label class="form-check-label" for="gridRadios2">Female</label>
-                                  </div>
-                              </div> -->
-
-                        <!-- <div class="form-control ">
-                                <label class="control-label " for="username ">Username</label>
-                                <input class="form-control input-md " #username="ngModel " required pattern="^[^\s@]{2,}$ " name="username " type="text " id="username " placeholder="Username " [ngModelOptions]="{standalone: true}" [(ngModel)]="personal.username ">
-                                <div class="alert alert-danger " [hidden]="username.valid || username.pristine ">username is required and must be valid</div>
-                            </div>
-
-                            <div class="form-control ">
-                                <label class="control-label " for="email ">Email</label>
-                                <input class="form-control input-md " #email="ngModel " required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$ " id="email " name="email " type="text " placeholder="Email " [ngModelOptions]="{standalone: true}" [(ngModel)]="personal.email ">
-                                <div class="alert alert-danger " [hidden]="email.valid || email.pristine ">Email is required and must be valid</div>
-                            </div>
-                            <div class="form-control ">
-                                <label class="control-label " for="Password ">Password</label>
-                                <input class="form-control input-md " #Password="ngModel " required pattern="^[^\s@]{2,}$ " id="Password " name="Password " type="text " placeholder="Password " [ngModelOptions]="{standalone: true}" [(ngModel)]="personal.password ">
-                                <div class="alert alert-danger " [hidden]="Password.valid || Password.pristine ">Password</div>
-                            </div>-->
-
                         <div class="form-control text-center">
-                            <button class="btn btn-success btn-outline-rounded btn-info " [disabled]="!userForm.valid " (click)="updateUser()"> Edite <span style="margin-left:10px; " class="glyphicon glyphicon-arrow-right"></span></button>
+                            <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!userForm.valid" (click)="updateUser()"> Edite <span style="margin-left:10px; " class="glyphicon glyphicon-arrow-right"></span></button>
+                            <!-- <button class="btn btn-success btn-outline-rounded btn-info "  type="submit"> Edite <span style="margin-left:10px; " class="glyphicon glyphicon-arrow-right"></span></button> -->
                         </div>
                     </div>
                 </div>

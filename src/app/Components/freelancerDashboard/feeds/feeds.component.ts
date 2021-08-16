@@ -20,8 +20,8 @@ export class FeedsComponent implements OnInit {
   }
   
 
-  getRecentProject(cateogry:any){
-    this.projectService.getRecentProject(cateogry).subscribe(res => {
+  getRecentProject(cateogry_id:any){
+    this.projectService.getRecentProject(cateogry_id).subscribe(res => {
       this.recentProjects = res;
     });
   }
