@@ -2,6 +2,7 @@ export class User {
 id:any;
 fname:any;
 lname:any;
+name:any;
 username:any;
 gender:any;
 phone_number:any;

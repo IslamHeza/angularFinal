@@ -1,4 +1,7 @@
-<div class="card mb-4">
+<div class="col-md-12">
+  <a routerLink="/setting/{{user.id}}" class="btn btn-primary" style="width: 100%;">Setting  &nbsp;  <fa-icon [icon]="faslide" aria-hidden="true"></fa-icon></a>
+</div>
+<div class="card mb-4 mt-4">
     <!-- style="width: 18rem;"-->
     <div class="card-header text-left bg-white">
         <fa-icon [icon]="faSignal" aria-hidden="true"></fa-icon> Statistics
@@ -11,22 +14,22 @@
             </div>
             <!-- <div class="col-md-4">number rating</div> -->
         </div>
-        <hr>
-        <div class="row text-center">
+        <hr [hidden]="checkUser">
+        <div class="row text-center" [hidden]="checkUser">
             <div class="col-md-6 col-ms-12">Project completion</div>
             <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">not calculated</span></div>
         </div>
-        <hr>
+        <hr [hidden]="checkUser">
         <!-- <div class="row">
           <div class="col-md-6 col-ms-12">Re-employment</div>
           <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">not calculated yet</span></div>
       </div> -->
-        <div class="row text-center">
+        <div class="row text-center" [hidden]="checkUser">
             <div class="col-md-6 col-ms-12">On-time delivery</div>
             <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">not calculated</span></div>
         </div>
-        <hr>
-        <div class="row text-center">
+        <hr [hidden]="checkUser">
+        <div class="row text-center" [hidden]="checkUser">
             <div class="col-md-6 col-ms-12">average response</div>
             <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">not calculated</span></div>
         </div>
