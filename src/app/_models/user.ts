@@ -1,8 +1,8 @@
 export class User {
 id:any;
 name:any;
+fname:any;
 lname:any;
-name:any;
 username:any;
 gender:any;
 phone_number:any;
