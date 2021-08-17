@@ -1,43 +1,36 @@
-<div class="all">
-    <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>
+<div class="container">
+    <!--    <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>-->
+    <div class=" d-flex justify-content-center">
 
-    <div class="container">
-        <div class="col1">
-            <div class="card mb-3  headb">
-                <div class="head">
-                    <h5>{{user.email}}</h5>
-                    <img src={{project.image}} class="card-img-top" alt="...">
-                    <h4> {{(project.name) + " " +(project.lname)}} </h4>
-                </div>
-                <div class="card-body">
-                    <input class="card-title ms-5" name="status" value="project.status" [(ngModel)]="project.status">
+        <div class="col1 ">
 
+            <img src={{project.image}} class="card-img-top" alt="...">
+            <h4> {{(project.name) + " " +(project.lname)}} </h4>
 
+            <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
+            <ul class="dd">
+                <li>
+                    <p> Project's name : </p> {{project.name}} </li>
+                <li>
+                    <p> Category : </p> {{project.cat_name}}</li>
+                <li style="width: 60%;">
+                    <p> Description : </p>{{project.description}}</li>
+                <li>
+                    <p> Budget : </p>{{project.budget}}</li>
+                <li>
+                    <p> Location : </p>{{project.location}}</li>
+                <li>
                     <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                    <h5 class="card-title">{{project.project_name}}</h5>
+                </li>
 
-                    <ul>
 
-                        <li> Category : {{project.cat_name}}</li>
-                        <li> Budget : {{project.budget}}</li>
-                        <!-- <li> Final prise :{{project.final_price}} </li> -->
-                        <li> Location :{{project.location}}</li>
-                        <!-- <li> Review :{{review.review}}</li> -->
-                    </ul>
+            </ul>
+            <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a Purposal</button>
 
-                    <p class="card-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
-                    <div>
-                        <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">
-
-  Submit a Purposal
-  </button>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
 </div>
+
 
 <div class="all">
 

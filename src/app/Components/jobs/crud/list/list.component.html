@@ -15,8 +15,10 @@
                 </div>
                 <div class="card-body">
                     <p-rating [(ngModel)]="project.rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                    <h6 class="card-title">{{project.project_name}} </h6>
+                    <h6 class="card-title">project's name :{{project.project_name}} </h6>
                     <h6 class="card-title">Category:{{project.cat_name}}</h6>
+
+
 
 
                     <a class="btn btn-primary " routerLink="/viewproject/{{project.id}}">View</a>

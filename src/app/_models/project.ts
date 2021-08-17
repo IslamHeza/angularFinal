@@ -14,4 +14,5 @@ export class Project {
     lname:any;
     cat_name:any;
     image:any;
+    img:any;
 }

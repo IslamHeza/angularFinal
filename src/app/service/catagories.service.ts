@@ -10,17 +10,16 @@ export class CatagoriesService {
   allcatagories:any=[];
 
     baseURL = "http://localhost:8000/api/categories/";
-
-
-
-
-  constructor(public r:Router , private httpClient : HttpClient) { }
+    
+ constructor(public r:Router , private httpClient : HttpClient) { }
 
     getAllCatagories(){
 
       return this.httpClient.get(this.baseURL);
   }
   getCatagory(name:any){
-    return this.httpClient.get(this.baseURL + name)
+    return this.httpClient.get(this.baseURL+name )
   }
+ 
+  
 }

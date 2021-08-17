@@ -10,10 +10,8 @@ import { Catagory } from 'src/app/_models/catagory';
   styleUrls: ['./selected-cat.component.css']
 })
 export class SelectedCatComponent implements OnInit {
-
-
-
-   Developers:User[]=[];
+   developers:User= new User();
+   Developers:any=[];
    catagories:Catagory[]=[];
    searchCity:String="";
    searchName:String="";
@@ -50,9 +48,7 @@ export class SelectedCatComponent implements OnInit {
       this.catagories=res as Catagory [] ;
 
     })
-
-
-  }
+}
   view(){
     this.selectcat.getCatagory(this.ar.snapshot.params.name).subscribe(res=>{
          console.log(res);
