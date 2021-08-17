@@ -36,9 +36,9 @@ export class SelectedCatComponent implements OnInit {
       this.Developers=res as User [] ;
     })*/
 
-    console.log(this.data = JSON.parse(localStorage.getItem('data')!));
-    console.log(this.id = JSON.parse(localStorage.getItem('id')!));
-    console.log(this.type = JSON.parse(localStorage.getItem('type')!));
+    // console.log(this.data = JSON.parse(localStorage.getItem('data')!));
+    // console.log(this.id = JSON.parse(localStorage.getItem('id')!));
+    // console.log(this.type = JSON.parse(localStorage.getItem('type')!));
     // console.log('retrievedObject: ', JSON.parse(this.retrievedObject!))
     // console.log(localStorage.getItem('data'))
 
@@ -54,7 +54,7 @@ export class SelectedCatComponent implements OnInit {
          console.log(res);
          this.categoryName=this.ar.snapshot.params.name;
         this.Developers=res as User [] ;
-        
+
       })
   }
 

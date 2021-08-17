@@ -6,8 +6,10 @@
 
             <img src={{project.image}} class="card-img-top" alt="...">
             <h4> {{(project.name) + " " +(project.lname)}} </h4>
+            <div class="ms-5">
+                <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
+            </div>
 
-            <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
             <ul class="dd">
                 <li>
                     <p> Project's name : </p> {{project.project_name}} </li>
@@ -25,8 +27,9 @@
 
 
             </ul>
-            <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a Purposal</button>
-
+            <div class="purposal_btn" *ngIf="(user.type=='Developer')">
+                <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a Purposal</button>
+            </div>
         </div>
     </div>
 </div>
@@ -35,8 +38,8 @@
 <div class="all">
 
     <div class="container">
-        <div class="col1" *ngFor="let purposal of allpurposals">
-            <div class="card mb-3  headb">
+        <div class="row" *ngFor="let purposal of allpurposals">
+            <div class="card mb-3  headb" *ngIf="(purposal.project_id == project.id) && (user.type =='client')">
                 <div class="card-body">
                     <h6>purposal</h6>
                     <ul>
