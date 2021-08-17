@@ -73,8 +73,11 @@ import { LoginComponent } from './Components/Login/login/login.component';
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
 import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
 import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
-import { SubmitPurposalComponent } from './Components/jobs/submit-purposal/submit-purposal.component';
+import { SubmitPurposalComponent } from './Components/jobs/purposals/submit-purposal/submit-purposal.component';
 import { PassingDynamicDataComponent } from './Components/multipleStep_registration/Passing-dynamic-data/Passing-dynamic-data.component';
+import { ViewAcceptedPurposalComponent } from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
+
+
 
 // import {CalendarModule} from 'primeng/calendar';
 
@@ -134,6 +137,7 @@ import { AddReviewComponent } from './Components/jobs/add-review/add-review.comp
     ResetNewPasswordComponent,
 //submit porposal on project
 SubmitPurposalComponent,
+ViewAcceptedPurposalComponent,
 //passing data
 PassingDynamicDataComponent,
 

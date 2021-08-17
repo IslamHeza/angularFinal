@@ -48,10 +48,13 @@ export class SubmitPurposalComponent implements OnInit {
 
 
    addingpurposal(){
-     this.view();
-     return this.PurposalService.addPurposal(this.purposal).subscribe(res=>{
+    this.purposal.project_id=this.project.id
+   this.PurposalService.addPurposal(this.purposal).subscribe(res=>{
+
        console.log(this.purposal.project_id);
-      //  this.router.navigate(['viewproject/:id']) ;
+      //  this.router.navigate([`viewproject/${this.route.snapshot.params.id}`]) ;
+
+
 
      })
    }

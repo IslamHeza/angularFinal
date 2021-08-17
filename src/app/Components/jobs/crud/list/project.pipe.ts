@@ -11,9 +11,9 @@ export class ProjectPipe implements PipeTransform {
       return projects ;
     }
 
-    return projects.filter(Project => 
-      
-      Project.name.toLowerCase().indexOf(searchjob.toLowerCase())  !==-1  
+    return projects.filter(Project =>
+
+      Project.project_name.toLowerCase().indexOf(searchjob.toLowerCase())  !==-1
 
 
 )

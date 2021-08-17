@@ -16,7 +16,7 @@ export class PurposalService {
   })
 
   getAllPurposals(){
-    return this.httpClient.get(this.baseUrl);
+    return this.httpClient.get(this.baseUrl );
   }
   getPurposal(id:any){
     return this.httpClient.get(this.baseUrl + id)
@@ -25,4 +25,9 @@ export class PurposalService {
   addPurposal(purposal:any){
     return this.httpClient.post(this.baseUrl , purposal ,{headers:this.headers}) ;
   }
+
+  updatePurposal(id:any,purposal:any){
+    return this.httpClient.put(`${this.baseUrl}${id}`, purposal ,{headers:this.headers});
+  }
+
 }

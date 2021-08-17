@@ -1,0 +1,52 @@
+<div class="purposal_container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+
+
+                    <h6>purposal</h6>
+                    <ul>
+
+                        <li> Cover letter : {{purposal.cover_letter}}</li>
+                        <li> Budget : {{purposal.budget}}</li>
+                        <li> Time :{{purposal.time}} </li>
+
+                    </ul>
+
+
+
+                </div>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+            <div class="form p-3">
+                <h2>Job Details</h2>
+                <hr>
+                <div class="head">
+
+                    <h4>{{(project.name) + " " +(project.lname)}}</h4>
+                </div>
+                <div class="job_details">
+                    <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                    <h5 class="card-title">{{project.project_name}}</h5>
+
+                    <ul>
+                        <li> Category : {{project.cat_name}}</li>
+                        <li> Budget : {{project.budget}}</li>
+
+                        <li> Time :{{purposal.time}}</li>
+                    </ul>
+                    <p class="job-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

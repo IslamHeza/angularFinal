@@ -1,6 +1,6 @@
 export class User {
 id:any;
-fname:any;
+name:any;
 lname:any;
 username:any;
 gender:any;

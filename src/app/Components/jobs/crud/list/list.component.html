@@ -10,12 +10,13 @@
 
                 <div class="head">
                     <img src={{project.image}} class="card-img-top" alt="...">
-                    <h5> {{(project.fname) + " " +(project.lname)}} </h5>
+                    <h5>{{(project.name)+ " " +(project.lname)}}</h5>
+
                 </div>
                 <div class="card-body">
                     <p-rating [(ngModel)]="project.rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                    <h6 class="card-title">{{project.name}} </h6>
-                    <h6 class="card-title">Category : {{project.cat_name}}</h6>
+                    <h6 class="card-title">{{project.project_name}} </h6>
+                    <h6 class="card-title">Category:{{project.cat_name}}</h6>
 
 
                     <a class="btn btn-primary " routerLink="/viewproject/{{project.id}}">View</a>

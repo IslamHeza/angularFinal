@@ -8,6 +8,7 @@ import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/service/user.service';
 import { PurposalService } from 'src/app/service/purposal.service';
 import { Purposal } from 'src/app/_models/purposal';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -21,22 +22,30 @@ export class ViewComponent implements OnInit {
     private ReviewService :ReviewsService,
     private userservice: UserService,
     private purposalservice:PurposalService,
+    private http: HttpClient,
   ) {}
 
    project:any=[];
    rate: number = 0;
    review =new Review();
    data: any;
-   user:any;
+   user = new User;
    purposal:any=[];
    allpurposals:any=[];
  //  project:Project = new Project ()
 
   ngOnInit(): void {
+    this.userservice.getUser(this.route.snapshot.params.id).subscribe(res =>{
+      this.data = res;
+      this.user = this.data;
+      console.log(this.user.type);
+    });
+
     this.view();
     this.showreview();
-    this.get_allpurposal();
     this.get_purposal();
+this.get_allpurposal();
+
   }
 
   view(){
@@ -59,30 +68,40 @@ export class ViewComponent implements OnInit {
   }
 
   get_allpurposal(){
-
     this.purposalservice.getAllPurposals().subscribe(purposalres => {
       console.log(purposalres);
+
       this.allpurposals=purposalres ;
 
     });
-
   }
   get_purposal(){
 
     this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
       this.data=response;
-      console.log(this.data);
+      this.purposal.project_id=this.project.id
+      console.log(this.purposal.project_id);
+
+
     });
+
   }
 
 accept_purposal(){
   this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
     this.project = res;
     this.project.status='proccessing';
-    // res='processing';
-  })
-  // this.project.status='proccessing'
+    console.log(this.project.status);
 
-}
+    this.ProjectService
+    .updateProject(this.route.snapshot.params.id, this.project)
+    .subscribe((res) => {
+
+    });
+
+
+  })
+
+  }
 
 }
