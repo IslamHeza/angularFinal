@@ -27,17 +27,26 @@
                 <hr>
                 <div class="head">
 
-                    <h4>{{(project.name) + " " +(project.lname)}}</h4>
-                </div>
-                <div class="job_details">
-                    <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                    <h5 class="card-title">{{project.project_name}}</h5>
 
-                    <ul>
-                        <li> Category : {{project.cat_name}}</li>
-                        <li> Budget : {{project.budget}}</li>
+                    <h4> {{(project.name) + " " +(project.lname)}} </h4>
 
-                        <li> Time :{{purposal.time}}</li>
+                    <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
+                    <ul class="dd">
+                        <li>
+                            <p> Project's name : </p> {{project.project_name}} </li>
+                        <li>
+                            <p> Category : </p> {{project.cat_name}}</li>
+                        <li style="width: 60%;">
+                            <p> Description : </p>{{project.description}}</li>
+                        <li>
+                            <p> Budget : </p>{{project.budget}}</li>
+                        <li>
+                            <p> Location : </p>{{project.location}}</li>
+                        <li>
+                            <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                        </li>
+
+
                     </ul>
                     <p class="job-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
 

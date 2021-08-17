@@ -35,15 +35,11 @@ export class ViewComponent implements OnInit {
  //  project:Project = new Project ()
 
   ngOnInit(): void {
-    this.userservice.getUser(this.route.snapshot.params.id).subscribe(res =>{
-      this.data = res;
-      this.user = this.data;
-      console.log(this.user.type);
-    });
+this.get_user();
 
     this.view();
     this.showreview();
-    this.get_purposal();
+// this.get_purposal();
 this.get_allpurposal();
 
   }
@@ -68,24 +64,34 @@ this.get_allpurposal();
   }
 
   get_allpurposal(){
+
     this.purposalservice.getAllPurposals().subscribe(purposalres => {
+      if(this.purposalservice.getPurposal(this.route.snapshot.params.id)){
       console.log(purposalres);
 
       this.allpurposals=purposalres ;
-
-    });
-  }
-  get_purposal(){
-
-    this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
-      this.data=response;
-      this.purposal.project_id=this.project.id
-      console.log(this.purposal.project_id);
-
-
+      }
     });
 
   }
+  get_user(){
+    this.userservice.getUser(this.route.snapshot.params.id).subscribe(res =>{
+      this.data = res;
+      this.user = this.data;
+      console.log(this.user.name);
+    });
+  }
+  // get_purposal(){
+
+  //   this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
+  //     this.purposal=response;
+  //     this.purposal.project_id=this.project.id
+  //     console.log(this.purposal.project_id);
+
+
+  //   });
+
+  // }
 
 accept_purposal(){
   this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
@@ -105,6 +111,6 @@ accept_purposal(){
   }
 
 }
-  
+
 
 

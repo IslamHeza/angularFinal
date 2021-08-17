@@ -26,20 +26,22 @@ export class ViewAcceptedPurposalComponent implements OnInit {
   ) {}
 
   purposal :any=[];
-  project:any=[];
+  project:any;
   rate: number = 0;
   data: any;
+  user = new User;
 
   ngOnInit(): void {
+
     this.view();
     this.get_purposal();
   }
 
   view(){
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
-        this.project = res;
-        this.rate = this.project.rate;
-        console.log(this.project);
+      this.data = res;
+        this.project =this.data;
+        console.log(this.project.id);
 
       });
 
