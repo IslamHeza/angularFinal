@@ -1,6 +1,6 @@
 <div class="tab-content" id="nav-tabContent">
     <section class="content mt-5 tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="card">
+        <div class="card" [hidden]="checkUser">
             <div class="card-header bg-white text-left">
                 OVERVIEW
             </div>
@@ -8,14 +8,14 @@
                 {{user.overview}}
             </div>
         </div>
-        <div class="card mt-4">
+        <!-- <div class="card mt-4">
             <div class="card-header bg-white text-left">
                 My Skills
             </div>
             <div class="card-body">
 
             </div>
-        </div>
+        </div> -->
     </section>
     <section class="content mt-5 tab-pane fade show" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
         <div class="card">
