@@ -22,7 +22,9 @@ import { LoginComponent } from "./Components/Login/login/login.component";
 import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
 import { ForgetPasswordComponent } from "./Components/Login/forgetPassword/forgetPassword.component";
 //submit purposal
-import { SubmitPurposalComponent } from './Components/jobs/submit-purposal/submit-purposal.component';
+import { SubmitPurposalComponent } from './Components/jobs/purposals/submit-purposal/submit-purposal.component';
+import { ViewAcceptedPurposalComponent} from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
+
 
 
 
@@ -31,8 +33,6 @@ import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
 import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
-
-
 
 const routes: Routes = [
   {path:"Categories",component:CatagoriesComponent },
@@ -70,7 +70,7 @@ const routes: Routes = [
   { path:"resetPassword", component:ResetNewPasswordComponent},
 //purposal
 { path:"purposal/:id", component:SubmitPurposalComponent},
-
+{path:"viewAcceptPurposal/:project.id/:id",component:ViewAcceptedPurposalComponent},
 
 
   {path:"",redirectTo:"home" , pathMatch:"full"}

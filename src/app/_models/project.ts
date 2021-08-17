@@ -1,6 +1,6 @@
 export class Project {
     id:any;
-    name:any;
+    project_name:any;
     description:any;
     rate:any;
     budget:any;
@@ -10,7 +10,7 @@ export class Project {
     owner_id:any;
     developer_id:any;
     category_id:any;
-    fname:any;
+    name:any;
     lname:any;
     cat_name:any;
     image:any;

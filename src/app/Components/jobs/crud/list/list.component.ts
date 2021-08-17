@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { Project } from 'src/app/_models/project';
 import { ProjectService } from 'src/app/service/project.service';
 import { User } from 'src/app/_models/user';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-list',
@@ -17,21 +17,24 @@ export class ListComponent implements OnInit {
 
    allprojects:any=[];
 
-  constructor(private ProjectService:ProjectService,private router: Router,private route: ActivatedRoute){}
+  constructor(   private route: ActivatedRoute,
+    private ProjectService: ProjectService,
+    private router: Router,
+    private userservice: UserService ){}
 
   ngOnInit(): void {
      this.getAllProjects();
-    
+
   }
 
  getAllProjects(){
     this.ProjectService.getAllProjects().subscribe(res => {
       console.log(res);
       this.allprojects= res ;
-     
+
     });
   }
-  
+
 
 
   updateProject(){
