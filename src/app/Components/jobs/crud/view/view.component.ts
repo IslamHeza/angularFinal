@@ -111,7 +111,7 @@ export class ViewComponent implements OnInit {
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(
       (res) => {
         this.project = res;
-        this.project.status = 'proccessing';
+        this.project.status = 'processing';
 
         this.ProjectService.updateProject(
           this.route.snapshot.params.id,

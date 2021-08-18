@@ -42,14 +42,18 @@ export class ViewAcceptedPurposalComponent implements OnInit {
 
       this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
         this.purposal=response;
-        console.log(this.purposal.project_id);
+        // console.log(this.purposal.project_id);
         this.ProjectService.getProject(this.purposal.project_id).subscribe(res => {
           this.project=res;
-          this.rate_pro = this.project.user_rate;
+          this.rate_pro = this.project.rate;
+          console.log(res);
+          
         });
         this.userservice.getUser(this.purposal.developer_id).subscribe(res => {
           this.user=res;
           this.rate = this.user.rate;
+          console.log(res);
+          
         });
 
       });

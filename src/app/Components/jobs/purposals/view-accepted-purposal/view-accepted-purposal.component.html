@@ -47,7 +47,7 @@
                         <h6 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h6>
                     </li>
                     <li>
-                        <p> Project name : </p> {{project.project_name}}
+                        <p> Project name : </p> {{project.title}}
                     </li>
                     <li>
                         <p> Category : </p> {{project.cat_name}}
@@ -61,11 +61,6 @@
                     <li>
                         <p> Location : </p>{{project.location}}
                     </li>
-                    <li>
-                        <p-rating [(ngModel)]="rate_pro" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                    </li>
-
-
                 </ul>
 
 
