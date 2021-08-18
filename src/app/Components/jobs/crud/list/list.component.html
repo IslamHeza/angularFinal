@@ -1,0 +1,33 @@
+ئ
+<div class="all">
+    <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>
+    <div class="form-group col-sm-8 col-lg-3 filter  ">
+        <input type="text" [(ngModel)]="searchjob" class="form-control Search " placeholder="Search By Project Name" />
+    </div>
+    <div class="container">
+            <div class="col1" *ngFor="let project of allprojects  ">
+            <div class="card mb-3  headb">
+
+                <div class="head">
+                    <img src="http://localhost:8000/storage/users/{{project.avatar}}" class="card-img-top" alt="...">
+                    <h5> {{(project.name) + " " +(project.lname)}} </h5>
+                </div>
+                <div class="card-body">
+                    <p-rating [(ngModel)]="project.user_rate" name = "rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                    <h6 class="card-title">project name : {{project.title}} </h6>
+                    <h6 class="card-title">Category : {{project.cat_name}}</h6>
+
+
+                    <a class="btn btn-primary " routerLink="/viewproject/{{project.id}}">View</a>
+                    <a class="btn btn-success mx-1" routerLink="/editproject/{{project.id}}">Edit</a>
+                    <a class="btn btn-danger" (click)="deleteProject($event ,project.id)">Delete</a>
+
+                    <a class="btn btn-info mx-1" routerLink="/addReview/{{project.id}}/{{project.developer_id}}">Rate</a>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
