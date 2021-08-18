@@ -25,13 +25,13 @@
                                 <div class='col-lg-5 col-sm-10 mb-2 '>
                                     <div class="form-control  ">
                                         <label class="control-label" for="firstname">First Name</label>
-                                        <input class="form-control input-md m-1" #fname="ngModel" required minlength="4" id="firstname" name="firstname" type="text" [(ngModel)]="user.fname">
-                                        <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="alert alert-danger">
+                                        <input class="form-control input-md m-1" #name="ngModel" required minlength="4" id="firstname" name="firstname" type="text" [(ngModel)]="user.name">
+                                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
 
-                                            <div *ngIf="fname.errors?.required">
+                                            <div *ngIf="name.errors?.required">
                                                 Name is required.
                                             </div>
-                                            <div *ngIf="fname.errors?.minlength">
+                                            <div *ngIf="name.errors?.minlength">
                                                 Name must be at least 4 characters long.
                                             </div>
                                         </div>

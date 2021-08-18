@@ -40,7 +40,8 @@ export class SubmitPurposalComponent implements OnInit {
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
         this.project = res;
         this.rate = this.project.rate;
-        console.log(this.project);
+        // console.log(this.project);
+        
 
       });
 
@@ -49,9 +50,10 @@ export class SubmitPurposalComponent implements OnInit {
 
    addingpurposal(){
      this.view();
+     this.purposal.project_id=this.project.id
      return this.PurposalService.addPurposal(this.purposal).subscribe(res=>{
-       console.log(this.purposal.project_id);
-      //  this.router.navigate(['viewproject/:id']) ;
+      //  console.log(this.purposal.project_id);
+       this.router.navigate(['viewproject/'+this.project.id]) ;
 
      })
    }

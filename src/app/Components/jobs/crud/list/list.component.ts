@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   searchjob:String="";
 
 
-   allprojects:any=[];
+  allprojects:any=[];
 
   constructor(private ProjectService:ProjectService,private router: Router,private route: ActivatedRoute){}
 
@@ -25,14 +25,13 @@ export class ListComponent implements OnInit {
   }
 
  getAllProjects(){
-    this.ProjectService.getAllProjects().subscribe(res => {
-      console.log(res);
+    return this.ProjectService.getAllProjects().subscribe(res => {
       this.allprojects= res ;
+      console.log(this.allprojects);
+
      
     });
   }
-  
-
 
   updateProject(){
   }

@@ -12,11 +12,13 @@ export class ProgressComponent implements OnInit {
   pending: any = 0;
   processing: any = 0;
   completed: any = 0;
+  userId : any ;
 
   ngOnInit() {
-    this.countProjects(2, 'pending');
-    this.countProjects(2,'processing');
-    this.countProjects(2,'done');
+    this.userId = localStorage.getItem('id');
+    this.countProjects(this.userId, 'pending');
+    this.countProjects(this.userId,'processing');
+    this.countProjects(this.userId,'done');
 
     // this.chart();
     // this.pending = this.countProjects(1, 'pending');

@@ -21,6 +21,7 @@ import {
 })
 export class AddPortfolioComponent implements OnInit {
   form: FormGroup;
+  userId : any ;
 
   constructor(
     private portfolioService: PortfolioService,
@@ -43,7 +44,9 @@ export class AddPortfolioComponent implements OnInit {
   title: string = 'hello';
   data: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userId = localStorage.getItem('id');  
+  }
   uploadImage(event: any) {
     const file = event.target.files[0];
     this.form.patchValue({
@@ -60,7 +63,7 @@ export class AddPortfolioComponent implements OnInit {
     formData.append('link', this.form.get('link')?.value);
     formData.append('skills', this.form.get('skills')?.value);
     formData.append('image', this.form.get('image')?.value);
-    this.portfolioService.addPortfolio(formData, 1).subscribe((res) => {
+    this.portfolioService.addPortfolio(formData, this.userId).subscribe((res) => {
       console.log(res);
       this.router.navigate(['listportfolio']);
     });

@@ -24,12 +24,15 @@ export class LeftSectionComponent implements OnInit {
   rate: number = 0;
   countOfPortfolio: any = 0;
   countOfProjects: any = 0;
-
+  userid : any ;
 
   ngOnInit(): void {
-    this.getUser(2);
-    this.countPortfolio(2);
-    this.countProject(2);
+    this.userid = localStorage.getItem('id');
+    console.log("user id >> " + this.userid);
+    
+    this.getUser(this.userid);
+    this.countPortfolio(this.userid);
+    this.countProject(this.userid);
   }
 
   getUser(id: any) {

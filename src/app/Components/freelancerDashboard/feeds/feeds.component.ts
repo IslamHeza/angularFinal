@@ -14,9 +14,11 @@ export class FeedsComponent implements OnInit {
 
   recentProjects : any;
   developerCategory : any ;
+  userId : any ;
   
   ngOnInit(): void {
-    this.getRecentProject(1);
+    this.userId = localStorage.getItem('id');  
+    this.getRecentProject(this.userId);
   }
   
 

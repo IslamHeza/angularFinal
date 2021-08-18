@@ -13,8 +13,11 @@ export class ActiveJobsComponent implements OnInit {
 
   ActivProjects: any = [];
   data: any;
+  userId : any ;
+
   ngOnInit(): void {
-    this.getActiveProjects(2);
+    this.userId = localStorage.getItem('id');  
+    this.getActiveProjects(this.userId);
   }
 
   getActiveProjects(id: any) {

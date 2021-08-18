@@ -37,8 +37,8 @@ export class SelectedCatComponent implements OnInit {
     })*/
 
     console.log(this.data = JSON.parse(localStorage.getItem('data')!));
-    console.log(this.id = JSON.parse(localStorage.getItem('id')!));
-    console.log(this.type = JSON.parse(localStorage.getItem('type')!));
+    // console.log(this.id = JSON.parse(localStorage.getItem('id')!));
+    // console.log(this.type = JSON.parse(localStorage.getItem('type')!));
     // console.log('retrievedObject: ', JSON.parse(this.retrievedObject!))
     // console.log(localStorage.getItem('data'))
 

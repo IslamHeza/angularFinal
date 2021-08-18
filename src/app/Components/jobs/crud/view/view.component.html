@@ -1,37 +1,51 @@
+<div class="container">
+    <!--    <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>-->
+    <div class=" d-flex justify-content-center">
 
+        <div class="col1 ">
 
-       <div class="container">
-      <!--    <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>--> 
-           <div class=" d-flex justify-content-center">
-
-              <div class="col1 ">
-
-                   <img src={{project.image}} class="card-img-top" alt="...">
-                    <h4 > {{(project.fname) + " " +(project.lname)}} </h4>
-
-                    <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
-                    <ul class="dd">
-                        <li><p> Project's name : </p> {{project.name}} </li>
-                        <li><p > Category : </p> {{project.cat_name}}</li>
-                        <li style="width: 60%;"><p > Description : </p>{{project.description}}</li>
-                        <li><p > Budget : </p>{{project.budget}}</li>
-                        <li><p > Location : </p>{{project.location}}</li>
-                       <li> <p-rating  [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating></li>
-
-
-                  </ul>      
-                  <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a Purposal</button>
-
-               </div>
-             </div>
+            <img src= "http://localhost:8000/storage/users/{{project.avatar}}" class="card-img-top" alt="...">
+            <h4> {{(project.name) + " " +(project.lname)}} </h4>
+            <div class="ms-5">
+                <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
             </div>
-                   
+
+            <ul class="dd">
+                <li>
+                    <p> Project name : </p> {{project.title}}
+                </li>
+                <li>
+                    <p> Category : </p> {{project.cat_name}}
+                </li>
+                <li style="width: 60%;">
+                    <p> Description : </p>{{project.description}}
+                </li>
+                <li>
+                    <p> Budget : </p>{{project.budget}}
+                </li>
+                <li>
+                    <p> Location : </p>{{project.location}}
+                </li>
+                <li>
+                    <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                </li>
+
+
+            </ul>
+            <div class="purposal_btn" *ngIf="(onlineUser.type =='developer')">
+                <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a
+                    Purposal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="all">
 
     <div class="container">
-        <div class="col1" *ngFor="let purposal of allpurposals">
-            <div class="card mb-3  headb">
+        <div class="row" *ngFor="let purposal of allpurposals">
+            <div class="card mb-3  headb" *ngIf="(purposal.project_id == project.id)">
                 <div class="card-body">
                     <h6>purposal</h6>
                     <ul>
@@ -42,12 +56,19 @@
 
                     </ul>
                     <div>
-                        <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()">
+                        <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()"
+                            routerLink="/viewAcceptPurposal/{{project.id}}/{{purposal.id}}">
 
-Accept Purposal
-</button>
+                            Accept Purposal
+                        </button>
+                        <!-- <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()" routerLink="/viewproject/{{project.id}}"> -->
+                        <!--
+                        Accept Purposal
+                        </button> -->
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

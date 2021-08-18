@@ -26,10 +26,12 @@ export class LoginComponent implements OnInit {
 return this.userservice.checkCookie().subscribe(res=>
   {
     this.userservice.login({email: this.email ,password:this.password}).subscribe(res=>{
-      console.log({res});
+      // console.log({res});
       this.data = res;
+      // localStorage.setItem('data',JSON.stringify(this.data));
       localStorage.setItem('token', JSON.stringify(this.data.token));
-      console.log(this.data.token);
+      localStorage.setItem('id',JSON.stringify((this.data.user.id)));
+      // console.log(this.data.token);
 
       this.router.navigate(['']);
       // this.userservice.isLoggedin = true;

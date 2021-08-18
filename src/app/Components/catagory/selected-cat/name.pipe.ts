@@ -13,8 +13,6 @@ export class NamePipe implements PipeTransform {
     return Developers.filter( User =>
 
       User.name.toLowerCase().indexOf(searchName.toLowerCase())  !==-1
-
-
 )
   }
 

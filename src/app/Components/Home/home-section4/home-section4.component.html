@@ -12,7 +12,7 @@
                         <img #img1 src="/assets/images/{{developer.image}}" class="card-img-top styleImgFst" alt="..." (mouseenter)="addStyle(img1 , cardBody1)">
                         <div class="card-body" #cardBody1>
                             <a routerLink="Catagories/{{developer.id}}">
-                                <p class="card-text fs-4 mb-1">{{(developer.fname)+" "+ (developer.lname)}}</p>
+                                <p class="card-text fs-4 mb-1">{{(developer.name)+" "+ (developer.lname)}}</p>
                             </a>
                             <small><b>{{developer.name}}</b></small>
                             <p class="text-muted">{{developer.overview}}</p>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class='dev_name mt-3'>
-                    <p>{{(developer.fname)+" "+ (developer.lname)}}</p>
+                    <p>{{(developer.name)+" "+ (developer.lname)}}</p>
                 </div>
             </div>
         </div>
