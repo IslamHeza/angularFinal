@@ -12,9 +12,9 @@ export class NavbarComponent implements OnInit {
   constructor(private userservice: UserService, private router: Router) { }
 
   ngOnInit()  {
-
+    this.logout
   }
-  isLoggedin: boolean = false;
+  // isLoggedin: boolean = false;
 
   logout() {
     this.userservice.logout

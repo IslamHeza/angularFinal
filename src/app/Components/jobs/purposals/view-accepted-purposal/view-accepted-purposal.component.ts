@@ -26,35 +26,35 @@ export class ViewAcceptedPurposalComponent implements OnInit {
   ) {}
 
   purposal :any=[];
-  project:any;
+  project: any = [];
   rate: number = 0;
+  rate_pro: number = 0;
   data: any;
-  user = new User;
-
+  user : any = [];
   ngOnInit(): void {
 
-    this.view();
     this.get_purposal();
-  }
 
-  view(){
-    this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
-      this.data = res;
-        this.project =this.data;
-        console.log(this.project.id);
-
-      });
 
   }
-
 
   get_purposal(){
 
-    this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
-      this.data=response;
-    });
+      this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
+        this.purposal=response;
+        console.log(this.purposal.project_id);
+        this.ProjectService.getProject(this.purposal.project_id).subscribe(res => {
+          this.project=res;
+          this.rate_pro = this.project.user_rate;
+        });
+        this.userservice.getUser(this.purposal.developer_id).subscribe(res => {
+          this.user=res;
+          this.rate = this.user.rate;
+        });
 
-  }
+      });
+    }
+
 
 // accept_purposal(){
 //   this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {

@@ -1,61 +1,80 @@
 <div class="purposal_container">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
+
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+            <div class="col ">
+                <a routerLink="/profile/{{user.id}}">
+                    <img src="http://localhost:8000/storage/users/{{user.image}}" height="150px" class="card-img-top" alt="...">
+
+                    <h4> {{(user.name) + " " +(user.lname)}} </h4>
+                </a>
+
+                <ul class="dd">
+
+                    <li>
+                        <p> Cover letter : </p> {{purposal.cover_letter}}
+                    </li>
+                    <li>
+                        <p> Budget : </p> {{purposal.budget}}
+                    </li>
+                    <li>
+                        <p> Time : </p>{{purposal.time}}
+                    </li>
+
+                    <li>
+                        <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                    </li>
 
 
-                    <h6>purposal</h6>
-                    <ul>
+                </ul>
 
-                        <li> Cover letter : {{purposal.cover_letter}}</li>
-                        <li> Budget : {{purposal.budget}}</li>
-                        <li> Time :{{purposal.time}} </li>
-
-                    </ul>
-
-
-
-                </div>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-        </div>
-        <div class="col-sm-6">
-
-            <div class="form p-3">
-                <h2>Job Details</h2>
-                <hr>
-                <div class="head">
 
 
-                    <h4> {{(project.name) + " " +(project.lname)}} </h4>
-
-                    <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
-                    <ul class="dd">
-                        <li>
-                            <p> Project's name : </p> {{project.project_name}} </li>
-                        <li>
-                            <p> Category : </p> {{project.cat_name}}</li>
-                        <li style="width: 60%;">
-                            <p> Description : </p>{{project.description}}</li>
-                        <li>
-                            <p> Budget : </p>{{project.budget}}</li>
-                        <li>
-                            <p> Location : </p>{{project.location}}</li>
-                        <li>
-                            <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                        </li>
-
-
-                    </ul>
-                    <p class="job-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
+            <div class="col  ">
 
 
 
 
-                </div>
+                <h4> Job Details </h4>
+
+
+                <ul class="dd">
+                    <li>
+                        <p> Status : </p>
+                        <h6 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h6>
+                    </li>
+                    <li>
+                        <p> Project name : </p> {{project.project_name}}
+                    </li>
+                    <li>
+                        <p> Category : </p> {{project.cat_name}}
+                    </li>
+                    <li style="width: 60%;">
+                        <p> Description : </p>{{project.description}}
+                    </li>
+                    <li>
+                        <p> Budget : </p>{{project.budget}}
+                    </li>
+                    <li>
+                        <p> Location : </p>{{project.location}}
+                    </li>
+                    <li>
+                        <p-rating [(ngModel)]="rate_pro" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                    </li>
+
+
+                </ul>
+
+
+
+
+
             </div>
-        </div>
 
+        </div>
     </div>
+
 </div>

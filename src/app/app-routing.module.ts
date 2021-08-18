@@ -70,7 +70,7 @@ const routes: Routes = [
   { path:"resetPassword", component:ResetNewPasswordComponent},
 //purposal
 { path:"purposal/:id", component:SubmitPurposalComponent},
-{path:"viewAcceptPurposal/:project.id/:id",component:ViewAcceptedPurposalComponent},
+{path:"viewAcceptPurposal/:id",component:ViewAcceptedPurposalComponent},
 
 
   {path:"",redirectTo:"home" , pathMatch:"full"}

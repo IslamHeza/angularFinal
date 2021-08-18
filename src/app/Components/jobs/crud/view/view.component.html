@@ -3,32 +3,40 @@
     <div class=" d-flex justify-content-center">
 
         <div class="col1 ">
-
-            <img src={{project.image}} class="card-img-top" alt="...">
+            <!-- <a routerLink="/profile/{{project.owner_id}}"> -->
+            <img src="http://localhost:8000/storage/users/{{project.avatar}}" class="card-img-top" alt="...">
             <h4> {{(project.name) + " " +(project.lname)}} </h4>
+            <!-- </a> -->
             <div class="ms-5">
                 <h5 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h5>
             </div>
 
             <ul class="dd">
+
                 <li>
-                    <p> Project's name : </p> {{project.project_name}} </li>
+                    <p> Project name : </p> {{project.project_name}}
+                </li>
                 <li>
-                    <p> Category : </p> {{project.cat_name}}</li>
+                    <p> Category : </p> {{project.cat_name}}
+                </li>
                 <li style="width: 60%;">
-                    <p> Description : </p>{{project.description}}</li>
+                    <p> Description : </p>{{project.description}}
+                </li>
                 <li>
-                    <p> Budget : </p>{{project.budget}}</li>
+                    <p> Budget : </p>{{project.budget}}
+                </li>
                 <li>
-                    <p> Location : </p>{{project.location}}</li>
+                    <p> Location : </p>{{project.location}}
+                </li>
                 <li>
                     <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
                 </li>
 
 
             </ul>
-            <div class="purposal_btn" *ngIf="(user.type=='Developer')">
-                <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a Purposal</button>
+            <div class="purposal_btn" *ngIf="(onlineUser.type =='developer')&&  ( project.owner_id == hide)">
+                <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a
+                    Purposal</button>
             </div>
         </div>
     </div>
@@ -39,7 +47,7 @@
 
     <div class="container">
         <div class="row" *ngFor="let purposal of allpurposals">
-            <div class="card mb-3  headb" *ngIf="(purposal.project_id == project.id) && (user.type =='client')">
+            <div class="card mb-3  headb" *ngIf="(purposal.project_id == project.id) && (onlineUser.type =='client') && ( project.owner_id === onlineUser.id)">
                 <div class="card-body">
                     <h6>purposal</h6>
                     <ul>
@@ -50,10 +58,10 @@
 
                     </ul>
                     <div>
-                        <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()" routerLink="/viewAcceptPurposal/{{project.id}}/{{purposal.id}}">
+                        <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()" routerLink="/viewAcceptPurposal/{{purposal.id}}">
 
-Accept Purposal
-</button>
+                            Accept Purposal
+                        </button>
                         <!-- <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()" routerLink="/viewproject/{{project.id}}"> -->
                         <!--
                         Accept Purposal

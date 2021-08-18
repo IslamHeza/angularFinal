@@ -26,12 +26,12 @@ body {
     color: #6c7293;
 }
 
-.containersign {
+.containersign,
+.purposal_container {
     margin-top: 80px;
 }
 
-.containerlogin,
-.purposal_container {
+.containerlogin {
     margin-top: 150px;
 }
 

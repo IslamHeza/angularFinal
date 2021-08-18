@@ -29,8 +29,8 @@ export class ListComponent implements OnInit {
 
  getAllProjects(){
     this.ProjectService.getAllProjects().subscribe(res => {
+      this.allprojects=res;
       console.log(res);
-      this.allprojects= res ;
 
     });
   }
