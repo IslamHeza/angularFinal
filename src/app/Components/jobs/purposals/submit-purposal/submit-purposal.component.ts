@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
+import { User } from 'src/app/_models/user';
 import { Project } from 'src/app/_models/project';
 import { Purposal } from 'src/app/_models/purposal';
 import { ProjectService } from 'src/app/service/project.service';
@@ -27,13 +27,21 @@ export class SubmitPurposalComponent implements OnInit {
   // project:any = new Project()
   //  user = new User();
    data: any;
-
+   userData: any;
+   onlineUser: User = new User();
   ngOnInit(): void {
+
     this.view();
+    this.onlineUser.id = localStorage.getItem('id');
+    this.getUser(this.onlineUser.id);
+  }
+  getUser(id: any) {
+    return this.userservice.getUser(id).subscribe((res) => {
+      this.userData = res;
+      this.onlineUser = this.userData;
+      console.log(this.onlineUser.type);
 
-    this.purposal.developer_id=1;
-    this.purposal.owner_id=1;
-
+    });
   }
 
   view(){
@@ -49,9 +57,10 @@ export class SubmitPurposalComponent implements OnInit {
 
 
    addingpurposal(){
-     this.view();
-     this.purposal.project_id=this.project.id
-     return this.PurposalService.addPurposal(this.purposal).subscribe(res=>{
+this.purposal.project_id=this.project.id
+this.purposal.owner_id=this.project.owner_id
+this.purposal.developer_id= this.onlineUser.id
+ return this.PurposalService.addPurposal(this.purposal).subscribe(res=>{
       //  console.log(this.purposal.project_id);
        this.router.navigate(['viewproject/'+this.project.id]) ;
 

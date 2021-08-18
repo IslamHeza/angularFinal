@@ -11,6 +11,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 })
 export class RightinfoComponent implements OnInit {
   user = new User;
+  checkUser:any;
   data:any;
   // photoData:any
   dat:any;
@@ -24,6 +25,11 @@ export class RightinfoComponent implements OnInit {
   // form: any;
   constructor(private userService:UserService,private router:Router,private route:ActivatedRoute){}
   ngOnInit(): void {
+    if(this.user.type=="client"){
+      this.checkUser=true;
+    }else{
+      this.checkUser=false;
+    }
     this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
       this.data = res;
       this.user = this.data;

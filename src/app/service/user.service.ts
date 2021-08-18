@@ -57,6 +57,10 @@ export class UserService {
   getUser(id:any){
     return this.httpClient.get(this.userUrl + id)
   }
+
+  // get_logginUser(id:any,user:any){
+  //   return this.httpClient.get(this.userUrl + id,{headers:this.headers});
+  // }
   addUser(user:any){
     return this.httpClient.post(this.userUrl,user,{headers:this.headers});
   }
@@ -81,5 +85,5 @@ export class UserService {
   getDevelopers(){
     return this.httpClient.get(this.TopDevelopersURL);
   }
- 
+
 }

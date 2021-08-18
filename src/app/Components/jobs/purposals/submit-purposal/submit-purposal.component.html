@@ -8,12 +8,12 @@
         </div>
         <div class="job_details">
             <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-            <h5 class="card-title">{{project.name}}</h5>
+            <h5 class="card-title">{{project.project_name}}</h5>
 
             <ul>
                 <li> Category : {{project.title}}</li>
                 <li> Budget : {{project.budget}}</li>
-                <li> Final prise :{{project.final_price}} </li>
+
                 <li> Time :{{project.Time}}</li>
             </ul>
             <p class="job-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>

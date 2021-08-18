@@ -54,7 +54,7 @@ export class SelectedCatComponent implements OnInit {
          console.log(res);
          this.categoryName=this.ar.snapshot.params.name;
         this.Developers=res as User [] ;
-        
+
       })
   }
 

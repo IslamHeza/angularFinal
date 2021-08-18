@@ -20,11 +20,11 @@ export class JobsComponent implements OnInit {
   ngOnInit(): void {
     this.jobs=this.job.all();
   }
- 
+
 
 }
 
 
 
 
- 
+

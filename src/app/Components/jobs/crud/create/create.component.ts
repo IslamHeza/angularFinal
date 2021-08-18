@@ -21,7 +21,19 @@ export class CreateComponent implements OnInit {
   constructor(private ProjectService:ProjectService , private router:Router ,public catlist:CatagoriesService ,private userservice: UserService) { }
 
   multiple:boolean = true ;
+  userData: any;
+  onlineUser: User = new User();
+
+
+
+
   ngOnInit(): void {
+
+    this.onlineUser.id = localStorage.getItem('id');
+    this.getUser(this.onlineUser.id);
+
+
+
 
     /*this.Project.developer_id=0;
     this.Project.owner_id=0;
@@ -32,8 +44,19 @@ export class CreateComponent implements OnInit {
     this.getAllCatagories();
   }
 
+
+  getUser(id: any) {
+    return this.userservice.getUser(id).subscribe((res) => {
+      this.userData = res;
+      this.onlineUser = this.userData;
+      console.log(this.onlineUser.type);
+
+    });
+  }
    addproject(){
+    this.Project.owner_id=this.onlineUser.id
      return this.ProjectService.addPortproject(this.Project).subscribe(res=>{
+
        console.log(this.Project.category_id);
        this.router.navigate(['listproject']) ;
 
