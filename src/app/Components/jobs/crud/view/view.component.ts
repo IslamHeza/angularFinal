@@ -9,6 +9,8 @@ import { UserService } from 'src/app/service/user.service';
 import { PurposalService } from 'src/app/service/purposal.service';
 import { Purposal } from 'src/app/_models/purposal';
 import { HttpClient } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -22,7 +24,8 @@ export class ViewComponent implements OnInit {
     private ReviewService: ReviewsService,
     private userservice: UserService,
     private purposalservice: PurposalService,
-    private http: HttpClient
+    private http: HttpClient,
+    private sanitizer: DomSanitizer
   ) {}
 
   project: any = [];
@@ -32,21 +35,23 @@ export class ViewComponent implements OnInit {
   user = new User();
   purposal: any = [];
   allpurposals: any = [];
+  url: any;
   //  project:Project = new Project ()
 
   //*************islam******************//
   userData: any;
   onlineUser: User = new User();
 
+  // hide: boolean = false ;
   ngOnInit(): void {
-    //*************islam******************//
     this.onlineUser.id = localStorage.getItem('id');
     this.getUser(this.onlineUser.id);
-    
+    // this.hide=!( this.project.owner_id === this.onlineUser.id);
     this.view();
     this.showreview();
     // this.get_purposal();
     this.get_allpurposal();
+    this.download();
   }
 
   getUser(id: any) {
@@ -54,7 +59,6 @@ export class ViewComponent implements OnInit {
       this.userData = res;
       this.onlineUser = this.userData;
       console.log(this.onlineUser.type);
-
     });
   }
 
@@ -65,6 +69,8 @@ export class ViewComponent implements OnInit {
         this.rate = this.project.user_rate;
         // this.showreview
         console.log(res);
+        this.url = '/api/download/' + this.project.file;
+        this.download();
         // localStorage.setItem('project_id',JSON.stringify((this.project.id)));
       }
     );
@@ -81,6 +87,7 @@ export class ViewComponent implements OnInit {
 
   get_allpurposal() {
     this.purposalservice.getAllPurposals().subscribe((purposalres) => {
+      // this.purposal.project_id=this.project.id
       if (this.purposalservice.getPurposal(this.route.snapshot.params.id)) {
         console.log(purposalres);
 
@@ -105,7 +112,6 @@ export class ViewComponent implements OnInit {
 
   //   });
   // }
-  
 
   accept_purposal() {
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(
@@ -117,6 +123,20 @@ export class ViewComponent implements OnInit {
           this.route.snapshot.params.id,
           this.project
         ).subscribe((res) => {});
+      }
+    );
+  }
+
+  download() {
+    // this.ProjectService
+    //   .download(this.url)
+    //   .subscribe(blob => saveAs(blob, this.project.file))
+    // const blob = this.ProjectService.download(this.url).subscribe(
+    const blob = this.ProjectService.download(this.project.file).subscribe(
+      (blob) => {
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(
+          window.URL.createObjectURL(blob)
+        );
       }
     );
   }

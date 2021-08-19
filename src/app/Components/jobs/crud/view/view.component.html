@@ -4,10 +4,20 @@
 
         <div class="col1 ">
 
-            <img src= "http://localhost:8000/storage/users/{{project.avatar}}" class="card-img-top" alt="...">
-            <h4> {{(project.name) + " " +(project.lname)}} </h4>
-            <div class="ms-5">
-                <h5 class="card-title ms-5"name="status" ngDefaultControl [(ngModel)]="project.status">{{project.status}}</h5>
+            <div class="row">
+                <div class="col-2">
+                    <a routerLink="/profile/{{project.id}}">
+                        <img src="http://localhost:8000/storage/users/{{project.avatar}}" height="150px" class="card-img-top" alt="...">
+                    </a>
+                </div>
+                <div class="col-10 mt-2">
+                    <h4 > {{(project.name) + " " +(project.lname)}} </h4>
+                    <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5" ></p-rating>    
+                </div>
+            </div>
+        <div class="ms-5">
+                <h5 class="card-title ms-5" name="status" ngDefaultControl [(ngModel)]="project.status">
+                    {{project.status}}</h5>
             </div>
 
             <ul class="dd">
@@ -27,8 +37,12 @@
                     <p> Location : </p>{{project.location}}
                 </li>
                 <li>
-                    <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                    Attachment:
+                    <a [href]="url" [download]="project.file" >
+                        {{ project.file }}
+                    </a>
                 </li>
+
 
 
             </ul>

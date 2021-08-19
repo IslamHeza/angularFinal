@@ -47,13 +47,11 @@ export class ViewAcceptedPurposalComponent implements OnInit {
           this.project=res;
           this.rate_pro = this.project.rate;
           console.log(res);
-          
         });
         this.userservice.getUser(this.purposal.developer_id).subscribe(res => {
           this.user=res;
           this.rate = this.user.rate;
           console.log(res);
-          
         });
 
       });

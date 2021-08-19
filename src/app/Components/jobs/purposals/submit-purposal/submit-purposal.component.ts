@@ -20,15 +20,15 @@ export class SubmitPurposalComponent implements OnInit {
     private router: Router,
     private userservice: UserService,
     private PurposalService: PurposalService,
-  ) {}
+  ) { }
   purposal = new Purposal();
-   project:any=[];
-   rate: number = 0;
+  project: any = [];
+  rate: number = 0;
   // project:any = new Project()
   //  user = new User();
-   data: any;
-   userData: any;
-   onlineUser: User = new User();
+  data: any;
+  userData: any;
+  onlineUser: User = new User();
   ngOnInit(): void {
 
     this.view();
@@ -44,28 +44,28 @@ export class SubmitPurposalComponent implements OnInit {
     });
   }
 
-  view(){
+  view() {
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(res => {
-        this.project = res;
-        this.rate = this.project.rate;
-        // console.log(this.project);
-        
+      this.project = res;
+      this.rate = this.project.rate;
+      // console.log(this.project);
 
-      });
+
+    });
 
   }
 
 
-   addingpurposal(){
-this.purposal.project_id=this.project.id
-this.purposal.owner_id=this.project.owner_id
-this.purposal.developer_id= this.onlineUser.id
- return this.PurposalService.addPurposal(this.purposal).subscribe(res=>{
+  addingpurposal() {
+    this.purposal.project_id = this.project.id
+    this.purposal.owner_id = this.project.owner_id
+    this.purposal.developer_id = this.onlineUser.id
+    return this.PurposalService.addPurposal(this.purposal).subscribe(res => {
       //  console.log(this.purposal.project_id);
-       this.router.navigate(['viewproject/'+this.project.id]) ;
+      this.router.navigate(['viewproject/' + this.project.id]);
 
-     })
-   }
+    })
+  }
 
 
 

@@ -8,10 +8,10 @@
         </div>
         <div class="job_details">
             <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-            <h5 class="card-title">{{project.project_name}}</h5>
+            <h5 class="card-title">{{project.title}}</h5>
 
             <ul>
-                <li> Category : {{project.title}}</li>
+                <li> Category : {{project.cat_name}}</li>
                 <li> Budget : {{project.budget}}</li>
 
                 <li> Time :{{project.Time}}</li>
@@ -72,7 +72,7 @@
         <button class="btn btn-outline-rounded btn-success mx-4" routerLink="/listproject">
 Cancel
           </button>
-        <button class="btn btn-outline-rounded btn-success  mx-4" (click)="addingpurposal()" >
+        <button class="btn btn-outline-rounded btn-success  mx-4" (click)="addingpurposal()">
 
             Submit a Purposal
             </button>

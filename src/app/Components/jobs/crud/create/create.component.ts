@@ -32,7 +32,7 @@ export class CreateComponent implements OnInit {
       description: [''],
       budget: [null],
       location: [''],
-      categeory: [''],
+      categeory: [null],
       file:[null]
     });
   }

@@ -1,5 +1,5 @@
-<div class="col-md-12">
-  <a routerLink="/setting/{{user.id}}" class="btn btn-primary" style="width: 100%;">Setting  &nbsp;  <fa-icon [icon]="faslide" aria-hidden="true"></fa-icon></a>
+<div class="col-md-12" *ngIf="onlineUser.id== user.id">
+    <a routerLink="/setting/{{user.id}}" class="btn btn-primary" style="width: 100%;">Setting  &nbsp;  <fa-icon [icon]="faslide" aria-hidden="true"></fa-icon></a>
 </div>
 <div class="card mb-4 mt-4">
     <!-- style="width: 18rem;"-->
