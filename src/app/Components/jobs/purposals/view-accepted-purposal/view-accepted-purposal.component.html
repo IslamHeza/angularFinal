@@ -5,11 +5,19 @@
         <div class="row row-cols-1 row-cols-md-2 g-4">
 
             <div class="col ">
-                <a routerLink="/profile/{{user.id}}">
-                    <img src="http://localhost:8000/storage/users/{{user.image}}" height="150px" class="card-img-top" alt="...">
-
-                    <h4> {{(user.name) + " " +(user.lname)}} </h4>
-                </a>
+                <div class="row">
+                    <div class="col-2">
+                        <a routerLink="/profile/{{user.id}}">
+                            <img src="http://localhost:8000/storage/users/{{user.image}}" height="150px" class="card-img-top" alt="...">
+                        </a>
+                    </div>
+                    <div class="col-10 mt-2">
+                        <h4 > {{(user.name) + " " +(user.lname)}} </h4>
+                        <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5" ></p-rating>    
+                    </div>
+                </div>
+                
+                
 
                 <ul class="dd">
 
@@ -23,9 +31,7 @@
                         <p> Time : </p>{{purposal.time}}
                     </li>
 
-                    <li>
-                        <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                    </li>
+                   
 
 
                 </ul>
@@ -44,7 +50,7 @@
                 <ul class="dd">
                     <li>
                         <p> Status : </p>
-                        <h6 class="card-title ms-5" [(ngModel)]="project.status">{{project.status}}</h6>
+                        <h6 class="card-title ms-5" name="status" ngDefaultControl [(ngModel)]="project.status">{{project.status}}</h6>
                     </li>
                     <li>
                         <p> Project name : </p> {{project.title}}
@@ -62,9 +68,6 @@
                         <p> Location : </p>{{project.location}}
                     </li>
                 </ul>
-
-
-
 
 
             </div>

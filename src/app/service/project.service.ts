@@ -33,8 +33,8 @@ export class ProjectService {
     return this.httpClient.get(this.baseUrl + id)
   }
  
-  addPortproject(project:any){
-    return this.httpClient.post(this.baseUrl , project ,{headers:this.headers}) ;
+  addPortproject(project:any , id :any){
+    return this.httpClient.post(this.baseUrl+id , project ) ;
   }
   
   updateProject(id:any,project:any){
