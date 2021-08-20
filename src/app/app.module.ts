@@ -63,7 +63,7 @@ import { HomeComponent } from './Components/Home/home/home.component';
 import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
 
 //signup&login
-
+import { PassingDynamicDataComponent } from './Components/multipleStep_registration/Passing-dynamic-data/Passing-dynamic-data.component';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { LoginComponent } from './Components/Login/login/login.component';
@@ -71,11 +71,12 @@ import { MultipleStep_registrationComponent } from './Components/multipleStep_re
 import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
 import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
 import { SubmitPurposalComponent } from './Components/jobs/purposals/submit-purposal/submit-purposal.component';
-import { PassingDynamicDataComponent } from './Components/multipleStep_registration/Passing-dynamic-data/Passing-dynamic-data.component';
-import { ViewAcceptedPurposalComponent } from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
 
 import { AuthService } from './service/auth.service';
 import { AuthGuard } from './auth.guard';
+import { ViewAcceptedPurposalComponent } from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
+import {InputNumberModule} from 'primeng/inputnumber';
+
 
 // import {CalendarModule} from 'primeng/calendar';
 
@@ -173,8 +174,8 @@ import { userTypeGuard } from './userType.guard';
     InputTextareaModule,
 
     //registeration
-
     ReactiveFormsModule,
+    InputNumberModule
   ],
   providers: [AuthService ,AuthGuard, userTypeGuard],
   bootstrap: [AppComponent],

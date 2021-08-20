@@ -4,7 +4,7 @@ import { AuthService } from './service/auth.service';
 
 @Injectable()
 export class userTypeGuard implements CanActivate {
-  base_url: string = '';
+//   base_url: string = '';
 
   constructor(private router: Router, private authService: AuthService) {}
 

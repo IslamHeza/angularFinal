@@ -17,7 +17,7 @@ export class HomeSection6Component implements OnInit {
   getReviews() {
     this.ReviewsService.getAllReviews().subscribe((res: any) => {
       this.Reviews = res;
-      console.log(res);
+      // console.log(res);
     });
   }
 

@@ -9,23 +9,24 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private userservice: UserService, private router: Router) { }
+  constructor(private userservice: UserService, private router: Router) { }
 
-  email="";
-  password="";
+  email = "";
+  password = "";
 
-  data:any;
+  data: any;
 
 
 
   ngOnInit() {
+
   }
 
   login(){
 
 return this.userservice.checkCookie().subscribe(res=>
   {
-    this.userservice.login({email: this.email ,password:this.password}).subscribe(res=>{
+    this.userservice.login({email: this.email ,password:this.password}).subscribe(async res=>{
       // console.log({res});
       this.data = res;
       // localStorage.setItem('data',JSON.stringify(this.data));
@@ -35,14 +36,21 @@ return this.userservice.checkCookie().subscribe(res=>
       localStorage.setItem('type',JSON.stringify((this.data.user.type)));
 
       this.router.navigate(['']);
-      // this.userservice.isLoggedin = true;
+      if(await this.router.navigate([''])){
+        location.reload()
+      }
+    // this.userservice.isLoggedin = true;
     })
 
-  })
+    })
 
 
 
 
   }
+
+
+
+
 
 }

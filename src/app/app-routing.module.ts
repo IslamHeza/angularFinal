@@ -46,8 +46,7 @@ const routes: Routes = [
   {
     path: 'addportfolio',
     component: AddPortfolioComponent,
-    canActivate: [userTypeGuard],
-  },
+    canActivate: [userTypeGuard]   },
   {
     path: 'editportfolio/:id',
     component: EditPortfolioComponent,
@@ -67,7 +66,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'addproject', component: CreateComponent },
+  { path: 'addproject', component: CreateComponent , canActivate: [AuthGuard]},
   { path: 'listproject', component: ListComponent },
   { path: 'editproject/:id', component: EditComponent },
   { path: 'viewproject/:id', component: ViewComponent },

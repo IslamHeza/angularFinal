@@ -23,9 +23,7 @@ export class ProgressComponent implements OnInit {
     this.countProjects(this.userId,'done');
 
     if (this.pending + this.processing + this.completed == 0){
-      this.empty=true ;
-      console.log(this.empty);
-      
+      this.empty=true ; 
     }
     // this.chart();
     // this.pending = this.countProjects(1, 'pending');

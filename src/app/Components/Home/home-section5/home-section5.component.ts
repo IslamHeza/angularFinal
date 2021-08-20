@@ -18,7 +18,7 @@ export class HomeSection5Component implements OnInit {
   getProjects() {
     this.ProjectsService.getProjects().subscribe(res => {
       this.Projects = res;
-      console.log(this.numbers)
+      // console.log(this.numbers)
     });
   }
 }

@@ -38,7 +38,6 @@ export class ViewComponent implements OnInit {
   url: any;
   //  project:Project = new Project ()
 
-  //*************islam******************//
   userData: any;
   onlineUser: User = new User();
 
@@ -117,7 +116,8 @@ export class ViewComponent implements OnInit {
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(
       (res) => {
         this.project = res;
-        this.project.status = 'processing';
+        this.project.status = 'proccessing';
+        console.log(this.project.status);
 
         this.ProjectService.updateProject(
           this.route.snapshot.params.id,

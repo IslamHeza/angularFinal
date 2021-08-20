@@ -17,8 +17,8 @@ export class PortfolioService {
     'Authorization':'Bearer '+JSON.parse(localStorage.getItem('token')||'{}')
   })
 
-  getAllPortfolios(){
-    return this.httpClient.get(this.baseURL);
+  getAllPortfolio(id:any){
+    return this.httpClient.get(this.baseURL+'all/'+id);
   }
 
   getPortfolio(id:any){

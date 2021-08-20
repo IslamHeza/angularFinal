@@ -38,15 +38,25 @@
             <div class="form-group row my-3">
                 <label class="col-sm-2 col-form-label"> Budget</label>
                 <div class="col-sm-10">
-                    <input type="Text" name="budget" [(ngModel)]="purposal.budget" class="form-control" placeholder="Enter  budget for this project">
+                    <p-inputNumber [(ngModel)]="purposal.budget" name="budget" [showButtons]="true" mode="currency" currency="USD"></p-inputNumber>
+                    <!-- <input type="Text" [(ngModel)]="purposal.budget" class="form-control" placeholder="Enter  budget for this project"> -->
                 </div>
             </div>
-            <div class="form-group row my-3">
-                <label class="col-sm-2 col-form-label">Time</label>
-                <div class="col-sm-10">
-                    <p-inputMask [(ngModel)]="purposal.time" mask="2029-99-99"></p-inputMask>
-                    <!-- <p-calendar [(ngModel)]="purposal.time"></p-calendar> -->
+            <label for="project-time">Time</label>
+            <div class="form-control row my-3">
+
+                <div class="col-md-6">
+                    <p class="text m-1">Choose a time you need to finish project:
+                    </p>
+                    <!-- <p-calendar [(ngModel)]="purposal.time" name="project-time" dateFormat="yy-mm-dd-hh-mm" hourFormat="12"></p-calendar> -->
+                    <input class="form-control input-md" type="datetime-local" id="project-time" name="project-time" [(ngModel)]="purposal.time" value="2021-08-12T19:30" min="2021-08-20T00:00" max="2025-08-01T00:00">
                 </div>
+
+                <!-- <label class="col-sm-2 col-form-label">Time</label>
+                <div class="col-sm-10">
+                    <p-inputMask [(ngModel)]="purposal.time" mask="2029-99-99"></p-inputMask> -->
+                <!-- <p-calendar [(ngModel)]="purposal.time"></p-calendar> -->
+                <!-- </div> -->
             </div>
             <!-- <div class="col-lg-10 col-sm-10 m-2"> -->
             <label class="control-label m-2" for="CoverLetter">Cover Letter</label>
