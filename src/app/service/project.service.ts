@@ -16,7 +16,6 @@ export class ProjectService {
   baseUrl="http://localhost:8000/api/project/";
   Url="http://localhost:8000/api/contact";
   RUrl="http://localhost:8000/api//review/";
-
   MostProjectsURL= "http://localhost:8000/api/mostProjects";
   headers = new HttpHeaders({
     'Content-Type':'application/json',

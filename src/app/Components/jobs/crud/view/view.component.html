@@ -48,6 +48,7 @@
             </ul>
             <div class="purposal_btn" *ngIf="(onlineUser.type =='developer') || ( project.owner_id == !onlineUser.id) ">
                 <!-- <div class="purposal_btn" *ngIf="(onlineUser.type =='developer') && (project.id != purposal.project_id && project.developer_id != purposal.developer_id ) || ( project.owner_id == !onlineUser.id) "> -->
+
                 <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a
                     Purposal</button>
             </div>

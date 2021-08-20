@@ -37,19 +37,18 @@
                                 <div class="col-lg-10 col-sm-10 mb-2">
                                     <div class="form-control">
                                         <label class="control-label" for="email">Email</label>
-                                        <<<<<<< HEAD <input class="form-control input-md m-1" #Email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="Email" name="email" type="text" [(ngModel)]="user.email">
-                                            =======
-                                            <input class="form-control input-md m-1" #Email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="Email" name="email" type="text" [(ngModel)]="email.email"> >>>>>>> 9a6df11228a3dca810d8a58c6e43dd262c9bd65b
-                                            <div *ngIf="Email.invalid && (Email.dirty || Email.touched)" class="alert alert-danger">
-                                                <div *ngIf="Email.errors?.required">
-                                                    Email is required.
-                                                </div>
-                                                <div *ngIf="Email.errors?.pattern">
-                                                    Email must be valid
-                                                </div>
+                                        <input class="form-control input-md m-1" #Email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="Email" name="email" type="text" [(ngModel)]="user.email">
+                                        <input class="form-control input-md m-1" #Email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="Email" name="email" type="text" [(ngModel)]="email.email">
+                                        <div *ngIf="Email.invalid && (Email.dirty || Email.touched)" class="alert alert-danger">
+                                            <div *ngIf="Email.errors?.required">
+                                                Email is required.
                                             </div>
+                                            <div *ngIf="Email.errors?.pattern">
+                                                Email must be valid
+                                            </div>
+                                        </div>
 
-                                            <!-- <div class="alert alert-danger" [hidden]="Email.valid || Email.pristine">Email is required and must be valid</div> -->
+                                        <!-- <div class="alert alert-danger" [hidden]="Email.valid || Email.pristine">Email is required and must be valid</div> -->
                                     </div>
                                 </div>
                             </div>
@@ -58,11 +57,11 @@
                                     <div class="form-control">
                                         <label class="control-label" for="Password">Password</label>
                                         <div class="col-lg-8 col-sm-10 m-1 ">
-                                            <<<<<<< HEAD <p-password [(ngModel)]="user.password" #Password="ngModel">
-                                                </p-password>
-                                                =======
-                                                <p-password [(ngModel)]="email.password" #Password="ngModel"></p-password>
-                                                >>>>>>> 9a6df11228a3dca810d8a58c6e43dd262c9bd65b
+                                            <p-password [(ngModel)]="user.password" #Password="ngModel">
+                                            </p-password>
+
+                                            <p-password [(ngModel)]="email.password" #Password="ngModel"></p-password>
+
                                         </div>
                                         <!-- <input type="password" Password class="form-control input-md m-1" #Password="ngModel" required id="Password" pattern="^[^\s@]{2,}$" name="Password" type="text" placeholder="Password" [(ngModel)]="email.password"> -->
 
@@ -81,8 +80,8 @@
 
 
                             <div class="form-control text-center">
-                                <<<<<<< HEAD <!-- <button type="submit" class="btn btn-success btn-outline-rounded btn-info " (click)="register()">next</button> --> ======= >>>>>>> 9a6df11228a3dca810d8a58c6e43dd262c9bd65b
-                                    <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!emailForm.valid" (click)="goToNext(emailForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+                                <!-- <button type="submit" class="btn btn-success btn-outline-rounded btn-info " (click)="register()">next</button> -->
+                                <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!emailForm.valid" (click)="goToNext(emailForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
                             </div>
 
                         </div>

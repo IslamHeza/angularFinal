@@ -61,7 +61,6 @@ export class CreateComponent implements OnInit {
     });
     this.form.get('file')?.updateValueAndValidity();
     console.log(file);
-
   }
 
   onSubmit() {
