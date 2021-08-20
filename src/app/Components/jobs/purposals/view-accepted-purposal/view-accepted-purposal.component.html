@@ -1,0 +1,81 @@
+<div class="purposal_container">
+
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+            <div class="col-md-5 col ">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a routerLink="/profile/{{user.id}}">
+                            <img src="http://localhost:8000/storage/users/{{user.image}}" height="150px" class="card-img-top" alt="...">
+                        </a>
+                    </div>
+                    <div class="col-10 mt-2">
+                        <h4> {{(user.name) + " " +(user.lname)}} </h4>
+                        <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                    </div>
+                </div>
+
+
+
+                <ul class="data row ">
+
+                    <li class="col-md-8">
+                        <p> Cover letter : </p> {{purposal.cover_letter}}
+                    </li>
+                    <li class="col-md-8">
+                        <p> Budget : </p> {{purposal.budget}}
+                    </li>
+                    <li class="col-md-8">
+                        <p> Time : </p>{{purposal.time}}
+                    </li>
+
+
+
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-md-5 col">
+
+
+
+
+                <h4> Job Details </h4>
+
+
+                <ul class="data">
+                    <!-- <li>
+                        <p> Status : </p>
+                         <h5 class="card-title" name="status" [(ngModel)]="project.status">
+                    {{project.status}}</h5>
+                    </li> -->
+                    <li class="col-md-5">
+                        <p> Project name : </p> {{project.title}}
+                    </li>
+                    <li class="col-md-5">
+                        <p> Category : </p> {{project.cat_name}}
+                    </li>
+                    <li class="col-md-5">
+                        <p> Description : </p>{{project.description}}
+                    </li>
+                    <li class="col-md-5">
+                        <p> Budget : </p>{{project.budget}}
+                    </li>
+                    <li class="col-md-5">
+                        <p> Location : </p>{{project.location}}
+                    </li>
+                </ul>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
