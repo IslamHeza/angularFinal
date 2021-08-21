@@ -2,13 +2,18 @@
   background-color: #f2f1ef;
   border-radius: 5px;
 }
-
+.nav-link{
+  color:#053742;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+  color:#88c417;
+}
 .filter{
   margin: 2em;
 }
 .Head{
   height:400px;
- 
+
   background-color: #f2f1ef;
   margin-bottom: 1rem;
 
@@ -75,10 +80,10 @@ h5{
 #btn:hover{
   background-color: white;
  }
- 
+
 
 @media screen and (max-width: 800px) {
- 
+
 .Search{
   margin-left: 10%;
   width: 200px;
