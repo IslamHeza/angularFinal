@@ -22,11 +22,6 @@ export class LeftComponent implements OnInit {
 
   constructor(private userService:UserService,private route:ActivatedRoute) { }
   ngOnInit(): void {
-    if(this.user.type=="client"){
-      this.checkUser=true;
-    }else{
-      this.checkUser=false;
-    }
     this.onlineUser.id = localStorage.getItem('id');
   this.getUser(this.onlineUser.id);
     this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
@@ -42,6 +37,11 @@ export class LeftComponent implements OnInit {
     this.userData = res;
     this.onlineUser = this.userData;
     console.log(this.onlineUser.type);
+    if(this.onlineUser.type=="client"){
+      this.checkUser=true;
+    }else{
+      this.checkUser=false;
+    }
 
   });
 }
