@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
       this.userData = res;
       this.onlineUser = this.userData;
 
-      this.router.navigate(['']);
+      // this.router.navigate(['']);
 
     });
 
