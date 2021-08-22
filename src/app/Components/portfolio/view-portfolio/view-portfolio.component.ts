@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PortfolioService } from 'src/app/service/portfolio.service';
 import { Portfolio } from 'src/app/_models/Portfolio';
 import { UserService } from 'src/app/service/user.service';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-view-portfolio',
@@ -15,17 +16,19 @@ export class ViewPortfolioComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private portfolioService: PortfolioService,
-  ) {}
+    private router:Router
+  ) { 
+  this.userId = localStorage.getItem('id');
+  }
+  items: MenuItem[] = [];
 
-  freelancerName:string='John Do';
 
   portfolio:Portfolio = new Portfolio();
   data:any;
   user : any ;
   userId : any ;
-
+  
   ngOnInit(): void {
-    this.userId = localStorage.getItem('id');
     this.getUser(this.userId);
 
     this.portfolioService
@@ -35,6 +38,16 @@ export class ViewPortfolioComponent implements OnInit {
         this.portfolio = this.data;
         console.log(this.portfolio);
       });
+
+      this.items = [
+        {label: 'Edit', icon: 'pi pi-refresh', routerLink: [`/editportfolio/${this.route.snapshot.params.id}`]},
+        {separator:true},
+        {label: 'Delete', icon: 'pi pi-times', command: () => {
+            this.deletePortfolio(this.portfolio.id );
+        }},
+    ];
+
+
   }
 
   getUser(id: any) {
@@ -43,4 +56,19 @@ export class ViewPortfolioComponent implements OnInit {
     });
   }
 
+  activeEdit(){
+    if(this.user.type == 'developer'){
+      return true ;
+    } else {
+      return false ;
+    }
+}
+
+deletePortfolio( id: any) {
+  return this.portfolioService.deletePortfolio(id).subscribe((res) => {
+    this.router.navigate(['listportfolio']);
+  });
+}
+
+  
 }
