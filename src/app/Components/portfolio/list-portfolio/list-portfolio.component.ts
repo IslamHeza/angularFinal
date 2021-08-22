@@ -22,13 +22,13 @@ export class ListPortfolioComponent implements OnInit {
 
   ngOnInit(): void {
     this.userid = localStorage.getItem('id');
-    this.getAllPortfolios();
+    this.getAllPortfolio(this.userid);
     this.getUser(this.userid) ;
   }
 
   //logic
-  getAllPortfolios() {
-    this.portfoilioService.getAllPortfolios().subscribe((res) => {
+  getAllPortfolio(id:any) {
+    this.portfoilioService.getAllPortfolio(id).subscribe((res) => {
       console.log(res);
       this.allPortfolios = res;
     });
@@ -39,7 +39,7 @@ export class ListPortfolioComponent implements OnInit {
   deletePortfolio(event: any, id: any) {
     event.preventDefault();
     return this.portfoilioService.deletePortfolio(id).subscribe((res) => {
-      this.getAllPortfolios();
+      this.getAllPortfolio(this.userid);
     });
   }
 

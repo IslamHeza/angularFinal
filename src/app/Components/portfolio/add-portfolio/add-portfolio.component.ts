@@ -21,6 +21,8 @@ import {
 })
 export class AddPortfolioComponent implements OnInit {
   form: FormGroup;
+  submitted = false;
+
   userId : any ;
 
   constructor(
@@ -33,8 +35,8 @@ export class AddPortfolioComponent implements OnInit {
   ) 
   {
     this.form = this.formBuilder.group({
-      name: [''],
-      description: [''],
+      name: ['' , Validators.required],
+      description: ['', Validators.required],
       image: [null],
       link: [''],
       skills: [[]],
@@ -47,6 +49,14 @@ export class AddPortfolioComponent implements OnInit {
   ngOnInit(): void {
     this.userId = localStorage.getItem('id');  
   }
+
+  get formControl() {
+    return this.form.controls;
+  }
+
+
+
+
   uploadImage(event: any) {
     const file = event.target.files[0];
     this.form.patchValue({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/service/project.service';
+// import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-progress',
@@ -13,6 +14,7 @@ export class ProgressComponent implements OnInit {
   processing: any = 0;
   completed: any = 0;
   userId : any ;
+  empty:any = false ;
 
   ngOnInit() {
     this.userId = localStorage.getItem('id');
@@ -20,6 +22,9 @@ export class ProgressComponent implements OnInit {
     this.countProjects(this.userId,'processing');
     this.countProjects(this.userId,'done');
 
+    if (this.pending + this.processing + this.completed == 0){
+      this.empty=true ; 
+    }
     // this.chart();
     // this.pending = this.countProjects(1, 'pending');
     // console.log(this.pending);

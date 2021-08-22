@@ -2,20 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {PasswordModule} from 'primeng/password'; //add input password from primeng
-import {ChipsModule} from 'primeng/chips';
-import {CalendarModule} from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PasswordModule } from 'primeng/password'; //add input password from primeng
+import { ChipsModule } from 'primeng/chips';
+import { CalendarModule } from 'primeng/calendar';
 import { HttpClientModule } from '@angular/common/http';
-
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import {FileUploadModule} from 'primeng/fileupload';
+import { FileUploadModule } from 'primeng/fileupload';
 
 //for toastr popup after uploading files
 import { CommonModule } from '@angular/common';
@@ -28,15 +25,15 @@ import { ProgressComponent } from './Components/freelancerDashboard/progress/pro
 import { ActiveJobsComponent } from './Components/freelancerDashboard/active-jobs/active-jobs.component';
 import { FeedsComponent } from './Components/freelancerDashboard/feeds/feeds.component';
 import { HomeFreelancerDashboardComponent } from './Components/freelancerDashboard/home-freelancer-dashboard/home-freelancer-dashboard.component';
-import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import {MenuItem} from 'primeng/api';                  //api
+import { AccordionModule } from 'primeng/accordion'; //accordion and accordion tab
+import { MenuItem } from 'primeng/api'; //api
 import { ChartModule } from 'primeng/chart';
-import {RatingModule} from 'primeng/rating';
+import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { ListPortfolioComponent } from './Components/portfolio/list-portfolio/list-portfolio.component';
 import { AddPortfolioComponent } from './Components/portfolio/add-portfolio/add-portfolio.component';
 import { EditPortfolioComponent } from './Components/portfolio/edit-portfolio/edit-portfolio.component';
-import {CardModule} from 'primeng/card';
+import { CardModule } from 'primeng/card';
 import { ViewPortfolioComponent } from './Components/portfolio/view-portfolio/view-portfolio.component';
 import { TagModule } from 'primeng/tag';
 import { CatagoriesComponent } from './Components/catagory/catagories/catagories.component';
@@ -66,7 +63,7 @@ import { HomeComponent } from './Components/Home/home/home.component';
 import { NavbarComponent } from './Components/Shared/navbar/navbar.component';
 
 //signup&login
-
+import { PassingDynamicDataComponent } from './Components/multipleStep_registration/Passing-dynamic-data/Passing-dynamic-data.component';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { LoginComponent } from './Components/Login/login/login.component';
@@ -75,6 +72,8 @@ import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/R
 import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
 import { SubmitPurposalComponent } from './Components/jobs/purposals/submit-purposal/submit-purposal.component';
 
+import { AuthService } from './service/auth.service';
+import { AuthGuard } from './auth.guard';
 import { ViewAcceptedPurposalComponent } from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
 import {InputNumberModule} from 'primeng/inputnumber';
 
@@ -83,14 +82,13 @@ import {InputNumberModule} from 'primeng/inputnumber';
 
 //
 
-
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
 import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
 import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
-
+import { userTypeGuard } from './userType.guard';
 
 @NgModule({
   declarations: [
@@ -135,11 +133,11 @@ import { AddReviewComponent } from './Components/jobs/add-review/add-review.comp
     LoginComponent,
     ForgetPasswordComponent,
     ResetNewPasswordComponent,
-//submit porposal on project
-SubmitPurposalComponent,
-ViewAcceptedPurposalComponent,
-
-
+    //submit porposal on project
+    SubmitPurposalComponent,
+    ViewAcceptedPurposalComponent,
+    //passing data
+    PassingDynamicDataComponent,
 
     CreateComponent,
     ListComponent,
@@ -147,10 +145,6 @@ ViewAcceptedPurposalComponent,
     EditComponent,
     ViewComponent,
     AddReviewComponent,
-
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -184,10 +178,10 @@ ViewAcceptedPurposalComponent,
 //purposal
 InputNumberModule,
 
-  ],
-  providers: [
+
 
   ],
-  bootstrap: [AppComponent]
+  providers: [AuthService ,AuthGuard, userTypeGuard],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

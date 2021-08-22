@@ -14,19 +14,14 @@ import { EditPortfolioComponent } from './Components/portfolio/edit-portfolio/ed
 import { ListPortfolioComponent } from './Components/portfolio/list-portfolio/list-portfolio.component';
 import { ViewPortfolioComponent } from './Components/portfolio/view-portfolio/view-portfolio.component';
 
-
-
- //signup &login
+//signup &login
 import { MultipleStep_registrationComponent } from './Components/multipleStep_registration/multipleStep_registration.component';
-import { LoginComponent } from "./Components/Login/login/login.component";
+import { LoginComponent } from './Components/Login/login/login.component';
 import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/ResetNewPassword.component';
-import { ForgetPasswordComponent } from "./Components/Login/forgetPassword/forgetPassword.component";
+import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
 //submit purposal
 import { SubmitPurposalComponent } from './Components/jobs/purposals/submit-purposal/submit-purposal.component';
-import { ViewAcceptedPurposalComponent} from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
-
-
-
+import { ViewAcceptedPurposalComponent } from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
 
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
 import { ListComponent } from './Components/jobs/crud/list/list.component';
@@ -34,49 +29,65 @@ import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
 import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
 
+//
+import { AuthGuard } from './auth.guard';
+import { userTypeGuard } from './userType.guard';
+
 const routes: Routes = [
-  {path:"Categories",component:CatagoriesComponent },
-  {path:"Categories/:name",component: SelectedCatComponent },
-  {path:"dashboard",component:HomeFreelancerDashboardComponent},
-  {path:"listportfolio",component:ListPortfolioComponent},
-  {path:"viewportfolio/:id",component:ViewPortfolioComponent},
-  {path:"addportfolio",component:AddPortfolioComponent},
-  {path:"editportfolio/:id" , component:EditPortfolioComponent},
+  { path: 'Categories', component: CatagoriesComponent },
+  { path: 'Categories/:name', component: SelectedCatComponent },
+  {
+    path: 'dashboard',
+    component: HomeFreelancerDashboardComponent,
+    canActivate: [userTypeGuard],
+  },
+  { path: 'listportfolio', component: ListPortfolioComponent },
+  { path: 'viewportfolio/:id', component: ViewPortfolioComponent },
+  {
+    path: 'addportfolio',
+    component: AddPortfolioComponent,
+    canActivate: [userTypeGuard]   },
+  {
+    path: 'editportfolio/:id',
+    component: EditPortfolioComponent,
+    canActivate: [userTypeGuard],
+  },
 
-  {path:"profile",component:ProfileComponent},
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
 
-  {path:"profile/:id",component:ProfileComponent},
+  { path: 'profile/:id', component: ProfileComponent },
 
-  {path:"setting/:id",component:SettingComponent},
-  {path:"editProfile",component:EditprofileComponent},
-  {path:"contact",component:ContactComponent},
-  {path:"about",component: AboutComponent},
-  {path:"home",component:HomeComponent},
-  {path:"addproject",component:CreateComponent},
-  {path:"listproject",component:ListComponent},
-  {path:"editproject/:id",component: EditComponent },
-  {path:"viewproject/:id",component: ViewComponent },
+  {
+    path: 'setting/:id',
+    component: SettingComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'editProfile', component: EditprofileComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'addproject', component: CreateComponent , canActivate: [AuthGuard]},
+  { path: 'listproject', component: ListComponent },
+  { path: 'editproject/:id', component: EditComponent },
+  { path: 'viewproject/:id', component: ViewComponent },
 
+  { path: 'addReview/:id/:developer_id', component: AddReviewComponent },
 
-  {path:"addReview/:id/:developer_id",component: AddReviewComponent },
-
-//registration
-  {path:'signUp',component:MultipleStep_registrationComponent},
+  //registration
+  { path: 'signUp', component: MultipleStep_registrationComponent },
   //login
-  { path: "login", component:LoginComponent},
-  { path:"forgetPassword", component:ForgetPasswordComponent},
-  { path:"resetPassword", component:ResetNewPasswordComponent},
-//purposal
-  { path:"purposal/:id", component:SubmitPurposalComponent},
-  {path:"viewAcceptPurposal/:id",component:ViewAcceptedPurposalComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'forgetPassword', component: ForgetPasswordComponent },
+  { path: 'resetPassword', component: ResetNewPasswordComponent },
+  //purposal
+  { path: 'purposal/:id', component: SubmitPurposalComponent },
+  { path: 'viewAcceptPurposal/:id', component: ViewAcceptedPurposalComponent },
 
-
-  {path:"",redirectTo:"home" , pathMatch:"full"}
-
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

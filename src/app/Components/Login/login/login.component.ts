@@ -22,22 +22,25 @@ export class LoginComponent implements OnInit {
 
   }
 
-  login() {
+  login(){
 
-    return this.userservice.checkCookie().subscribe( res => {
-      this.userservice.login({ email: this.email, password: this.password }).subscribe(async res => {
-        // console.log({res});
-        this.data = res;
-        // localStorage.setItem('data',JSON.stringify(this.data));
-        localStorage.setItem('token', JSON.stringify(this.data.token));
-        // console.log(this.data.token);
-        localStorage.setItem('id', JSON.stringify((this.data.user.id)));
-        this.router.navigate(['']);
-        if(await this.router.navigate([''])){
-          location.reload()
-        }
-        this.userservice.isLoggedin = true;
-      })
+return this.userservice.checkCookie().subscribe(res=>
+  {
+    this.userservice.login({email: this.email ,password:this.password}).subscribe(async res=>{
+      // console.log({res});
+      this.data = res;
+      // localStorage.setItem('data',JSON.stringify(this.data));
+      localStorage.setItem('token', JSON.stringify(this.data.token));
+      console.log(this.data.token);
+      localStorage.setItem('id',JSON.stringify((this.data.user.id)));
+      localStorage.setItem('type',JSON.stringify((this.data.user.type)));
+
+      this.router.navigate(['']);
+      if(await this.router.navigate([''])){
+        location.reload()
+      }
+    // this.userservice.isLoggedin = true;
+    })
 
     })
 

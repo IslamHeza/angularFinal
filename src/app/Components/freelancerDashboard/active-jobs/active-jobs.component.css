@@ -6,3 +6,6 @@
 .title{
     cursor: pointer;
 }
+.empty{
+    text-align: center;
+}
