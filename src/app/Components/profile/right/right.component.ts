@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faComment } from '@fortawesome/free-regular-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { ReviewsService } from 'src/app/service/reviews.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/_models/user';
@@ -10,7 +12,8 @@ import { User } from 'src/app/_models/user';
   styleUrls: ['./right.component.css']
 })
 export class RightComponent implements OnInit {
-
+  faComment=faComment;
+  faHome=faHome;
   allUsers:any=[]
   user = new User;
   data:any;
