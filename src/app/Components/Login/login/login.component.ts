@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         if(await this.router.navigate([''])){
           location.reload()
         }
-        // this.userservice.isLoggedin = true;
+        this.userservice.isLoggedin = true;
       })
 
     })

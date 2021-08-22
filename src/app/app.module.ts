@@ -182,7 +182,7 @@ ViewAcceptedPurposalComponent,
     //registeration
     ReactiveFormsModule,
 //purposal
-InputNumberModule
+InputNumberModule,
 
   ],
   providers: [
