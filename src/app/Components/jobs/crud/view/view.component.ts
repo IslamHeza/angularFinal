@@ -62,7 +62,8 @@ export class ViewComponent implements OnInit {
     // this.check_purposal();
   }
   // check_purposal(){
-  //   if(this.onlineUser.id==this.purposal.developer_id && this.onlineUser.type =='developer' && this.purposal.project_id==this.project.id){
+  //   if(this.onlineUser.id==this.purposal.developer_id && this.onlineUser.type =='developer'
+  // && this.purposal.project_id==this.project.id){
   //     this.hide=true;
   //   }else if(this.onlineUser.type =='developer'){
   //     this.hide=false
