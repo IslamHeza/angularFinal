@@ -61,7 +61,7 @@
 
     <div class="container">
         <div class="row" *ngFor="let purposal of allpurposals">
-            <div class="card mb-3  headb" *ngIf="(purposal.project_id == project.id) && (onlineUser.type =='client') && ( project.owner_id === onlineUser.id)">
+            <div class="card mb-3  headb" *ngIf="(purposal.project_id == project.id) && (onlineUser.type =='client') && (project.owner_id == onlineUser.id)">
                 <div class="card-body">
                     <h5 class="text p-2">purposal</h5>
                     <!--

@@ -77,7 +77,15 @@ import { AuthService } from './service/auth.service';
 import { AuthGuard } from './auth.guard';
 import { ViewAcceptedPurposalComponent } from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
+import {RouterModule} from '@angular/router';
+
+// import { SpeedDialModule } from '/primeng/speeddial';
+
+// import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {RippleModule} from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
 
 
 // import {CalendarModule} from 'primeng/calendar';
@@ -171,6 +179,7 @@ import { userTypeGuard } from './userType.guard';
     CarouselModule,
     FileUploadModule,
     HttpClientModule,
+    SplitButtonModule,
     //toastr
     CommonModule,
     ToastrModule.forRoot(),

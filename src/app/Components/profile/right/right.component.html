@@ -1,14 +1,14 @@
-<div class="row">
+<div class="row" [hidden]="checkUser">
   <div class="col-md-12">
       <ul class="nav nav-tabs justify-content-end" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation" [hidden]="checkUser">
+          <li class="nav-item" role="presentation">
               <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Profile <fa-icon [icon]="faHome" aria-hidden="true"></fa-icon></button>
           </li>
           <li class="nav-item" role="presentation">
               <!-- <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile <fa-icon [icon]="faHome" aria-hidden="true"></fa-icon></button> -->
           </li>
           <li class="nav-item" role="presentation">
-              <button class="nav-link" [ngClass]="[checkUser ? 'active' : 'none']" id="feedback-tab" data-bs-toggle="tab" data-bs-target="#feedback" type="button" role="tab" aria-controls="feedback" aria-selected="false">feedback <fa-icon [icon]="faComment" aria-hidden="true"></fa-icon></button>
+              <button class="nav-link" id="feedback-tab" data-bs-toggle="tab" data-bs-target="#feedback" type="button" role="tab" aria-controls="feedback" aria-selected="false">feedback <fa-icon [icon]="faComment" aria-hidden="true"></fa-icon></button>
           </li>
       </ul>
   </div>
@@ -33,7 +33,7 @@
             </div>
         </div> -->
     </section>
-    <section class="content mt-5 tab-pane fade show" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
+    <section class="content mt-5 tab-pane fade show" [ngClass]="[checkUser ? 'active' : 'none']" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
         <div class="card">
             <div class="card-header bg-white text-left">
                 Feedback

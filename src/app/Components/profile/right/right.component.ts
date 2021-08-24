@@ -21,15 +21,15 @@ export class RightComponent implements OnInit {
   checkUser:any;
   constructor(private userService:UserService , private reviewService:ReviewsService,private route:ActivatedRoute) { }
   ngOnInit(): void {
-    if(this.user.type=="client"){
-      this.checkUser=true;
-    }else{
-      this.checkUser=false;
-    }
     this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
       this.data = res;
       this.user = this.data;
       // console.log(this.user);
+      if(this.user.type=="client"){
+        this.checkUser=true;
+      }else{
+        this.checkUser=false;
+      }
     });
     this.showReview();
 

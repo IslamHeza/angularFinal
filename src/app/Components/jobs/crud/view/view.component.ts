@@ -55,19 +55,19 @@ export class ViewComponent implements OnInit {
 
     this.view();
     this.showreview();
-    // this.get_purposal();
+    this.get_purposal();
     this.get_allpurposal();
     this.download();
     // this.hide=!(this.purposal.developer_id== this.onlineUser && this.onlineUser.type=='developer')
-    this.check_purposal();
+    // this.check_purposal();
   }
-  check_purposal(){
-    if(this.onlineUser.id==this.purposal.developer_id && this.onlineUser.type =='developer' && this.purposal.project_id==this.project.id){
-      this.hide=true;
-    }else if(this.onlineUser.type =='developer'){
-      this.hide=false
-    }
-  }
+  // check_purposal(){
+  //   if(this.onlineUser.id==this.purposal.developer_id && this.onlineUser.type =='developer' && this.purposal.project_id==this.project.id){
+  //     this.hide=true;
+  //   }else if(this.onlineUser.type =='developer'){
+  //     this.hide=false
+  //   }
+  // }
   getUser(id: any) {
     return this.userservice.getUser(id).subscribe((res) => {
       this.userData = res;
@@ -169,15 +169,15 @@ export class ViewComponent implements OnInit {
   //   });
   // }
 
-  // get_purposal(){
+  get_purposal(){
 
-  //   this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
-  //     this.purposal=response;
-  //     // this.purposal.project_id=this.project.id
-  //     console.log(response);
+    this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
+      this.purposal=response;
+      // this.purposal.project_id=this.project.id
+      console.log(response);
 
-  //   });
-  // }
+    });
+  }
 
   accept_purposal() {
     this.project.status = 'processing';
