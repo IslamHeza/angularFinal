@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import{ReactiveFormsModule} from '@angular/forms'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordModule } from 'primeng/password'; //add input password from primeng
 import { ChipsModule } from 'primeng/chips';
 import { CalendarModule } from 'primeng/calendar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -72,10 +72,12 @@ import { ResetNewPasswordComponent } from './Components/Login/ResetNewPassword/R
 import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forgetPassword.component';
 import { SubmitPurposalComponent } from './Components/jobs/purposals/submit-purposal/submit-purposal.component';
 
+
 import { AuthService } from './service/auth.service';
 import { AuthGuard } from './auth.guard';
 import { ViewAcceptedPurposalComponent } from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
 import {InputNumberModule} from 'primeng/inputnumber';
+
 
 
 // import {CalendarModule} from 'primeng/calendar';
@@ -89,6 +91,8 @@ import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
 import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
 import { userTypeGuard } from './userType.guard';
+
+
 
 @NgModule({
   declarations: [
@@ -139,12 +143,15 @@ import { userTypeGuard } from './userType.guard';
     //passing data
     PassingDynamicDataComponent,
 
+
+
     CreateComponent,
     ListComponent,
     ProjectPipe,
     EditComponent,
     ViewComponent,
     AddReviewComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -164,7 +171,6 @@ import { userTypeGuard } from './userType.guard';
     CarouselModule,
     FileUploadModule,
     HttpClientModule,
-
     //toastr
     CommonModule,
     ToastrModule.forRoot(),
@@ -181,7 +187,8 @@ InputNumberModule,
 
 
   ],
-  providers: [AuthService ,AuthGuard, userTypeGuard],
+  providers: [AuthService ,AuthGuard, userTypeGuard,
+   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

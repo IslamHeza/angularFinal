@@ -46,7 +46,7 @@
 
 
             </ul>
-            <div class="purposal_btn" *ngIf="(onlineUser.type =='developer') || ( project.owner_id == !onlineUser.id) ">
+            <div class="purposal_btn" *ngIf="(onlineUser.type =='developer')  || ( project.owner_id == !onlineUser.id)">
                 <!-- <div class="purposal_btn" *ngIf="(onlineUser.type =='developer') && (project.id != purposal.project_id && project.developer_id != purposal.developer_id ) || ( project.owner_id == !onlineUser.id) "> -->
 
                 <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a
@@ -64,7 +64,8 @@
             <div class="card mb-3  headb" *ngIf="(purposal.project_id == project.id) && (onlineUser.type =='client') && ( project.owner_id === onlineUser.id)">
                 <div class="card-body">
                     <h5 class="text p-2">purposal</h5>
-
+                    <!--
+                    {{purposal.developer_id}}=>{{user_of_purposal.name}} -->
                     <ul class="data row ">
 
                         <li class="col-md-8">

@@ -23,7 +23,7 @@
                     <!-- </li> -->
                 </ul>
                 <ul class="navbar-nav col-4"></ul>
-                <ul class="navbar-nav ms-5 me-0 mb-2 mb-lg-0 mx-0" *ngIf="(!onlineUser.id)">
+                <ul class="navbar-nav ms-5 me-0 mb-2 mb-lg-0 mx-0" *ngIf="(!token)">
 
                     <li class="nav-item mx-md-0">
                         <!-- <li class="nav-item mx-md-0" *ngIf="isLoggedIn()"></li> -->
@@ -54,7 +54,7 @@
 
                 </ul>
 
-                <ul class="navbar-nav ms-5 me-0 mb-2 mb-lg-0 mx-0" *ngIf="(onlineUser.id)">
+                <ul class="navbar-nav ms-5 me-0 mb-2 mb-lg-0 mx-0" *ngIf="(token)">
                     <div class="dropdown">
 
                         <li class="nav-item dropdown">
