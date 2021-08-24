@@ -62,3 +62,7 @@ li p {
 a {
     text-decoration: none;
 }
+.deal{
+    display: flex;
+    align-items: center;
+}

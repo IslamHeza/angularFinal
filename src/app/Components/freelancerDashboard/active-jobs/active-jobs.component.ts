@@ -14,17 +14,19 @@ export class ActiveJobsComponent implements OnInit {
   ActivProjects: any = [];
   data: any;
   userId : any ;
-  empty:any ;
+  empty : boolean = true ;
+
   ngOnInit(): void {
     this.userId = localStorage.getItem('id');  
     this.getActiveProjects(this.userId);
-    if (this.ActivProjects.length==0) this.empty= true ;
+   
   }
 
   getActiveProjects(id: any) {
     this.projectService.getActiveProjects(id).subscribe((res) => {
       this.data = res;
       this.ActivProjects = this.data;
+      if (this.ActivProjects.length != 0 ) this.empty= false ;
     });
   }
 

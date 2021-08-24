@@ -4,7 +4,7 @@
             <i class="mdi mdi-newspaper"></i>
             Active Jobs
           </a>      <hr class="mt-0">
-          <div class="empty" *ngIf="empty">
+          <div class="empty" *ngIf="empty==true">
             <p>There are no projects</p>
           </div>
       <div class="list-group active mb-1" *ngFor="let project of ActivProjects">

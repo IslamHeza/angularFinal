@@ -5,12 +5,12 @@
         </a>
         <hr class="my-0">
     </div>
-    <div class="empty" *ngIf="empty">
+    <div class="empty" *ngIf="empty==true">
         <p>
             There are no projects
         </p>
     </div>
-    <div *ngIf="!empty">
+    <div *ngIf="empty==false">
         <p-chart type="pie" name="progress" [data]="data"></p-chart>
     </div>
 </div>

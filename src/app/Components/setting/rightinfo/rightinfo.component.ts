@@ -28,7 +28,7 @@ export class RightinfoComponent implements OnInit {
     this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
       this.data = res;
       this.user = this.data;
-      this.imageSrc=this.data.image;
+      this.imageSrc="http://localhost:8000/storage/users/"+this.data.image;
       if(this.user.type=="client"){
         this.checkUser=true;
       }else{
