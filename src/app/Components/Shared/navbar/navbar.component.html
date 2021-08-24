@@ -23,7 +23,7 @@
                     <!-- </li> -->
                 </ul>
                 <ul class="navbar-nav col-4"></ul>
-                <ul class="navbar-nav ms-5 me-0 mb-2 mb-lg-0 mx-0" *ngIf="(!onlineUser.id)">
+                <ul class="navbar-nav ms-5 me-0 mb-2 mb-lg-0 mx-0" *ngIf="(!token)">
 
                     <li class="nav-item mx-md-0">
                         <!-- <li class="nav-item mx-md-0" *ngIf="isLoggedIn()"></li> -->
@@ -54,12 +54,12 @@
 
                 </ul>
 
-                <ul class="navbar-nav ms-5 me-0 mb-2 mb-lg-0 mx-0" *ngIf="(onlineUser.id)">
+                <ul class="navbar-nav ms-5 me-0 mb-2 mb-lg-0 mx-0" *ngIf="(token)">
                     <div class="dropdown">
 
                         <li class="nav-item dropdown">
                             <a class="navbar-brand nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              <span><img src="http://localhost:8000/storage/users/{{onlineUser.image}}" class="rounded-circle text-center" alt="userphoto" style="width: 50px; height: 50px;" aria-expanded="false"></span> {{(onlineUser.name)}}
+                                <span><img src="http://localhost:8000/storage/users/{{onlineUser.image}}" class="rounded-circle text-center" alt="userphoto" style="width: 50px; height: 50px;" aria-expanded="false"></span> {{(onlineUser.name)}}
                             </a>
 
 

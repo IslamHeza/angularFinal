@@ -32,6 +32,7 @@ export class ViewAcceptedPurposalComponent implements OnInit {
   // status:any;
   data: any;
   user : any = [];
+  status: any;
 
   ngOnInit(): void {
 
@@ -46,23 +47,24 @@ export class ViewAcceptedPurposalComponent implements OnInit {
         this.purposal=response;
 
         // console.log(this.purposal.project_id);
-        this.ProjectService.getProject(this.purposal.project_id).subscribe(res => {
-          this.project=res;
-          console.log(this.project.status);
-          this.rate_pro = this.project.rate;
+        // this.ProjectService.getProject(this.purposal.project_id).subscribe(res => {
+        //   this.project=res;
+        //   this.rate_pro = this.project.rate;
+        //   // this.status=this.project.status
 
-
-          console.log(res);
-          console.log(this.project.status);
-        });
+        //   console.log(res);
+        //   console.log(this.project.status);
+        // });
         this.userservice.getUser(this.purposal.developer_id).subscribe(res => {
           this.user=res;
-          this.rate = this.user.rate;
+          this.rate = this.user.rate
+
           console.log(res);
           this.ProjectService.getProject(this.purposal.project_id).subscribe(res => {
             this.project=res;
+            this.rate_pro = this.project.rate;
             this.project.developer_id=this.purposal.developer_id
-            this.ProjectService.updateProject(this.route.snapshot.params.id, this.project)
+            this.ProjectService.updateProject(this.purposal.project_id, this.project)
             .subscribe((res) => {
 
             });

@@ -32,7 +32,7 @@ export class AddPortfolioComponent implements OnInit {
     private formBuilder: FormBuilder
     // private toaster: ToastrService,
     // private http: HttpClient
-  ) 
+  )
   {
     this.form = this.formBuilder.group({
       name: ['' , Validators.required],
@@ -47,7 +47,7 @@ export class AddPortfolioComponent implements OnInit {
   data: any;
 
   ngOnInit(): void {
-    this.userId = localStorage.getItem('id');  
+    this.userId = localStorage.getItem('id');
   }
 
   get formControl() {
