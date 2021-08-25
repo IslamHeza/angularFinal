@@ -23,31 +23,29 @@ export class ProfileComponent implements OnInit {
   val:number=2;
   checkUser:any;
   // allUsers:any=[];
-  user = new User;
+  user = new User();
   data:any;
   constructor(private userService:UserService,private router:Router,private route:ActivatedRoute) { }
   ngOnInit(): void {
-    if(this.user.type=="client"){
-      this.checkUser=true;
-    }else{
-      this.checkUser=false;
-    }
     this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
       this.data = res;
       this.user = this.data;
       // console.log(this.user);
     })
+    if(this.user.type=="client"){
+      this.checkUser=true;
+    }else{
+      this.checkUser=false;
+    }
+    
   // }
   // getAllUsers(){
   //   return this.userService.getAllUsers().subscribe(res => {
-  //     // console.log(res);
-  //     this.allUsers = res;
   //   })
   }
   // deleteUser(e:any,id:any){
   //   e.preventDefault();
   //   return this.userService.deleteUser(id).subscribe(res => {
   //     this.getAllUsers();
-  //   })
   // }
 }

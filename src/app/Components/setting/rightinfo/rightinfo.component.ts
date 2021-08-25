@@ -25,15 +25,15 @@ export class RightinfoComponent implements OnInit {
   // form: any;
   constructor(private userService:UserService,private router:Router,private route:ActivatedRoute){}
   ngOnInit(): void {
-    if(this.user.type=="client"){
-      this.checkUser=true;
-    }else{
-      this.checkUser=false;
-    }
     this.userService.getUser(this.route.snapshot.params.id).subscribe(res =>{
       this.data = res;
       this.user = this.data;
-      this.imageSrc=this.data.image;
+      this.imageSrc="http://localhost:8000/storage/users/"+this.data.image;
+      if(this.user.type=="client"){
+        this.checkUser=true;
+      }else{
+        this.checkUser=false;
+      }
     })
     // this.createForm();
     // console.log(this.route.snapshot.params.id);

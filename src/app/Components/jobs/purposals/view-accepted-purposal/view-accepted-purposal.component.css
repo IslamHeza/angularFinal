@@ -55,10 +55,14 @@ li p {
     display: inline;
 }
 
-.dd {
+.data {
     margin-top: 3%;
 }
 
 a {
     text-decoration: none;
+}
+.deal{
+    display: flex;
+    align-items: center;
 }

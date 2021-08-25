@@ -3,6 +3,8 @@ import { ReviewsService } from 'src/app/service/reviews.service';
 import {Review} from 'src/app/_models/review';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import { User } from 'src/app/_models/user';
+import { UserService } from 'src/app/service/user.service';
 
 
 @Component({
@@ -12,22 +14,27 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AddReviewComponent implements OnInit {
 
+  myGroup:any;
   Review = new Review();
   rate: number = 0;
+  onlineUser: User = new User();
+  userData: any;
 
   changeRate(evant:any){
     this.rate = evant.value;
     this.Review.rate = this.rate;
     console.log(this.rate);
   }
-  constructor( private ReviewService: ReviewsService , private router:Router , private route: ActivatedRoute) {
+  constructor( private ReviewService: ReviewsService , private router:Router , private route: ActivatedRoute , private userservice: UserService) {
 
   }
 
 
   ngOnInit(): void {
+    this.onlineUser.id = localStorage.getItem('id');
+    this.getUser(this.onlineUser.id);
     this.Review.project_id = this.route.snapshot.params.project_id;
-    this.Review.rater_id = 1;
+    this.Review.rater_id = this.onlineUser.id;
     this.Review.ratee_id = this.route.snapshot.params.developer_id;
 
   }
@@ -39,6 +46,14 @@ export class AddReviewComponent implements OnInit {
      this.Review.rate = this.rate;
      this.router.navigate(['listproject']) ;
    })
+  }
+
+  getUser(id: any) {
+    return this.userservice.getUser(id).subscribe((res) => {
+      this.userData = res;
+      this.onlineUser = this.userData;
+
+    });
   }
 
 }

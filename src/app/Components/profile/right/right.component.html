@@ -17,7 +17,7 @@
             </div>
         </div> -->
     </section>
-    <section class="content mt-5 tab-pane fade show" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
+    <section class="content mt-5 tab-pane fade show" [ngClass]="[checkUser ? 'active' : 'none']" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
         <div class="card">
             <div class="card-header bg-white text-left">
                 Feedback

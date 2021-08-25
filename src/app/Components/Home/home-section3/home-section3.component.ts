@@ -20,7 +20,7 @@ export class HomeSection3Component implements OnInit {
   getCategories() {
     this.CategoryService.getAllCatagories().subscribe((res: any) => {
       this.Categories = res;
-      console.log(res);
+      // console.log(res);
     });
   }
   customOptions: OwlOptions = {

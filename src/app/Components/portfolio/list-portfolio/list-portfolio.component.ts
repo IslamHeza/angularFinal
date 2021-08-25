@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Portfolio } from 'src/app/_models/Portfolio';
 import { PortfolioService } from 'src/app/service/portfolio.service';
 import { UserService } from 'src/app/service/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ViewPortfolioComponent } from '../view-portfolio/view-portfolio.component';
 
 @Component({
   selector: 'app-list-portfolio',
@@ -11,37 +13,30 @@ import { UserService } from 'src/app/service/user.service';
 export class ListPortfolioComponent implements OnInit {
   constructor(
     private userService: UserService,
-    private portfoilioService: PortfolioService
+    private portfoilioService: PortfolioService,
+    private router: Router,
+
   ) {}
 
   //data
   allPortfolios: any = [];
-  freelancerName: string = 'John Do';
   data: any;
   userid : any ;
 
   ngOnInit(): void {
     this.userid = localStorage.getItem('id');
-    this.getAllPortfolios();
+    this.getAllPortfolio(this.userid);
     this.getUser(this.userid) ;
   }
 
   //logic
-  getAllPortfolios() {
-    this.portfoilioService.getAllPortfolios().subscribe((res) => {
+  getAllPortfolio(id:any) {
+    this.portfoilioService.getAllPortfolio(id).subscribe((res) => {
       console.log(res);
       this.allPortfolios = res;
     });
   }
 
-  updatePortfolios() {}
-
-  deletePortfolio(event: any, id: any) {
-    event.preventDefault();
-    return this.portfoilioService.deletePortfolio(id).subscribe((res) => {
-      this.getAllPortfolios();
-    });
-  }
 
   getUser(id: any) {
     return this.userService.getUser(id).subscribe((res) => {
@@ -49,5 +44,7 @@ export class ListPortfolioComponent implements OnInit {
     });
   }
 
+view(id:any){
+  this.router.navigate([`viewportfolio/${id}`]) };
 
 }

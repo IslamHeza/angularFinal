@@ -21,21 +21,4 @@
         </h6>
       </div>
     </div>
-    <div class="profile-feed " *ngFor="let project of recentProjects">
-        <div class="d-flex align-items-start profile-feed-item title" (click)="viewProject(project.id)">
-            <img src="assets/{{project.image}}" alt="profile" class="img-sm rounded-circle">
-            <div class="ml-4">
-                <b class="mt-1 " (click)="viewProject(project.id)">{{project.project_name}}</b>
-                <p>
-                    {{project.description}}
-                </p>
-                <h6>
-                    {{project.name}} {{project.lname}}
-                    <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>{{project.created_at}}</small>
-                </h6>
-            </div>
-        </div>
-    </div>
-    <!-- End Of Feed 1 -->
-
-    <!-- End Of Feed 3 -->
+</div>

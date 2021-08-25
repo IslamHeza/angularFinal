@@ -40,7 +40,7 @@
                 <div class="col-sm-10">
                     <select class="form-control" [(ngModel)]="Project.category_id" #category="ngModel" name="category_id" id="categories">
 
-                      <option *ngFor="let item of   allcatagories" value="{{item.id}}">{{item.name}}</option>
+                      <option *ngFor="let item of   allcatagories" >{{item.name}}</option>
                 </select>
                 </div>
             </div>

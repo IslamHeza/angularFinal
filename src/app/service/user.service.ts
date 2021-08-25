@@ -1,6 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+
+import { Router } from "@angular/router";
+import { Observable } from "rxjs";
+import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,24 +27,30 @@ export class UserService {
     return this.httpClient.post(this.baseApi + "register", user);
   }
   login(cred:any){
-
     return this.httpClient.post(this.baseApi + "login", cred,{withCredentials:true});
+    // return this.httpClient.post(this.baseApi + "login", cred,{withCredentials:true}).pipe(
+    //   catchError((error:any) => {
+    //           if (error.status === 401) {
+    //             return alert("error");
+    //           }
+    //           return alert(error);
+    //       })
+    //   );;
 
   }
   logout(){
-    return this .httpClient.post(this.baseApi +"logout",{},{headers:this.headers})
-
+    return this.httpClient.post(this.baseApi +"logout",{},{headers:this.headers});
   }
-  isLoggedIn() {
+  // isLoggedIn() {
 
-    if (JSON.parse(localStorage.getItem('token')!).auth_token == null) {
-      this.isLoggedin = false;
-      return this.isLoggedin;
-    }
-    else {
-      return true;
-    }
-  }
+  //   if (JSON.parse(localStorage.getItem('token')!).auth_token == null) {
+  //     this.isLoggedin = false;
+  //     return this.isLoggedin;
+  //   }
+  //   else {
+  //     return true;
+  //   }
+  // }
   // isLoggedIn() {
 
   //   if (JSON.parse(localStorage.getItem('token')!).auth_token =='{}') {
@@ -77,7 +87,7 @@ export class UserService {
   }
 
   getUserCategory(id:any){
-    return this.httpClient.get(this. userUrl +id+'/recent');
+    return this.httpClient.get(this. userUrl +'category/'+id);
   }
 
 
