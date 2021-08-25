@@ -11,7 +11,6 @@ import { Purposal } from 'src/app/_models/purposal';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 
-
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -27,7 +26,6 @@ export class ViewComponent implements OnInit {
     private purposalservice: PurposalService,
     private http: HttpClient,
     private sanitizer: DomSanitizer
-
   ) {}
 
   project: any = [];
@@ -43,9 +41,8 @@ export class ViewComponent implements OnInit {
 
   userData: any;
   onlineUser: User = new User();
-  user_of_purposal : any = [];
-  hide: boolean = false ;
-
+  user_of_purposal: any = [];
+  hide: boolean = false;
 
   rate_pro: number = 0;
 
@@ -55,9 +52,6 @@ export class ViewComponent implements OnInit {
 
     this.view();
     this.showreview();
-    this.get_purposal();
-    this.get_allpurposal();
-    this.download();
     // this.hide=!(this.purposal.developer_id== this.onlineUser && this.onlineUser.type=='developer')
     // this.check_purposal();
   }
@@ -78,19 +72,17 @@ export class ViewComponent implements OnInit {
   }
 
   view() {
-
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(
       (res) => {
         this.project = res;
         this.rate = this.project.user_rate;
-        this.status=this.project.status;
+        this.status = this.project.status;
 
         // this.showreview
 
         this.url = '/api/download/' + this.project.file;
         this.download();
-
-
+        this.get_allpurposal();
 
         // localStorage.setItem('project_id',JSON.stringify((this.project.id)));
       }
@@ -105,26 +97,43 @@ export class ViewComponent implements OnInit {
       }
     );
   }
-
+  canSubmit = true;
   get_allpurposal() {
-    this.purposalservice.getAllPurposals().subscribe((purposalres) => {
+    this.purposalservice.getAllPurposals(this.project.id).subscribe((purposalres) => {
       // this.purposal.project_id=this.project.id
-      if (this.purposalservice.getPurposal(this.route.snapshot.params.id)) {
-        console.log(purposalres);
 
-      //   // this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe( response => {
-      //   //   this.purposal=response;
-      //   this.userservice.getUser(this.purposal.developer_id).subscribe(res => {
-      //     this.user_of_purposal=res;
+        //   // this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe( response => {
+        //   //   this.purposal=response;
+        //   this.userservice.getUser(this.purposal.developer_id).subscribe(res => {
+        //     this.user_of_purposal=res;
 
-      //     console.log(res);
-      //   });
-      // // });
+        //     console.log(res);
+        //   });
+        // // });
         this.allpurposals = purposalres;
+        console.log(this.allpurposals);
 
+        for (let item of this.allpurposals) {
+          if (item.developer_id == this.onlineUser.id) {
+            console.log(item.developer_id);
+            console.log(this.onlineUser.id);
+            this.canSubmit = false;
+
+            console.log(this.canSubmit);
+
+            // this.canSubmit = false ;
+            break;
+          }
+        
       }
-
     });
+    // this.allpurposals.forEach( function (element){
+    //   // if (element.developer_id == this.onlineUser.id){
+    //     // this.canSubmit = false ;
+    //     console.log(element.developer_id);
+
+    //   // }
+    // });
   }
 
   // get_user_of_purposal(){
@@ -136,7 +145,6 @@ export class ViewComponent implements OnInit {
   // //     console.log(res);
   // //   });
   // // });
-
 
   //   this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe( response => {
   //     this.purposal=response;
@@ -170,15 +178,15 @@ export class ViewComponent implements OnInit {
   //   });
   // }
 
-  get_purposal(){
-
-    this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe(response => {
-      this.purposal=response;
-      // this.purposal.project_id=this.project.id
-      console.log(response);
-
-    });
-  }
+  // get_purposal() {
+  //   this.purposalservice
+  //     .getPurposal(this.route.snapshot.params.id)
+  //     .subscribe((response) => {
+  //       this.purposal = response;
+  //       // this.purposal.project_id=this.project.id
+  //       console.log(response);
+  //     });
+  // }
 
   accept_purposal() {
     this.project.status = 'processing';
@@ -191,9 +199,7 @@ export class ViewComponent implements OnInit {
         this.ProjectService.updateProject(
           this.route.snapshot.params.id,
           this.project
-        ).subscribe((res) => {
-
-        });
+        ).subscribe((res) => {});
       }
     );
   }
@@ -211,8 +217,4 @@ export class ViewComponent implements OnInit {
       }
     );
   }
-
-
 }
-
-

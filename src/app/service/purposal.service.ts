@@ -15,8 +15,8 @@ export class PurposalService {
     'Authorization':'Bearer '+JSON.parse(localStorage.getItem('token')||'{}')
   })
 
-  getAllPurposals(){
-    return this.httpClient.get(this.baseUrl );
+  getAllPurposals(projectId:any){
+    return this.httpClient.get(this.baseUrl+'all/'+projectId );
   }
   getPurposal(id:any){
     return this.httpClient.get(this.baseUrl + id)
