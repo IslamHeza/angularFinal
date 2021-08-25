@@ -181,7 +181,7 @@ export class ViewComponent implements OnInit {
   }
 
   accept_purposal() {
-    this.project.status = 'processing';
+    // this.project.status = 'processing';
     this.ProjectService.getProject(this.route.snapshot.params.id).subscribe(
       (res) => {
         this.project = res;

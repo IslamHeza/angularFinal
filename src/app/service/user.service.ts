@@ -39,19 +39,18 @@ export class UserService {
 
   }
   logout(){
-    return this .httpClient.post(this.baseApi +"logout",{},{headers:this.headers})
-
+    return this.httpClient.post(this.baseApi +"logout",{},{headers:this.headers});
   }
-  isLoggedIn() {
+  // isLoggedIn() {
 
-    if (JSON.parse(localStorage.getItem('token')!).auth_token == null) {
-      this.isLoggedin = false;
-      return this.isLoggedin;
-    }
-    else {
-      return true;
-    }
-  }
+  //   if (JSON.parse(localStorage.getItem('token')!).auth_token == null) {
+  //     this.isLoggedin = false;
+  //     return this.isLoggedin;
+  //   }
+  //   else {
+  //     return true;
+  //   }
+  // }
   // isLoggedIn() {
 
   //   if (JSON.parse(localStorage.getItem('token')!).auth_token =='{}') {

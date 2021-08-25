@@ -20,14 +20,9 @@ token:any;
   ngOnInit() {
 
 
-
-
-
-
     this.onlineUser.id = localStorage.getItem('id');
     this.getUser(this.onlineUser.id);
     this.logout
-
       // get the auth token from localStorage
       this.token = localStorage.getItem('token');
       if (this.token) {
@@ -52,7 +47,6 @@ token:any;
   // isLoggedin: boolean = false;
 
   logout() {
-
     this.userservice.logout().subscribe(res => {
       localStorage.removeItem('token');
       localStorage.removeItem('id');
