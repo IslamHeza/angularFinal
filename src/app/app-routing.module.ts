@@ -23,6 +23,11 @@ import { ForgetPasswordComponent } from './Components/Login/forgetPassword/forge
 import { SubmitPurposalComponent } from './Components/jobs/purposals/submit-purposal/submit-purposal.component';
 import { ViewAcceptedPurposalComponent } from './Components/jobs/purposals/view-accepted-purposal/view-accepted-purposal.component';
 
+//Tasks
+import { AddTasksComponent } from './Components/tasks/add-tasks/add-tasks.component';
+import { ViewTasksComponent } from './Components/tasks/view-tasks/view-tasks.component';
+
+
 import { CreateComponent } from './Components/jobs/crud/create/create.component';
 import { ListComponent } from './Components/jobs/crud/list/list.component';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
@@ -32,6 +37,7 @@ import { AddReviewComponent } from './Components/jobs/add-review/add-review.comp
 //
 import { AuthGuard } from './auth.guard';
 import { userTypeGuard } from './userType.guard';
+
 
 const routes: Routes = [
   { path: 'Categories', component: CatagoriesComponent },
@@ -46,7 +52,7 @@ const routes: Routes = [
   {
     path: 'addportfolio',
     component: AddPortfolioComponent,
-    canActivate: [userTypeGuard] 
+    canActivate: [userTypeGuard]
   },
   {
     path: 'editportfolio/:id',
@@ -83,6 +89,10 @@ const routes: Routes = [
   //purposal
   { path: 'purposal/:id', component: SubmitPurposalComponent },
   { path: 'viewAcceptPurposal/:id', component: ViewAcceptedPurposalComponent },
+
+  //task
+  { path: 'addTask/:id', component: AddTasksComponent },
+  { path: 'viewTask/:id', component: ViewTasksComponent },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

@@ -79,6 +79,15 @@ import { ViewAcceptedPurposalComponent } from './Components/jobs/purposals/view-
 import {InputNumberModule} from 'primeng/inputnumber';
 import {SplitButtonModule} from 'primeng/splitbutton';
 
+
+import{AddTasksComponent}from './Components/tasks/add-tasks/add-tasks.component'
+import { ViewTasksComponent } from './Components/tasks/view-tasks/view-tasks.component';
+
+
+
+
+
+
 import {RouterModule} from '@angular/router';
 
 // import { SpeedDialModule } from '/primeng/speeddial';
@@ -150,8 +159,9 @@ import { userTypeGuard } from './userType.guard';
     ViewAcceptedPurposalComponent,
     //passing data
     PassingDynamicDataComponent,
-
-
+    //tasks
+    AddTasksComponent,
+    ViewTasksComponent,
 
     CreateComponent,
     ListComponent,
