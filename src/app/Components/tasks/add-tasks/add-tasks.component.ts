@@ -7,6 +7,7 @@ import { User } from 'src/app/_models/user';
 import { Project } from 'src/app/_models/project';
 import { ProjectService } from 'src/app/service/project.service';
 import { PurposalService } from 'src/app/service/purposal.service';
+
 import {
   FormGroup,
   FormBuilder,
@@ -39,7 +40,8 @@ export class AddTasksComponent implements OnInit {
     private ProjectService: ProjectService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private purposalService: PurposalService
+    private purposalService: PurposalService,
+
   ) {
     this.form = this.formBuilder.group({
       description: ['', Validators.required],
@@ -47,6 +49,8 @@ export class AddTasksComponent implements OnInit {
       project_id: [null],
       developer_id: [null],
       owner_id: [null],
+      submitted:[null],
+      accepted:[null]
     });
   }
 
@@ -86,6 +90,8 @@ export class AddTasksComponent implements OnInit {
     formData.append('project_id', this.purposal.project_id);
     formData.append('developer_id', this.onlineUser.id);
     formData.append('owner_id', this.purposal.owner_id);
+    formData.append('submitted', 1);
+    
     this.taskService
       .addTask(formData, this.onlineUser.id)
       .subscribe((response) => {});
@@ -98,4 +104,7 @@ export class AddTasksComponent implements OnInit {
       console.log(this.onlineUser.type);
     });
   }
+
+
+
 }

@@ -78,7 +78,7 @@ const routes: Routes = [
   { path: 'editproject/:id', component: EditComponent },
   { path: 'viewproject/:id', component: ViewComponent },
 
-  { path: 'addReview/:id/:developer_id', component: AddReviewComponent },
+  { path: 'addReview/:project_id/:developer_id', component: AddReviewComponent },
 
   //registration
   { path: 'signUp', component: MultipleStep_registrationComponent },
@@ -93,6 +93,7 @@ const routes: Routes = [
   //task
   { path: 'addTask/:id', component: AddTasksComponent },
   { path: 'viewTask/:id', component: ViewTasksComponent },
+
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

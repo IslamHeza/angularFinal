@@ -5,6 +5,7 @@ export class Task {
   project_id:any;
   file: any;
   text:any;
-
+  submitted:any ;
+  accepted : any ;
 
 }

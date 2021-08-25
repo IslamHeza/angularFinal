@@ -1,45 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewsService } from 'src/app/service/reviews.service';
-import {Review} from 'src/app/_models/review';
+import { Review } from 'src/app/_models/review';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
-
+import { TaskService } from 'src/app/service/task.service';
 
 @Component({
   selector: 'app-add-review',
   templateUrl: './add-review.component.html',
-  styleUrls: ['./add-review.component.css']
+  styleUrls: ['./add-review.component.css'],
 })
 export class AddReviewComponent implements OnInit {
-
-  myGroup:any;
+  myGroup: any;
   Review = new Review();
   rate: number = 0;
+  task: any = [] ;
 
-  changeRate(evant:any){
+  changeRate(evant: any) {
     this.rate = evant.value;
     this.Review.rate = this.rate;
     console.log(this.rate);
   }
-  constructor( private ReviewService: ReviewsService , private router:Router , private route: ActivatedRoute) {
-
-  }
-
+  constructor(
+    private ReviewService: ReviewsService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private taskService:TaskService
+  ) {}
 
   ngOnInit(): void {
     this.Review.project_id = this.route.snapshot.params.project_id;
-    this.Review.rater_id = 1;
+    this.Review.rater_id = localStorage.getItem('id');
     this.Review.ratee_id = this.route.snapshot.params.developer_id;
-
   }
 
-
-  addReview(){
-   return this.ReviewService.addReview(this.Review).subscribe(res => {
-     console.log(this.Review.rate);
-     this.Review.rate = this.rate;
-     this.router.navigate(['listproject']) ;
-   })
+  addReview() {
+    return this.ReviewService.addReview(this.Review).subscribe((res) => {
+      console.log(this.Review.rate);
+      this.Review.rate = this.rate;
+      this.router.navigate(['listproject']);
+    });
   }
 
+  makeAccepted() {
+    this.taskService.makeAccepted(this.route.snapshot.params.project_id ).subscribe((res) => {
+    });
+  }
+
+  getTask(){
+    this.taskService.getTask(this.route.snapshot.params.project_id).subscribe((res) => {
+      this.task = res;
+    });
+
+  }
 }
