@@ -30,6 +30,9 @@ export class TaskService {
     return this.httpClient.put(`${this.baseUrl}${id}`, task ,{headers:this.headers});
   }
 
+  makeAccepted(project_id:any){
+    return this.httpClient.post(`${this.baseUrl}accept/${project_id}`,{headers:this.headers});
+  }
   deleteTask(id:any){
     return this.httpClient.delete(this.baseUrl + id,{headers:this.headers});
   }
