@@ -1,86 +1,112 @@
-<div class="purposal_container">
+<div class="purposal_container container">
 
-    <div class="container">
 
         <div class="row row-cols-1 row-cols-md-2 g-4">
 
 
             <div class="col-md-5 col ">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-2">
 
                         <a routerLink="/profile/{{user.id}}">
-                            <img src="http://localhost:8000/storage/users/{{user.image}}" height="150px" class="card-img-top" alt="...">
+                            <img src="http://localhost:8000/storage/users/{{user.image}}" height="150px"
+                                class="card-img-top" alt="...">
                         </a>
                     </div>
-                    <div class="col-md-4 d-flex justify-content-end">
-
-                        <a routerLink="/realTimeChat/{{reciever_id}}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
-                                <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                              </svg>
-                        </a>
-                    </div>
-                    <div class="col-10 mt-2">
+                    
+                    <div class="col-9 m-2 mt-0">
                         <h4> {{(user.name) + " " +(user.lname)}} </h4>
                         <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
                     </div>
                 </div>
-
-
+                
 
                 <ul class="data row ">
-
                     <li class="col-md-8">
                         <p> Cover letter : </p> {{purposal.cover_letter}}
                     </li>
                     <li class="col-md-8">
-                        <p> Budget : </p> {{purposal.budget}}
+                        <p> Price : </p> {{purposal.budget}}
                     </li>
                     <li class="col-md-8">
-                        <p> Time : </p>{{purposal.time}}
+                        <p> Deadline : </p>{{purposal.time}}
                     </li>
-
-
-
-
                 </ul>
 
             </div>
 
-            <div class="col-1 deal"><img src="/assets/deal.png"></div>
+            <div class="col-1 deal "><img src="/assets/deal.png"></div>
 
             <div class="col-md-5 col">
-                <h4> Job Details </h4>
+                <h4> Project Details </h4>
                 <ul class="data">
                     <!-- <li>
                         <p> Status : </p>
-                        <h5 class="card-title" name="status" [(ngModel)]="project.status">
-                            {{project.status}}</h5>
+                         <h5 class="card-title" name="status" [(ngModel)]="project.status">
+                    {{project.status}}</h5>
                     </li> -->
-                    <li class="col-md-5">
-                        <p> Project name : </p> {{project.title}}
+                    <li class="">
+                        <p> Name : </p> {{project.title}}
                     </li>
-                    <li class="col-md-5">
+                    <li class="">
                         <p> Category : </p> {{project.cat_name}}
                     </li>
-                    <li class="col-md-5">
-                        <p> Description : </p>{{project.description}}
-                    </li>
-                    <li class="col-md-5">
+                    <li class="">
                         <p> Budget : </p>{{project.budget}}
                     </li>
-                    <li class="col-md-5">
+                    <li class="">
                         <p> Location : </p>{{project.location}}
                     </li>
+                    <li class="">
+                        <p> Description : </p>{{project.description}}
+                    </li>
+
                 </ul>
-
-
-                <a routerLink="/addTask/{{purposal.id}}">task</a>
 
             </div>
 
         </div>
-    </div>
+        <div class="row justify-content-center" *ngIf="userType==true">
+            <div class="col-2">
+                <button class="btn btn-outline-rounded btn-success" routerLink="/addTask/{{purposal.id}}">Submit
+                    Project</button>
 
-</div>
+            </div>
+        </div>
+        <!-- submitted project -->
+        <div class="row justify-content-center " *ngIf="!userType && task.submitted==1" >
+            <div class="col-6 box p-4 pb-0">
+                <div class="mb-3">
+                    <h3>Submitted Project</h3>
+                </div>
+                <div class="mb-2">
+                    <h4>File :</h4>
+                    <a [href]="url" [download]="task.file">
+                        {{ task.file }}</a>
+                </div>
+                <div class="mb-1">
+                    <h4>Notes :</h4>
+                    <p>{{task.text}}</p>
+                </div>
+                <div *ngIf="task.accepted== 0">
+                    <button class="btn btn-outline-rounded btn-success" routerLink="/addReview/{{task.project_id}}/{{task.developer_id}}"> Accept And Rate </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="row d-flex justify-content-md-center">
+            <div class="col-4 d-flex justify-content-md-center">
+                <a routerLink="/realTimeChat/{{reciever_id}}">
+                    <button class="btn btn-primary btn-lg">
+
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                                </svg>
+                            
+                            contact
+                    </button>
+            </a>
+            </div>
+        </div>
+    </div>

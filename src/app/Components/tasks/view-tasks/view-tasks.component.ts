@@ -36,7 +36,7 @@ export class ViewTasksComponent implements OnInit {
   url: any;
   userData: any;
   onlineUser: User = new User();
-  task: any = [];
+  task:Task  = new Task();
 
 
   ngOnInit(): void {
@@ -48,13 +48,11 @@ export class ViewTasksComponent implements OnInit {
       .getTask(this.route.snapshot.params.id)
       .subscribe((res) => {
         this.data = res;
+        console.log(res);
+        
         this.task = this.data;
         console.log(this.task);
       });
-
-      this.download();
-
-
 
   }
 
@@ -67,10 +65,6 @@ export class ViewTasksComponent implements OnInit {
   }
 
   download() {
-    // this.ProjectService
-    //   .download(this.url)
-    //   .subscribe(blob => saveAs(blob, this.project.file))
-    // const blob = this.ProjectService.download(this.url).subscribe(
     const blob = this.ProjectService.download(this.project.file).subscribe(
       (blob) => {
         this.url = this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -80,18 +74,6 @@ export class ViewTasksComponent implements OnInit {
     );
   }
 
-
-  view() {
-
-    this.taskService.getTask(this.route.snapshot.params.id).subscribe(
-      (res) => {
-        this.task = res;
-        this.url = '/api/download/' + this.task.file;
-        this.download();
-
-      }
-    );
-  }
 }
 
 

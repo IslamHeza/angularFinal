@@ -41,6 +41,7 @@ export class ListPortfolioComponent implements OnInit {
   getUser(id: any) {
     return this.userService.getUser(id).subscribe((res) => {
       this.data = res;
+      
     });
   }
 
