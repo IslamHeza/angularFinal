@@ -33,6 +33,9 @@ export class ViewAcceptedPurposalComponent implements OnInit {
   data: any;
   user : any = [];
   status: any;
+  reciever_id :any;
+  onlineUser: User = new User();
+  userData :any;
 
   ngOnInit(): void {
 
@@ -46,7 +49,15 @@ export class ViewAcceptedPurposalComponent implements OnInit {
       this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe( response => {
         this.purposal=response;
 
-        // console.log(this.purposal.project_id);
+        
+      this.onlineUser.id = localStorage.getItem('id');
+        if(this.onlineUser.id == this.purposal.owner_id){
+          this.reciever_id = this.purposal.developer_id
+        } else{
+          this.reciever_id = this.purposal.owner_id;
+        }
+
+        console.log(this.purposal.developer_id);
         // this.ProjectService.getProject(this.purposal.project_id).subscribe(res => {
         //   this.project=res;
         //   this.rate_pro = this.project.rate;
@@ -73,6 +84,8 @@ export class ViewAcceptedPurposalComponent implements OnInit {
         });
 
       });
+
+      
     }
 
 

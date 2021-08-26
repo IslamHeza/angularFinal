@@ -19,7 +19,7 @@ export class MessagesComponent implements OnInit {
 
 
   reciever_id = this.route.snapshot.params.id;
-  messag = 'message';
+  messag ='';
   messages :any[] =[] ;
   Message:any = new Message();
   username :any = '' ; 

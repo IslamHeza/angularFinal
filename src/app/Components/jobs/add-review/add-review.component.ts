@@ -36,6 +36,7 @@ export class AddReviewComponent implements OnInit {
     this.Review.project_id = this.route.snapshot.params.project_id;
     this.Review.rater_id = this.onlineUser.id;
     this.Review.ratee_id = this.route.snapshot.params.developer_id;
+    this.Review.project_id = this.route.snapshot.params.id
 
   }
 
