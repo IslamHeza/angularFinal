@@ -2,19 +2,24 @@
     <!--    <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>-->
     <div class=" d-flex justify-content-center">
 
-        <div class="col1 ">
-
+        <div class="col1 row justify-content-between">
+            <div class="col-md-8">
+                <!-- <a routerLink="/profile/{{project.id}}"> -->
+                <img src="http://localhost:8000/storage/users/{{project.avatar}}" height="150px" class="card-img-top" alt="...">
+                <!-- </a> -->
+            </div>
+            <div class="col-md-2" *ngIf="activeEdit()">
+                <p-splitButton icon="pi pi-cog" [model]="items" styleClass="p-button-secondary"></p-splitButton>
+            </div>
             <div class="row">
-                <div class="col-md-4">
-                    <a routerLink="/profile/{{project.id}}">
-                        <img src="http://localhost:8000/storage/users/{{project.avatar}}" height="150px" class="card-img-top" alt="...">
-                    </a>
-                </div>
+
+
                 <div class="col-10 mt-2">
                     <h4> {{(project.name) + " " +(project.lname)}} </h4>
                     <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
                 </div>
             </div>
+
             <div class="col-md-8">
                 <h5 class="card-title" name="status" [(ngModel)]="project.status">
                     {{project.status}}</h5>
@@ -42,10 +47,8 @@
                         {{ project.file }}
                     </a>
                 </li>
-
-
-
             </ul>
+
             <!-- <div class="purposal_btn" *ngIf="(onlineUser.type =='developer')  || ( project.owner_id == !onlineUser.id)"></div> -->
             <div class="purposal_btn" *ngIf="(onlineUser.type !='client')  &&  canSubmit==true ">
                 <!-- <div class="purposal_btn" *ngIf="(onlineUser.type =='developer') &&
@@ -58,19 +61,49 @@
         </div>
     </div>
 </div>
+<!--****************************  -->
 
-
+<!-- ********************************** -->
 <div class="all">
 
     <div class="container">
         <div class="row" *ngFor="let purposal of allpurposals">
-            <div class="card mb-3  headb" *ngIf="(purposal.project_id == project.id) && (onlineUser.type =='client') && (project.owner_id == onlineUser.id)">
-                <div class="card-body">
-                    <h5 class="text p-2">purposal</h5>
-                    <!--
-                    {{purposal.developer_id}}=>{{user_of_purposal.name}} -->
-                    <ul class="data row ">
+            <div class="col-md-10 ">
+                <div class="containerr mb-3 p-5" *ngIf="(purposal.project_id == project.id) && (onlineUser.type =='client') && (project.owner_id == onlineUser.id)">
+                    <div class="row">
+                        <div class="logo col-4 " style="background-image: url(http://localhost:8000/storage/users/{{purposal.image}})">
 
+                        </div>
+                        <h4> {{(purposal.name) + " " +(purposal.lname)}} </h4>
+                        <ul class="data row ">
+
+                            <li class="col-md-8">
+                                <p> Cover letter : </p> {{purposal.cover_letter}}
+                            </li>
+                            <li class="col-md-8">
+                                <p> Budget : </p> {{purposal.budget}}
+                            </li>
+                            <li class="col-md-8">
+                                <p> Time : </p>{{purposal.time}}
+                            </li>
+
+
+
+
+                        </ul>
+
+                        <div>
+                            <button class="btn btn-outline-rounded btn-primary" (click)="accept_purposal()" routerLink="/viewAcceptPurposal/{{purposal.id}}">
+
+                          Accept Purposal
+                      </button>
+                        </div>
+
+                        <!-- <div class="card-body">
+                    <h5 class="text p-2">purposal</h5>
+
+                    <ul class="data row ">
+                        {{purposal.name}}
                         <li class="col-md-8">
                             <p> Cover letter : </p> {{purposal.cover_letter}}
                         </li>
@@ -90,12 +123,16 @@
                         <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()" routerLink="/viewAcceptPurposal/{{purposal.id}}">
 
                             Accept Purposal
-                        </button>
+                        </button> -->
                         <!-- <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()" routerLink="/viewproject/{{project.id}}"> -->
                         <!--
                         Accept Purposal
                         </button> -->
 
+                        <!-- </div>
+
+                </div>
+            </div> -->
                     </div>
                 </div>
             </div>
