@@ -39,7 +39,7 @@ export class MessagesService {
     });
   }
 
-  
+
   ngOnInit(): void {
 
     this.onlineUser.id = localStorage.getItem('id');

@@ -3,13 +3,13 @@ import { PusherEvent } from 'pusher-js/types/src/core/connection/protocol/messag
 import Pusher from 'pusher-js';
 import { ChatService } from 'src/app/service/chat.service';
 import { Chat } from 'src/app/_models/chat';
-import { HttpClient } from '@angular/common/http';
+
 import { Message } from 'src/app/_models/message';
 import { ActivatedRoute } from '@angular/router';
 import { MessagesService } from 'src/app/service/messages.service';
 import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/service/user.service';
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
@@ -22,29 +22,30 @@ export class MessagesComponent implements OnInit {
   messag ='';
   messages :any[] =[] ;
   Message:any = new Message();
-  username :any = '' ; 
+  username :any = '' ;
   onlineUser: User = new User();
   userData: any;
+
   constructor(private messagesService : MessagesService
      , private httpClient:HttpClient
-      , private route: ActivatedRoute , 
+      , private route: ActivatedRoute ,
       private userservice: UserService) {
-    
+
   }
 
   ngOnInit(): void {
-  
+
     this.username = '';
 
     //get online user id
     this.onlineUser.id = localStorage.getItem('id');
     this.getUser(this.onlineUser.id);
     //get all messages
-    this.getAllMessages(); 
+    this.getAllMessages();
 
     //pusher code
     Pusher.logToConsole = true;
-    
+
     const pusher = new Pusher('6c3f3c5c403e51a00541', {
       cluster:'eu'
     });
@@ -54,12 +55,12 @@ export class MessagesComponent implements OnInit {
       this.messages.push(data);
       console.log(data);
       // this.messages[this.messages.length-1].username = this.username;
-     
+
       return this.Message = this.messages;
-      
+
     });
-    
-    
+
+
   }
   submit(){
     console.log(this.messag);
@@ -76,10 +77,10 @@ export class MessagesComponent implements OnInit {
 
     getAllMessages(){
       return this.messagesService.getMessages(this.route.snapshot.params.id , this.onlineUser.id).subscribe((res: any)=>{
-        
+
         this.messages = res;
         // console.log(this.Message);
-        
+
       })
     }
 
@@ -89,11 +90,11 @@ export class MessagesComponent implements OnInit {
         this.onlineUser = this.userData;
         // this.username = this .onlineUser.username;
         // console.log(this.username);
-        
+
         this.username = res;
         this.username = this.username.username;
         // console.log(this.username);
-  
+
       });
     }
 

@@ -46,15 +46,18 @@ export class ViewComponent implements OnInit {
 
   rate_pro: number = 0;
   items: MenuItem[] = [];
+
+
   ngOnInit(): void {
     this.onlineUser.id = localStorage.getItem('id');
     this.getUser(this.onlineUser.id);
 
     this.view();
     this.showreview();
+
     // this.hide=!(this.purposal.developer_id== this.onlineUser && this.onlineUser.type=='developer')
     // this.check_purposal();
-   
+
   }
   // check_purposal(){
   //   if(this.onlineUser.id==this.purposal.developer_id && this.onlineUser.type =='developer'
@@ -85,7 +88,7 @@ export class ViewComponent implements OnInit {
         this.download();
         this.get_allpurposal();
 
-      
+
         // localStorage.setItem('project_id',JSON.stringify((this.project.id)));
       });
     this.items = [
@@ -132,13 +135,13 @@ export class ViewComponent implements OnInit {
             console.log(this.canSubmit);
             this.userservice.getUser(this.purposal.developer_id).subscribe(res => {
                   this.user_of_purposal=res;
-            
+
                   console.log(res);
                 });
             // this.canSubmit = false ;
             break;
           }
-        
+
       }
     });
     // this.allpurposals.forEach( function (element){
