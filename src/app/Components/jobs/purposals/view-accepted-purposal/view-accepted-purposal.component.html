@@ -5,23 +5,24 @@
 
 
         <div class="col-md-5 col ">
-            <p-card>
-                <ng-template pTemplate="header">
-                    <div class="row">
-                        <div class="col-md-2 m-2">
 
-                            <a routerLink="/profile/{{user.id}}">
-                                <img src="http://localhost:8000/storage/users/{{user.image}}" height="150px" class="card-img-top" alt="...">
-                            </a>
-                        </div>
-                        <div class="col-9 m-2 mt-0">
-                            <h4> {{(user.name) + " " +(user.lname)}} </h4>
-                            <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                        </div>
+            <p-card>
+                <div class="row">
+                    <div class="col-md-2 m-2">
+
+                        <a routerLink="/profile/{{user.id}}">
+
+                            <img src="http://localhost:8000/storage/users/{{user.image}}" height="150px" class="card-img-top" alt="...">
+                        </a>
                     </div>
-                </ng-template>
+                    <div class="col-9 m-2 mt-0">
+                        <h4> {{(user.name) + " " +(user.lname)}} </h4>
+                        <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                    </div>
+                </div>
                 <ul class="data row ">
-                    <li class="col-md-8">
+
+                    <li class="col-md-10">
                         <p> Cover letter : </p> {{purposal.cover_letter}}
                     </li>
                     <li class="col-md-8">
@@ -30,52 +31,79 @@
                     <li class="col-md-8">
                         <p> Deadline : </p>{{purposal.time}}
                     </li>
-                </ul>
-                <ng-template pTemplate="footer">
 
-                </ng-template>
+
+
+
+                </ul>
+
             </p-card>
+
         </div>
 
         <div class="col-1 deal "><img src="/assets/deal.png"></div>
 
         <div class="col-md-5 col">
-            <p-card>
-                <ng-template pTemplate="header">
-                    <div class="col-md-8 m-3">
-                        <h4> Project Details </h4>
+
+            <div class="container">
+                <!--    <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>-->
+                <div class=" d-flex justify-content-center">
+
+                    <div class="col1 row justify-content-between">
+                        <div class="col-md-8">
+                            <!-- <a routerLink="/profile/{{project.id}}"> -->
+                            <img src="http://localhost:8000/storage/users/{{project.avatar}}" height="150px" class="card-img-top" alt="...">
+                            <!-- </a> -->
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-10 mt-2">
+                                <h4> {{(project.name) + " " +(project.lname)}} </h4>
+                                <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <h5 class="card-title" name="status" [(ngModel)]="project.status">
+                                {{project.status}}</h5>
+                        </div>
+
+                        <ul class="data row">
+                            <li class="col-md-8">
+                                <p> Project name : </p> {{project.title}}
+                            </li>
+                            <li class="col-md-8">
+                                <p> Category : </p> {{project.cat_name}}
+                            </li>
+                            <li class="col-md-8">
+                                <p> Description : </p>{{project.description}}
+                            </li>
+                            <li class="col-md-8">
+                                <p> Budget : </p>{{project.budget}}
+                            </li>
+                            <li class="col-md-8">
+                                <p> Location : </p>{{project.location}}
+                            </li>
+                            <li class="col-md-8">
+                                <p> Attachment: </p>
+                                <a [href]="url" [download]="project.file">
+                                {{ project.file }}
+                            </a>
+                            </li>
+                        </ul>
+
+
                     </div>
-                </ng-template>
-                <ul class="data">
-                    <!-- <li>
-                        <p> Status : </p>
-                         <h5 class="card-title" name="status" [(ngModel)]="project.status">
-                    {{project.status}}</h5>
-                    </li> -->
-                    <li class="">
-                        <p> Name : </p> {{project.title}}
-                    </li>
-                    <li class="">
-                        <p> Category : </p> {{project.cat_name}}
-                    </li>
-                    <li class="">
-                        <p> Budget : </p>{{project.budget}}
-                    </li>
-                    <li class="">
-                        <p> Location : </p>{{project.location}}
-                    </li>
-                    <li class="">
-                        <p> Description : </p>{{project.description}}
-                    </li>
-
-                </ul>
-                <ng-template pTemplate="footer">
-
-                </ng-template>
-            </p-card>
+                </div>
+            </div>
         </div>
 
+
+
     </div>
+
     <div class="row justify-content-center" *ngIf="userType==true">
         <div class="col-2">
             <button class="btn btn-outline-rounded btn-success" routerLink="/addTask/{{purposal.id}}">Submit

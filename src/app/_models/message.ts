@@ -3,6 +3,6 @@ export class Message {
     sender_id:any;
     reciever_id:any;
     message:any;
-    fname:any;
+    name:any;
     lname:any
 }
