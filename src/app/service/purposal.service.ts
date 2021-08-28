@@ -29,5 +29,7 @@ export class PurposalService {
   updatePurposal(id:any,purposal:any){
     return this.httpClient.put(`${this.baseUrl}${id}`, purposal ,{headers:this.headers});
   }
-
+  getProposalOfProject(projectID:any , userId : any){
+    return this.httpClient.get(this.baseUrl +'project/'+ projectID+'/'+ userId);
+  }
 }
