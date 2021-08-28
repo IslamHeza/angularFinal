@@ -46,7 +46,7 @@ export class ActiveJobsComponent implements OnInit {
   viewProject(proposalId:any) {
     // this.route.navigate(['viewproject/'+id]);
     console.log(proposalId);
-
+    
     this.route.navigate(['/viewAcceptPurposal/' + proposalId]);
   }
 
@@ -60,8 +60,6 @@ export class ActiveJobsComponent implements OnInit {
         .toPromise();
 
       this.proposal = proposal;
-      // console.log(proposal);
-      // console.log(this.proposal[0].id);
 
       this.ActivProjects[i].proposalId = this.proposal[0].id;
       // id = this.proposal.id;
@@ -72,4 +70,38 @@ export class ActiveJobsComponent implements OnInit {
       // });
     }
   }
+
+
+
+
+/* *********************************************
+  proposalData: any;
+  proposal: any = [];
+
+  getِActiveProposal() {
+    this.proposalService
+      .getProposalforClient(this.route.snapshot.params.id)
+      .subscribe((res) => {
+        this.proposalData = res;
+        this.proposal = this.proposalData;
+        console.log(this.proposal);
+      });
+  }
+
+  pendingData: any;
+  pending: any = [];
+
+  getPendingProposal() {
+    this.proposalService
+      .getPendingProposal(this.route.snapshot.params.id)
+      .subscribe((res) => {
+        this.pendingData = res;
+        this.pending = this.pendingData;
+        console.log(this.pending);
+      });
+  }
+*/
+
+
+
 }

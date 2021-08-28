@@ -32,4 +32,13 @@ export class PurposalService {
   getProposalOfProject(projectID:any , userId : any){
     return this.httpClient.get(this.baseUrl +'project/'+ projectID+'/'+ userId);
   }
+  getProposalforClient( userId : any){
+    return this.httpClient.get(this.baseUrl +'owner/'+ userId);
+  }
+  getPendingProposal( userId : any){
+    return this.httpClient.get(this.baseUrl +'pending/'+ userId);
+  }
+
+  
+  
 }
