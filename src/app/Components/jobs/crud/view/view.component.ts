@@ -244,7 +244,7 @@ export class ViewComponent implements OnInit {
   //   });
   // }
   activeEdit(){
-    if(this.onlineUser.type == 'client' && this.project.status == 'pending'){
+    if(this.onlineUser.type == 'client' && this.project.status == 'pending' && this.onlineUser.id ==this.project.owner_id ){
       return true ;
     } else {
       return false ;
