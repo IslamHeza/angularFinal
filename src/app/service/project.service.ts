@@ -76,6 +76,10 @@ export class ProjectService {
       responseType: 'blob'
     })
   }
+  getClientProject(id:any){
+    return this.httpClient.get(this. baseUrl +'client/'+id);
+
+  }
 
 
 }
