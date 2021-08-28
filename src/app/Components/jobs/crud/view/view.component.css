@@ -6,12 +6,21 @@
 
 .container {
     margin-top: 5em;
+    font-family: 'Times New Roman', serif;
+    /* padding: 0; */
+    font-size: 30px;
+    color: black;
 }
 
 img {
     width: 150px;
     height: 150px;
     border-radius: 10rem;
+}
+
+.image {
+    width: 80px;
+    height: 80px;
 }
 
 
@@ -21,6 +30,10 @@ img {
 }*/
 
 .col1 {
+    font-family: 'Times New Roman', serif;
+    /* padding: 0; */
+    font-size: 30px;
+    color: black;
     margin-bottom: 10px;
     width: 60%;
     padding: 2rem;
@@ -42,28 +55,19 @@ button {
 h4 {
     font-weight: bold;
     color: black;
-    font-family: cursive;
-    margin-bottom: 20px;
     display: inline;
-}
-
-li {
-    color: black;
-}
-
-li p {
-    font-weight: bold;
-    color: black;
-    font-size: larger;
-    display: inline;
-}
-
-.data {
-    margin-top: 3%;
+    font-family: 'Times New Roman', serif;
+    font-size: 30px;
 }
 
 a {
+    font-size: 25px;
+    color: black;
     text-decoration: none;
+}
+
+a:hover {
+    color: red;
 }
 
 
@@ -71,7 +75,8 @@ a {
 
 .containerr {
     margin-left: 150px;
-    background: whitesmoke;
+    background-color: #b8c6db;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
     border-radius: 10px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
 }
@@ -85,15 +90,22 @@ a {
     float: left;
     shape-outside: circle();
     /* margin: 30px 20px 30px 0; */
-    box-shadow: -2px 2px 50px #808080;
+    /* box-shadow: -2px 2px 50px #808080; */
     transform: translate(-70%, -10%);
 }
 
-h4 {
-    font-family: "Marck Script", san-serif;
-    padding: 0;
+h5 {
+    /* font-family: "Marck Script", san-serif;
+    padding: 0; */
     font-size: 30px;
+    color: gray;
 }
 
 
 /***/
+
+.title {
+    color: green;
+    /* margin: 50px; */
+    font-weight: bold;
+}

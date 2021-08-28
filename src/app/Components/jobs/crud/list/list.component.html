@@ -4,51 +4,22 @@
     <div class="form-group col-sm-8 col-lg-3 filter  ">
         <input type="text" [(ngModel)]="searchjob" class="form-control Search " placeholder="Search By Project Name" />
     </div>
-    <!--   <div class="container">
-        <div class="col1" *ngFor="let project of allprojects  ">
-            <div class="card mb-3  headb">
-
-                <div class="head">
-                    <img src="http://localhost:8000/storage/users/{{project.avatar}}" class="card-img-top" alt="...">
-                    <h5> {{(project.name) + " " +(project.lname)}} </h5>
-
-                </div>
-                <div class="card-body">
-                    <p-rating [(ngModel)]="project.user_rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
-                    <h6 class="card-title">project name : {{project.title}} </h6>
-                    <h6 class="card-title">Category : {{project.cat_name}}</h6>
-                    <h6 class="card-title"> {{project.status}}</h6>
-
-                    <a class="btn btn-primary " routerLink="/viewproject/{{project.id}}">View</a>
-                    <a class="btn btn-success mx-1" routerLink="/editproject/{{project.id}}">Edit</a>
-                    <a class="btn btn-danger" (click)="deleteProject($event ,project.id)">Delete</a>
-
-                    <a class="btn btn-info mx-1" routerLink="/addReview/{{project.id}}/{{project.developer_id}}">Rate</a>
 
 
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-    <!-- ****************** -->
-
-
-
-    <section id="team" class="pb-5">
+    <section id="group" class="pb-5">
         <div class="container">
 
 
-            <div class="row">
+            <div class="row justify-content-between">
 
 
-                <div class=" col-sm-12 col-md-8 p-4" *ngFor="let project of allprojects">
+                <div class=" col-sm-12 col-md-5 p-4" *ngFor="let project of allprojects">
                     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                         <div class="mainflip">
 
                             <div class="frontside row">
-                                <div class="card col-sm-10 col-md-8">
+                                <div class="card col-sm-10 col-md-5">
                                     <div class="card-body text-center">
 
                                         <img src="http://localhost:8000/storage/users/{{project.avatar}}" class="card-img-top" alt="...">
@@ -61,10 +32,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class=" col-sm-12 col-md-8 p-4">
+                            <div class=" col-sm-12 col-md-5 p-4">
                                 <div class="backside row" routerLink="/viewproject/{{project.id}}" width="800px">
 
-                                    <div class=" card col-sm-10 col-md-8">
+                                    <div class=" card col-sm-10 col-md-5">
                                         <div class="card-body text-center ">
                                             <h4 class="card-title ">Description</h4>
                                             <p class="card-text ">{{project.description}}</p>
