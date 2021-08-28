@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from 'src/app/service/project.service';
 import { PurposalService } from 'src/app/service/purposal.service';
 import { Project } from 'src/app/_models/project';
-
+import { Purposal } from 'src/app/_models/purposal';
 @Component({
   selector: 'app-active-jobs',
   templateUrl: './active-jobs.component.html',
@@ -21,6 +21,7 @@ export class ActiveJobsComponent implements OnInit {
   userId: any;
   empty: boolean = true;
   proposal: any = [];
+
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('id');

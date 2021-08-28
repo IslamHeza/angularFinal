@@ -16,10 +16,10 @@ export class PurposalService {
   })
 
   getAllPurposals(projectId:any){
-    return this.httpClient.get(this.baseUrl+'all/'+projectId );
+    return this.httpClient.get(this.baseUrl+'all/'+projectId ,{headers:this.headers} );
   }
   getPurposal(id:any){
-    return this.httpClient.get(this.baseUrl + id)
+    return this.httpClient.get(this.baseUrl + id , {headers:this.headers})
   }
 
   addPurposal(purposal:any){
