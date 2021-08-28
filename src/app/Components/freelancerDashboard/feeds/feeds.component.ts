@@ -25,11 +25,14 @@ export class FeedsComponent implements OnInit {
       // console.log(JSON.stringify(this.developerCategory[0].category_id));
       
       this.getRecentProject(JSON.stringify(this.developerCategory[0].category_id));
+      
     })
   }
   
 
   getRecentProject(cateogry_id:any){
+    console.log(cateogry_id);
+
     this.projectService.getRecentProject(cateogry_id).subscribe(res => {
       console.log(res);
       

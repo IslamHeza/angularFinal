@@ -5,7 +5,7 @@ import { ProjectService } from 'src/app/service/project.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/_models/user';
 import { CatagoriesService } from 'src/app/service/catagories.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
@@ -19,6 +19,7 @@ export class CreateComponent implements OnInit {
   allcatagories: any = [];
   user = new User();
   data: any;
+  submitted = false;
 
   constructor(
     private ProjectService: ProjectService,
@@ -28,11 +29,11 @@ export class CreateComponent implements OnInit {
     private userservice: UserService
   ) {
     this.form = this.formBuilder.group({
-      title: [''],
-      description: [''],
-      budget: [null],
-      location: [''],
-      categeory: [null],
+      title: ['',Validators.required],
+      description: ['',Validators.required],
+      budget: [null,Validators.required],
+      location: ['',Validators.required],
+      categeory: [null,Validators.required],
       file:[null]
     });
   }
@@ -54,6 +55,10 @@ export class CreateComponent implements OnInit {
     this.getAllCatagories();
   }
 
+  get formControl() {
+    return this.form.controls;
+  }
+
   uploadFile(event: any) {
     const file = event.target.files[0];
     this.form.patchValue({
@@ -66,6 +71,9 @@ export class CreateComponent implements OnInit {
   onSubmit() {
     console.log(this.form.value);
     var formData: any = new FormData();
+    this.submitted = true;
+    if (this.form.valid) {
+
     formData.append('title', this.form.get('title')?.value);
     formData.append('description', this.form.get('description')?.value);
     formData.append('budget', this.form.get('budget')?.value);
@@ -77,6 +85,9 @@ export class CreateComponent implements OnInit {
       console.log(res);
       this.router.navigate(['listproject']);
     });
+  }else{
+    console.log("Enter Valid Data");    
+  }
   }
 
 

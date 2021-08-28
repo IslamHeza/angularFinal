@@ -46,7 +46,7 @@ export class ViewComponent implements OnInit {
 
   rate_pro: number = 0;
   items: MenuItem[] = [];
-
+  isImage = false ;
 
   ngOnInit(): void {
     this.onlineUser.id = localStorage.getItem('id');
@@ -85,9 +85,12 @@ export class ViewComponent implements OnInit {
         // this.showreview
 
         this.url = '/api/download/' + this.project.file;
+        if(this.project.file.split('.').pop() == 'jpg' || 'png' || 'jpeg'){
+          this.isImage = true ;
+          console.log(this.project.file.split('.').pop() , this.isImage);
+        }
         this.download();
         this.get_allpurposal();
-
 
         // localStorage.setItem('project_id',JSON.stringify((this.project.id)));
       });
