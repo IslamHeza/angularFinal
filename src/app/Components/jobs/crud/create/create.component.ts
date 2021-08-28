@@ -86,7 +86,7 @@ export class CreateComponent implements OnInit {
       this.router.navigate(['listproject']);
     });
   }else{
-    console.log("Enter Valid Data");    
+    console.log("Enter Valid Data");
   }
   }
 

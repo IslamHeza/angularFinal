@@ -48,7 +48,6 @@ export class ViewTasksComponent implements OnInit {
       this.task = this.data;
     });
   }
-  
   getUser(id: any) {
     return this.userService.getUser(id).subscribe((res) => {
       this.userData = res;

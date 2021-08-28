@@ -13,8 +13,7 @@
                 <label class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
                     <input class="form-control input-md m-1" formControlName="title" type="text">
-                    <span class="text-danger"
-                    *ngIf="(formControl.title.touched || submitted) && formControl.title.errors?.required">
+                    <span class="text-danger" *ngIf="(formControl.title.touched || submitted) && formControl.title.errors?.required">
                     Title is required
                 </span>
                 </div>
@@ -23,8 +22,7 @@
                 <label class="col-sm-3 col-form-label">Description</label>
                 <div class="col-sm-9">
                     <input class="form-control input-md m-1" formControlName="description" type="text">
-                    <span class="text-danger"
-                    *ngIf="(formControl.description.touched || submitted) && formControl.description.errors?.required">
+                    <span class="text-danger" *ngIf="(formControl.description.touched || submitted) && formControl.description.errors?.required">
                     Description is required
                 </span>
 
@@ -34,8 +32,7 @@
                 <label class="col-sm-3 col-form-label">Budget</label>
                 <div class="col-sm-9">
                     <p-inputNumber [(ngModel)]="Project.budget" name="budget" formControlName="budget" [showButtons]="true" mode="currency" currency="USD"></p-inputNumber>
-                    <span class="text-danger"
-                    *ngIf="(formControl.budget.touched || submitted) && formControl.budget.errors?.required">
+                    <span class="text-danger" *ngIf="(formControl.budget.touched || submitted) && formControl.budget.errors?.required">
                     Budget is required
                 </span>
 
@@ -45,8 +42,7 @@
                 <label class="col-sm-3 col-form-label">Location</label>
                 <div class="col-sm-9">
                     <input class="col-sm-9" formControlName="location" class="form-control " type="text">
-                    <span class="text-danger"
-                    *ngIf="(formControl.location.touched || submitted) && formControl.location.errors?.required">
+                    <span class="text-danger" *ngIf="(formControl.location.touched || submitted) && formControl.location.errors?.required">
                     Location is required
                 </span>
 
@@ -61,7 +57,7 @@
                         *ngIf="(formControl.categeory.touched || submitted) && formControl.categeory.errors?.required">
                         Categeory is required
                     </span>
-    
+
                     </select>
                 </div>
             </div>
