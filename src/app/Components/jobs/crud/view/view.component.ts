@@ -184,7 +184,6 @@ export class ViewComponent implements OnInit {
   updateProject(){
   }
 
-
   activeEdit(){
     if(this.onlineUser.type == 'client' && this.project.status == 'pending' && this.onlineUser.id ==this.project.owner_id ){
       return true ;

@@ -170,6 +170,19 @@ h5 {
     color: gray;
 }
 
+
+/***/
+
+h5 {
+    /* font-family: "Marck Script", san-serif;
+    padding: 0; */
+    font-size: 30px;
+    color: gray;
+}
+
+
+/***/
+
 .title {
     color: green;
     /* margin: 50px; */
