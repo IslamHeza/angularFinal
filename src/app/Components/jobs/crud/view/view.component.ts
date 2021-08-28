@@ -11,6 +11,7 @@ import { Purposal } from 'src/app/_models/purposal';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import {MenuItem} from 'primeng/api';
+import { TaskService } from 'src/app/service/task.service';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -25,7 +26,8 @@ export class ViewComponent implements OnInit {
     private userservice: UserService,
     private purposalservice: PurposalService,
     private http: HttpClient,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private taskService: TaskService,
   ) {}
 
   project: any = [];
@@ -38,7 +40,7 @@ export class ViewComponent implements OnInit {
   allpurposals: any = [];
   url: any;
   //  project:Project = new Project ()
-
+  task: any = [];
   userData: any;
   onlineUser: User = new User();
   user_of_purposal: any = [];
@@ -46,7 +48,7 @@ export class ViewComponent implements OnInit {
 
   rate_pro: number = 0;
   items: MenuItem[] = [];
-
+ 
 
   ngOnInit(): void {
     this.onlineUser.id = localStorage.getItem('id');
@@ -55,18 +57,10 @@ export class ViewComponent implements OnInit {
     this.view();
     this.showreview();
 
-    // this.hide=!(this.purposal.developer_id== this.onlineUser && this.onlineUser.type=='developer')
-    // this.check_purposal();
 
+   
   }
-  // check_purposal(){
-  //   if(this.onlineUser.id==this.purposal.developer_id && this.onlineUser.type =='developer'
-  // && this.purposal.project_id==this.project.id){
-  //     this.hide=true;
-  //   }else if(this.onlineUser.type =='developer'){
-  //     this.hide=false
-  //   }
-  // }
+
   getUser(id: any) {
     return this.userservice.getUser(id).subscribe((res) => {
       this.userData = res;
@@ -87,7 +81,7 @@ export class ViewComponent implements OnInit {
         this.url = '/api/download/' + this.project.file;
         this.download();
         this.get_allpurposal();
-
+        // this.getTask();
 
         // localStorage.setItem('project_id',JSON.stringify((this.project.id)));
       });
@@ -153,57 +147,10 @@ export class ViewComponent implements OnInit {
     // });
   }
 
-  // get_user_of_purposal(){
-  // //   this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe( response => {
-  // //     this.purposal=response;
-  // //   this.userservice.getUser(this.purposal.developer_id).subscribe(res => {
-  // //     this.user_of_purposal=res;
+  
+  
 
-  // //     console.log(res);
-  // //   });
-  // // });
-
-  //   this.purposalservice.getPurposal(this.route.snapshot.params.id).subscribe( response => {
-  //     this.purposal=response;
-
-  //     // console.log(this.purposal.project_id);
-
-  //     this.userservice.getUser(this.purposal.developer_id).subscribe(res => {
-  //       this.user_of_purposal =res;
-  //       this.rate = this.user_of_purposal .rate;
-  //       console.log(res);
-  //       this.ProjectService.getProject(this.purposal.project_id).subscribe(res => {
-  //         this.project=res;
-  //         this.project.developer_id=this.purposal.developer_id
-  //         this.ProjectService.updateProject(this.route.snapshot.params.id, this.project)
-  //         .subscribe((res) => {
-
-  //         });
-  //       });
-
-  //     });
-
-  //   });
-
-  // }
-
-  // get_user(){
-  //   this.userservice.getUser(this.route.snapshot.params.id).subscribe(res =>{
-  //     this.data = res;
-  //     this.user = this.data;
-  //     console.log(this.user.name);
-  //   });
-  // }
-
-  // get_purposal() {
-  //   this.purposalservice
-  //     .getPurposal(this.route.snapshot.params.id)
-  //     .subscribe((response) => {
-  //       this.purposal = response;
-  //       // this.purposal.project_id=this.project.id
-  //       console.log(response);
-  //     });
-  // }
+ 
 
   accept_purposal() {
     // this.project.status = 'processing';
@@ -237,12 +184,7 @@ export class ViewComponent implements OnInit {
   updateProject(){
   }
 
-  // deleteProject(event:any , id:any){
-  //   event.preventDefault()
-  //   return this.ProjectService.deleteProject(id).subscribe(res => {
-  //     this.view();
-  //   });
-  // }
+  
   activeEdit(){
     if(this.onlineUser.type == 'client' && this.project.status == 'pending' && this.onlineUser.id ==this.project.owner_id ){
       return true ;
@@ -250,4 +192,12 @@ export class ViewComponent implements OnInit {
       return false ;
     }
 }
+
+// getTask() {
+//   this.taskService.getTask(this.project.id).subscribe((res) => {
+//     this.task = res;
+//     console.log(this.task);
+    
+//   });
+// }
 }

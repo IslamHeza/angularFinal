@@ -132,19 +132,19 @@
 
         </div>
         <!-- submitted project -->
-        <div class="row justify-content-center " *ngIf="!userType && task.submitted==1 ">
-            <div class="col-6 box p-4 pb-0 ">
-                <div class="mb-3 ">
+        <div class="row  justify-content-center mt-3 " *ngIf="!userType && task.submitted==1 ">
+            <div class="col2 col-6 box p-4 pb-0 ">
+                <div class="col-6 mb-3 ">
                     <h3>Submitted Project</h3>
                 </div>
-                <div class="mb-2 ">
+                <div class=" col-6 mb-2 ">
                     <h4>File :</h4>
                     <a [href]="url " [download]="task.file ">
                   {{ task.file }}</a>
                 </div>
-                <div class="mb-1 ">
+                <div class="col-6 mb-1 ">
                     <h4>Notes :</h4>
-                    <p>{{task.text}}</p>
+                    <div>{{task.text}}</div>
                 </div>
                 <div *ngIf="task.accepted==0 ">
                     <button class="btn btn-outline-rounded btn-success " routerLink="/addReview/{{task.project_id}}/{{task.developer_id}} "> Accept And Rate </button>

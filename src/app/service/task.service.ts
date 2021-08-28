@@ -23,7 +23,7 @@ export class TaskService {
   }
 
   addTask(task:any, id:any){
-    return this.httpClient.post(this.baseUrl+id , task ,{headers:this.headers});
+    return this.httpClient.post(this.baseUrl+id , task );
   }
 
   updateTask(id:any,task:any){

@@ -77,7 +77,7 @@ const routes: Routes = [
   { path: 'addproject', component: CreateComponent },
   { path: 'listproject', component: ListComponent },
   { path: 'editproject/:id', component: EditComponent },
-  { path: 'viewproject/:id', component: ViewComponent },
+  { path: 'viewproject/:id', component: ViewComponent ,canActivate: [AuthGuard] },
 
   { path: 'addReview/:project_id/:developer_id', component: AddReviewComponent },
 
