@@ -20,13 +20,8 @@ export class AddReviewComponent implements OnInit {
   onlineUser: User = new User();
   userData: any;
   task: any = [] ;
-<<<<<<< HEAD
-  rateData : any ;
-  newRate : any ;
-
-=======
   project: any = [];
->>>>>>> a0c66919d1cf79dd10068c3ad20da8727cdf98e4
+  
   changeRate(evant: any) {
     this.rate = evant.value;
     this.Review.rate = this.rate;
@@ -37,12 +32,7 @@ export class AddReviewComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private taskService:TaskService,
-<<<<<<< HEAD
-    private userService :UserService
-
-=======
-    private projectService :ProjectService,
->>>>>>> a0c66919d1cf79dd10068c3ad20da8727cdf98e4
+    private projectService :ProjectService
   ) {}
 
   ngOnInit(): void {
@@ -71,11 +61,6 @@ export class AddReviewComponent implements OnInit {
     this.taskService.makeAccepted(this.route.snapshot.params.project_id ).subscribe((res) => {
       this.change_status();
     });
-<<<<<<< HEAD
-    this.avgRate();
-=======
-
->>>>>>> a0c66919d1cf79dd10068c3ad20da8727cdf98e4
   }
   change_status(){
     this.projectService.getProject(this.route.snapshot.params.id).subscribe(
@@ -84,13 +69,6 @@ export class AddReviewComponent implements OnInit {
         this.project.status = 'done';
         console.log(this.project.status);
 
-<<<<<<< HEAD
-  avgRate(){
-    this.ReviewService.avgRate(this.route.snapshot.params.developer_id).subscribe(res=>{
-    });
-  }
-  
-=======
         this.projectService.updateProject(
           this.route.snapshot.params.id,
           this.project
@@ -98,7 +76,6 @@ export class AddReviewComponent implements OnInit {
       }
     );
     }
->>>>>>> a0c66919d1cf79dd10068c3ad20da8727cdf98e4
   // getUser(id: any) {
   //   return this.userService.getUser(id).subscribe((res) => {
   //     this.userData = res;
