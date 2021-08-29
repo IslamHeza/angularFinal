@@ -5,9 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/service/user.service';
-
+import { ProjectService } from 'src/app/service/project.service';
 import { TaskService } from 'src/app/service/task.service';
-
+import { Project } from 'src/app/_models/project';
 @Component({
   selector: 'app-add-review',
   templateUrl: './add-review.component.html',
@@ -20,7 +20,7 @@ export class AddReviewComponent implements OnInit {
   onlineUser: User = new User();
   userData: any;
   task: any = [] ;
-
+  project: any = [];
   changeRate(evant: any) {
     this.rate = evant.value;
     this.Review.rate = this.rate;
@@ -30,7 +30,8 @@ export class AddReviewComponent implements OnInit {
     private ReviewService: ReviewsService,
     private router: Router,
     private route: ActivatedRoute,
-    private taskService:TaskService
+    private taskService:TaskService,
+    private projectService :ProjectService,
   ) {}
 
   ngOnInit(): void {
@@ -42,6 +43,7 @@ export class AddReviewComponent implements OnInit {
   }
 
   addReview() {
+
     return this.ReviewService.addReview(this.Review).subscribe((res) => {
       console.log(this.Review.rate);
       this.Review.rate = this.rate;
@@ -50,10 +52,26 @@ export class AddReviewComponent implements OnInit {
   }
 
   makeAccepted() {
-    this.taskService.makeAccepted(this.route.snapshot.params.project_id ).subscribe((res) => {
-    });
-  }
 
+    this.taskService.makeAccepted(this.route.snapshot.params.project_id ).subscribe((res) => {
+      this.change_status();
+    });
+
+  }
+  change_status(){
+    this.projectService.getProject(this.route.snapshot.params.id).subscribe(
+      (res) => {
+        this.project = res;
+        this.project.status = 'done';
+        console.log(this.project.status);
+
+        this.projectService.updateProject(
+          this.route.snapshot.params.id,
+          this.project
+        ).subscribe((res) => {});
+      }
+    );
+    }
   // getUser(id: any) {
   //   return this.userservice.getUser(id).subscribe((res) => {
   //     this.userData = res;

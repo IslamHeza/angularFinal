@@ -63,7 +63,7 @@
 
 
             <!-- <div class="purposal_btn" *ngIf="(onlineUser.type =='developer')  || ( project.owner_id == !onlineUser.id)"></div> -->
-            <div class="purposal_btn" *ngIf="(onlineUser.type !='client')  &&  canSubmit==true ">
+            <div class="purposal_btn" *ngIf="(onlineUser.type !='client')  &&  canSubmit==true && project.status != 'done'">
                 <!-- <div class="purposal_btn" *ngIf="(onlineUser.type =='developer') &&
                    (project.id != purposal.project_id && project.developer_id != purposal.developer_id )
                   || ( project.owner_id == !onlineUser.id) "> -->
