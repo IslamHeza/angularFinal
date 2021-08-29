@@ -43,9 +43,12 @@ export class ViewTasksComponent implements OnInit {
   }
 
   getTask() {
+
     this.taskService.getTask(this.route.snapshot.params.id).subscribe((res) => {
       this.data = res;
+
       this.task = this.data;
+
     });
   }
   getUser(id: any) {
@@ -65,4 +68,5 @@ export class ViewTasksComponent implements OnInit {
       }
     );
   }
+
 }

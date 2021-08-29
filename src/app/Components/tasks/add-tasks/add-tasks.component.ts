@@ -93,10 +93,13 @@ export class AddTasksComponent implements OnInit {
       formData.append('developer_id', this.onlineUser.id);
       formData.append('owner_id', this.purposal.owner_id);
       formData.append('submitted', 1);
-      
+
       this.taskService
         .addTask(formData, this.onlineUser.id)
-        .subscribe((response) => {});
+        .subscribe((response) => {
+
+        });
+
         console.table(this.form.value);
         this.router.navigate(['/dashboard']);
       }else {
@@ -105,7 +108,7 @@ export class AddTasksComponent implements OnInit {
     }
 
   }
-  
+
   getUser(id: any) {
     return this.userService.getUser(id).subscribe((res) => {
       this.userData = res;
@@ -113,7 +116,6 @@ export class AddTasksComponent implements OnInit {
       console.log(this.onlineUser.type);
     });
   }
-
 
 
 }

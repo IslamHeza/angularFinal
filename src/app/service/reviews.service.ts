@@ -16,7 +16,7 @@ export class ReviewsService {
   constructor(private httpClient:HttpClient) { }
 
   getAllReviews(){
-    return this.httpClient.get(this.HomeReviewsURL);
+    return this.httpClient.get(this.HomeReviewsURL ,{headers:this.headers});
   }
 
   addReview(review:any){
@@ -24,7 +24,7 @@ export class ReviewsService {
     return this.httpClient.post(this.AddReviewURL,review,{headers:this.headers});
   }
   showreviews(id:any){
-    return this.httpClient.get(this.ShowReviewURL + id);
+    return this.httpClient.get(this.ShowReviewURL + id ,{headers:this.headers});
   }
     avgRate(userId:any){
     return this.httpClient.get(this.ShowReviewURL +'rate/'+ userId);

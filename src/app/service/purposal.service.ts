@@ -41,4 +41,8 @@ export class PurposalService {
 
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a0c66919d1cf79dd10068c3ad20da8727cdf98e4
