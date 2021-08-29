@@ -16,10 +16,10 @@ export class TaskService {
   })
 
   getAllTasks(){
-    return this.httpClient.get(this.baseUrl );
+    return this.httpClient.get(this.baseUrl ,{headers:this.headers});
   }
   getTask(id:any){
-    return this.httpClient.get(this.baseUrl + id)
+    return this.httpClient.get(this.baseUrl + id ,{headers:this.headers})
   }
 
   addTask(task:any, id:any){
@@ -41,7 +41,7 @@ export class TaskService {
 
 
   getActiveProjects(id:any){
-    return this.httpClient.get(this. baseUrl +'active/'+ id);
+    return this.httpClient.get(this. baseUrl +'active/'+ id ,{headers:this.headers});
   }
 
   download(fileName: string): Observable <Blob> {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PortfolioService } from 'src/app/service/portfolio.service';
 import { ProjectService } from 'src/app/service/project.service';
+import { ReviewsService } from 'src/app/service/reviews.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/_models/user';
 
@@ -15,7 +16,9 @@ export class LeftSectionComponent implements OnInit {
     private userService: UserService,
     private portfolioService: PortfolioService,
     private projectService: ProjectService,
-    private rout :Router  ) {}
+    private rout :Router,
+    private reviewService:ReviewsService
+    ) {}
 
   readonly: boolean = true;
   cancel: boolean = false;
@@ -39,6 +42,9 @@ export class LeftSectionComponent implements OnInit {
       this.data = res;
       this.user = this.data;
       this.rate = this.user.rate;
+      
+      this.avgRate();
+
     });
   }
 
@@ -57,4 +63,14 @@ export class LeftSectionComponent implements OnInit {
   viewProject(){
     this.rout.navigate(['listportfolio']);
   }
+
+  avgRate(){
+    console.log(this.user.id);
+    
+    this.reviewService.avgRate(this.user.id).subscribe(res=>{
+      console.log(res);
+      
+    });
+  }
+
 }

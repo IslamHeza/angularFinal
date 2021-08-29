@@ -7,8 +7,8 @@
         <div class="empty" *ngIf="empty==true">
             <p>There are no projects</p>
           </div>
-      <div class="list-group active mb-1" *ngFor="let project of ActivProjects">
-        <a  class="list-group-item list-group-item-action list-group-item-primary title" (click)="viewProject(project.proposalId)" style="color:black"> {{project.title}} <small class="text-muted">{{project.created_at}}</small></a>
+      <div class="list-group active mb-1" *ngFor="let project of activeProposal">
+        <a  class="list-group-item list-group-item-action list-group-item-primary title" href="viewAcceptPurposal/{{project.proposal_id}}" style="color:black"> {{project.title}} </a>
       </div>
     </div>
 </div>

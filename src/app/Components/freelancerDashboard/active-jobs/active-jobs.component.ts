@@ -12,8 +12,10 @@ import { Purposal } from 'src/app/_models/purposal';
 export class ActiveJobsComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
-    private route: Router,
-    private proposalService: PurposalService
+    private router: Router,
+    private proposalService: PurposalService,
+    private route: ActivatedRoute
+
   ) {}
 
   ActivProjects: any = [];
@@ -25,9 +27,9 @@ export class ActiveJobsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('id');
-    this.getActiveProjects(this.userId);
+    this.getِActiveProposal(this.userId);
   }
-
+/**************************************************************
   async getActiveProjects(id: any) {
     // const active = await this.projectService.getActiveProjects(id).subscribe((res) => {
     const active = await this.projectService.getActiveProjects(id).toPromise();
@@ -39,15 +41,10 @@ export class ActiveJobsComponent implements OnInit {
     if (this.ActivProjects.length != 0) this.empty = false;
     // console.log(this.ActivProjects);
     // });
-    this.getProposal();
+    // this.getProposal();
     // console.log(this.ActivProjects);
   }
 
-  viewProject(proposalId:any) {
-    // this.route.navigate(['viewproject/'+id]);
-    console.log(proposalId);
-    this.route.navigate(['/viewAcceptPurposal/' + proposalId]);
-  }
 
   async getProposal() {
     let i = 0;
@@ -59,8 +56,6 @@ export class ActiveJobsComponent implements OnInit {
         .toPromise();
 
       this.proposal = proposal;
-      // console.log(proposal);
-      // console.log(this.proposal[0].id);
 
       this.ActivProjects[i].proposalId = this.proposal[0].id;
       // id = this.proposal.id;
@@ -71,4 +66,30 @@ export class ActiveJobsComponent implements OnInit {
       // });
     }
   }
+************************************************************** */
+
+  viewProject(proposalId:any) {
+    // this.route.navigate(['viewproject/'+id]);
+    console.log(proposalId);
+    
+    this.router.navigate(['/viewAcceptPurposal/' + proposalId]);
+  }
+
+
+
+
+  proposalData: any;
+  activeProposal: any = [];
+
+  getِActiveProposal(userId:any) {
+    this.projectService.getActiveProjects(userId)
+      .subscribe((res) => {
+        this.proposalData = res;
+        this.activeProposal = this.proposalData;
+        console.log(this.activeProposal);
+      });
+      if (this.activeProposal.length == 0) this.empty = false;
+
+  }
+
 }

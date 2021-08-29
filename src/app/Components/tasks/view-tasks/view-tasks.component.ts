@@ -43,12 +43,14 @@ export class ViewTasksComponent implements OnInit {
   }
 
   getTask() {
+
     this.taskService.getTask(this.route.snapshot.params.id).subscribe((res) => {
       this.data = res;
+
       this.task = this.data;
+
     });
   }
-
   getUser(id: any) {
     return this.userService.getUser(id).subscribe((res) => {
       this.userData = res;

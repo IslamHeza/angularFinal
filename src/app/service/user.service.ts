@@ -96,4 +96,7 @@ export class UserService {
     return this.httpClient.get(this.TopDevelopersURL);
   }
 
+  updateRate(id:any, rate:any){
+    return this.httpClient.put(this.userUrl +'rate/'+ id+'/'+rate,rate);
+  }
 }
