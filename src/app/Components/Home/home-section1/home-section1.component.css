@@ -26,7 +26,11 @@
 .section1 .btn1 {
     background-color: #053742;
     color: #E8F0F2;
-    border-radius: 5px 5px 0px 0px !important;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.section1 .btn2{
+    background-color: #E8F0F2;
+    color : #053742;
 }
 
 .section1 .search {

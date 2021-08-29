@@ -10,7 +10,7 @@
                 <div class="col-md-4 d-flex justify-content-sm-center mt-3" *ngFor="let project of Projects">
                     <div class="card " style="width: 18rem;">
                         <div class="img-card">
-                            <img src="/assets/images/{{project.image}}" class="card-img-top img-fluid" alt="...">
+                            <img src="http://localhost:8000/storage/projects/{{project.img}}" class="card-img-top img-fluid" alt="...">
                         </div>
                         <div class="card-body">
                             <p class="card-text fs-6 mb-1">{{project.title}}</p>
@@ -18,7 +18,7 @@
                             <div class="row justify-content-between mt-2">
                                 <div class="col-6">
                                     <p class="font-awsome" style="font-size: 1rem;">
-                                        <p-rating [(ngModel)]="project.rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                                        <p-rating [(ngModel)]="project.project_rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
                                     </p>
                                 </div>
                                 <div class="col-6">

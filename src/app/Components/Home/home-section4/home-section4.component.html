@@ -9,12 +9,12 @@
                 <!-- sCard1 -->
                 <div class="col-lg-3 col-md-6 d-flex justify-content-center mt-3" style="width: 18rem;">
                     <div class="card" style="width: 18rem;" (mouseleave)="removeStyle(img1 , cardBody1)">
-                        <img #img1 src="/assets/images/{{developer.image}}" class="card-img-top styleImgFst" alt="..." (mouseenter)="addStyle(img1 , cardBody1)">
+                        <img #img1 src="http://localhost:8000/storage/users/{{developer.image}}" class="card-img-top styleImgFst" alt="..." (mouseenter)="addStyle(img1 , cardBody1)">
                         <div class="card-body" #cardBody1>
                             <a routerLink="Catagories/{{developer.id}}">
                                 <p class="card-text fs-4 mb-1">{{(developer.name)+" "+ (developer.lname)}}</p>
                             </a>
-                            <small><b>{{developer.name}}</b></small>
+                            <small><b>{{developer.cat_name}}</b></small>
                             <p class="text-muted">{{developer.overview}}</p>
                         </div>
                     </div>

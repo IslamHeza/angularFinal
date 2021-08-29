@@ -21,7 +21,7 @@ export class MessagesService {
 
   getMessages(reciever_id:any , sender_id:any){
     this.xx = this.BaseUrl + reciever_id + "/" + sender_id;
-    return this.httpClient.get(this.xx);
+    return this.httpClient.get(this.xx , {headers:this.headers});
 
   }
 
@@ -39,7 +39,11 @@ export class MessagesService {
     });
   }
 
+  getUserMessage(id:any){
+    return this.httpClient.get(this.BaseUrl + id );
+  }
 
+  
   ngOnInit(): void {
 
     this.onlineUser.id = localStorage.getItem('id');

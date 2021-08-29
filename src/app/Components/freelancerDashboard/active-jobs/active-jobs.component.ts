@@ -46,7 +46,6 @@ export class ActiveJobsComponent implements OnInit {
   viewProject(proposalId:any) {
     // this.route.navigate(['viewproject/'+id]);
     console.log(proposalId);
-    
     this.route.navigate(['/viewAcceptPurposal/' + proposalId]);
   }
 

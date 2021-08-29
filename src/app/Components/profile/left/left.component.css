@@ -3,3 +3,8 @@
   color: #6c7293;
   border-radius: 5px;
 }
+a{
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

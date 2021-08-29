@@ -6,7 +6,7 @@
 
             <div class="col-md-2">
                 <!-- <a routerLink="/profile/{{project.id}}"> -->
-                <img src="http://localhost:8000/storage/users/{{project.avatar}}" height="100px" class="card-img-top" alt="...">
+                <img src="http://localhost:8000/storage/users/{{project.avatar}}" height="100px" class="card-img-top img" alt="...">
                 <!-- </a> -->
             </div>
             <div class="col-5 mt-2 mb-3">
@@ -56,6 +56,11 @@
                 </div>
             </div>
 
+            <div class="row mt-2" *ngIf="isImage==true">
+                <hr>
+                <img src="http://localhost:8000/storage/projects/files/{{project.file}}">
+            </div>
+
 
             <!-- <div class="purposal_btn" *ngIf="(onlineUser.type =='developer')  || ( project.owner_id == !onlineUser.id)"></div> -->
             <div class="purposal_btn" *ngIf="(onlineUser.type !='client')  &&  canSubmit==true ">
@@ -95,7 +100,7 @@ get task
                         <div class="row">
                             <div class="col-md-2">
                                 <!-- <a routerLink="/profile/{{project.id}}"> -->
-                                <img class="image" src="http://localhost:8000/storage/users/{{purposal.image}}" alt="...">
+                                <img class="image img" src="http://localhost:8000/storage/users/{{purposal.image}}" alt="...">
                                 <!-- </a> -->
                             </div>
                             <div class="col-md-5 mt-2 mb-3">

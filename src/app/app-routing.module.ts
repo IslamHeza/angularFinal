@@ -38,6 +38,7 @@ import { AddReviewComponent } from './Components/jobs/add-review/add-review.comp
 import { AuthGuard } from './auth.guard';
 import { userTypeGuard } from './userType.guard';
 import { MessagesComponent } from './Components/chat/messages/messages.component';
+import { ChathomeComponent } from './Components/chat/chathome/chathome.component';
 
 
 const routes: Routes = [
@@ -99,9 +100,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   //chat
-  {path:"realTimeChat/:id",component: MessagesComponent },
+  // {path:"realTimeChat/:id",component: MessagesComponent },
   //  {path:"messages/:id",component: MessageComponent},
   //  {path:"messages",component: MessageComponent},
+
+   //chat
+   {path:"realTimeChat/:id",component: MessagesComponent },
+   {path:"realTimeChat",component: ChathomeComponent },
 ];
 
 @NgModule({

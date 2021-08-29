@@ -83,6 +83,12 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import{AddTasksComponent}from './Components/tasks/add-tasks/add-tasks.component'
 import { ViewTasksComponent } from './Components/tasks/view-tasks/view-tasks.component';
 
+import { MessagesComponent } from './Components/chat/messages/messages.component';
+
+import { UserMessagesComponent } from './Components/freelancerDashboard/user-messages/user-messages.component';
+import { ChathomeComponent } from './Components/chat/chathome/chathome.component';
+
+
 
 
 
@@ -108,8 +114,6 @@ import { ProjectPipe } from './Components/jobs/crud/list/project.pipe';
 import { EditComponent } from './Components/jobs/crud/edit/edit.component';
 import { ViewComponent } from './Components/jobs/crud/view/view.component';
 import { AddReviewComponent } from './Components/jobs/add-review/add-review.component';
-import { MessagesComponent } from './Components/chat/messages/messages.component';
-import { MessageComponent } from './Components/messages/message/message.component';
 import { userTypeGuard } from './userType.guard';
 
 
@@ -173,7 +177,8 @@ import { userTypeGuard } from './userType.guard';
     ViewComponent,
     AddReviewComponent,
     MessagesComponent,
-    MessageComponent,
+    ChathomeComponent ,
+    UserMessagesComponent
 
 
 
@@ -197,6 +202,7 @@ import { userTypeGuard } from './userType.guard';
     FileUploadModule,
     HttpClientModule,
     SplitButtonModule,
+    
     //toastr
     CommonModule,
     ToastrModule.forRoot(),

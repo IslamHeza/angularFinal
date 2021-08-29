@@ -33,6 +33,8 @@ export class RightComponent implements OnInit {
       }
     });
     this.onlineUser.id = localStorage.getItem('id');
+    console.log(this.user);
+
     this.showReview();
 
 

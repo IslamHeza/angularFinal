@@ -7,35 +7,47 @@
     text-shadow: white 0px 0px 2px;
     height: 300px;
     align-items: center;
-  }
-  
-  .cover h1 {
+}
+
+.cover h1 {
     color: white;
     text-align: center;
-  }
-  
-  .xx{
+}
+
+.xx {
     border-radius: 5px;
     background-color: rgb(241, 240, 240);
-  }
-  p-tag{
-      margin: 2px;
-  }
-  .tags{
+}
+
+p-tag {
+    margin: 2px;
+}
+
+.tags {
     display: inline-block;
 }
-.section-title{
-  color: #157EFB;
+
+.section-title {
+    color: #157EFB;
 }
-.link{
-  color: #6c7293;
+
+.link {
+    color: #6c7293;
 }
-.tag{
-  background-color: #5FD18C;
+
+.tag {
+    background-color: #5FD18C;
 }
-.title{
-  color: #053742;
+
+.title {
+    color: #053742;
 }
+
+
 /* .row{
   border: 1px solid black;
 } */
+
+.img {
+    width: 100%;
+}

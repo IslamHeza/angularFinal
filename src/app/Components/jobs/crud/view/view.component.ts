@@ -11,7 +11,6 @@ import { Purposal } from 'src/app/_models/purposal';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import {MenuItem} from 'primeng/api';
-import { TaskService } from 'src/app/service/task.service';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -26,8 +25,7 @@ export class ViewComponent implements OnInit {
     private userservice: UserService,
     private purposalservice: PurposalService,
     private http: HttpClient,
-    private sanitizer: DomSanitizer,
-    private taskService: TaskService,
+    private sanitizer: DomSanitizer
   ) {}
 
   project: any = [];
@@ -40,7 +38,6 @@ export class ViewComponent implements OnInit {
   allpurposals: any = [];
   url: any;
   //  project:Project = new Project ()
-  task: any = [];
   userData: any;
   onlineUser: User = new User();
   user_of_purposal: any = [];
@@ -48,7 +45,7 @@ export class ViewComponent implements OnInit {
 
   rate_pro: number = 0;
   items: MenuItem[] = [];
- 
+  isImage = false ;
 
   ngOnInit(): void {
     this.onlineUser.id = localStorage.getItem('id');
@@ -58,7 +55,6 @@ export class ViewComponent implements OnInit {
     this.showreview();
 
 
-   
   }
 
   getUser(id: any) {
@@ -79,9 +75,12 @@ export class ViewComponent implements OnInit {
         // this.showreview
 
         this.url = '/api/download/' + this.project.file;
+        if(this.project.file.split('.').pop() == 'jpg' || 'png' || 'jpeg'){
+          this.isImage = true ;
+          console.log(this.project.file.split('.').pop() , this.isImage);
+        }
         this.download();
         this.get_allpurposal();
-        // this.getTask();
 
         // localStorage.setItem('project_id',JSON.stringify((this.project.id)));
       });
@@ -147,10 +146,10 @@ export class ViewComponent implements OnInit {
     // });
   }
 
-  
-  
 
- 
+
+
+
 
   accept_purposal() {
     // this.project.status = 'processing';
@@ -184,7 +183,6 @@ export class ViewComponent implements OnInit {
   updateProject(){
   }
 
-  
   activeEdit(){
     if(this.onlineUser.type == 'client' && this.project.status == 'pending' && this.onlineUser.id ==this.project.owner_id ){
       return true ;
@@ -192,12 +190,4 @@ export class ViewComponent implements OnInit {
       return false ;
     }
 }
-
-// getTask() {
-//   this.taskService.getTask(this.project.id).subscribe((res) => {
-//     this.task = res;
-//     console.log(this.task);
-    
-//   });
-// }
 }

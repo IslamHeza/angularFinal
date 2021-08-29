@@ -1,25 +1,99 @@
-<div class="container">
-    
-    <div class="d-flex flex-column align-items-stretch bg-white mt-5" style="width: 380px;">
-        <div href="/" class="d-flex align-items-center  p-3 link-dark text-decoration-none border-bottom">-->
-         
-        </div>
-        <div class="list-group list-group-flush border-bottom scrollarea">
-          <div href="#" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true" *ngFor="let message of messages">
-            <div class="d-flex w-100 align-items-center justify-content-between" >
-              <strong class="mb-1">{{message.username}}</strong>
-             
+
+
+
+
+
+ 
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+      <!--  All snippets are MIT license http://bootdey.com/license -->
+      <title>white chat - Bootdey.com</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+  <main class="content">
+      <div class="container p-0 mt-5">
+  
+      <h1 class="h3 mb-3">Messages</h1>
+  
+      <div class="card">
+        <div class="row g-0">
+                    <div class="col-12 col-lg-5 col-xl-3 border-right">
+                      <div class="px-4 d-none d-md-block">
+                        <div class="d-flex align-items-center">
+                        </div>
+                      </div>
+                      
+                      <a (click)='move(user.id)' class="list-group-item list-group-item-action border-0" *ngFor = 'let user of names'>
+                        <div class="d-flex align-items-start">
+                            <img src="http://localhost:8000/storage/users/{{user.image}}" class="rounded-circle mr-1" width="40" height="40">
+                            <div class="flex-grow-1 ml-3">
+                               <strong>{{user.username}}</strong>
+                            </div>
+                        </div>
+                      </a>
+                      
+                      <hr class="d-block d-lg-none mt-1 mb-0">
+                      </div>
+                 
+          <div class="col-12 col-lg-7 col-xl-9">
+            <div class="py-2 px-4 border-bottom d-none d-lg-block">
+              <div class="d-flex align-items-center py-1">
+                <div class="position-relative">
+                  <img src="http://localhost:8000/storage/users/{{onlineUser.image}}" class="rounded-circle mr-1" width="40" height="40">
+                </div>
+                <div class="flex-grow-1 pl-3">
+                  <strong>{{onlineUser.name}}</strong>
+                </div>
+              </div>
             </div>
-            <div class="col-10 mb-1 small">{{message.message}}</div>
-        </div>
           
+            <div class="position-relative">
+              <div class="chat-messages p-4">
+          
+                <div class=" row chat-message-right pb-4" *ngFor="let message of messages">
+                  <div class ='col-md-1'>
+                    <img src="http://localhost:8000/storage/users/{{message.image}}" class="rounded-circle mr-1" width="50" height="50">
+                  </div>
+                  <div class="col-md-9 flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+                    <div class="font-weight-bold mb-1">{{message.username}}</div>
+                    {{message.message}}
+                  </div>
+                </div>
+          
+          
+              </div>
+            </div>
+          
+            <div class="flex-grow-0 py-3 px-4 border-top">
+              <div class="input-group">
+                <form (ngSubmit)='submit()'>
+                  <input type="text" class="form-control" [value] ="messag" placeholder="Enter Your Message" style="border: 1px black solid;" (change) ='messag=$any($event.target).value'>
+                <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+            </div>
+         </div>
         </div>
-        <form (ngSubmit)="submit()">
-            <input type="text" class="form-control" [value] ="messag" placeholder="Enter Your Message" style="border: 1px black solid;" (change) ='messag=$any($event.target).value'>
-            
-            <input type="submit" value="Send" class="btn btn-primary mt-2">
-            
-        </form>
       </div>
-</div>
+    </div>
+  </main>
+  
+  <style type="text/css">
+  
+  </style>
+  
+  <script type="text/javascript">
+  
+  </script>
+  </body>
+  </html>
+  
+
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
