@@ -17,6 +17,7 @@ export class ProjectService {
   Url="http://localhost:8000/api/contact";
   RUrl="http://localhost:8000/api//review/";
   MostProjectsURL= "http://localhost:8000/api/mostProjects";
+  
   headers = new HttpHeaders({
     'Content-Type':'application/json',
     'Authorization':'Bearer '+JSON.parse(localStorage.getItem('token')||'{}')
@@ -38,12 +39,12 @@ export class ProjectService {
   }
 
   updateProject(id:any,project:any){
-    return this.httpClient.put(`${this.baseUrl}${id}`, project );
+    return this.httpClient.put(`${this.baseUrl}${id}`, project ,{headers:this.headers} );
   }
 
 
   deleteProject(id:any){
-    return this.httpClient.delete(this. baseUrl + id);
+    return this.httpClient.delete(this. baseUrl + id ,{headers:this.headers});
   }
 
   countProjects(id :any , status:any){
@@ -51,15 +52,15 @@ export class ProjectService {
   }
 
   getActiveProjects(id:any){
-    return this.httpClient.get(this. baseUrl +'active/'+ id);
+    return this.httpClient.get(this. baseUrl +'active/'+ id ,{headers:this.headers});
   }
 
   getRecentProject(category_id:any){
-    return this.httpClient.get(this. baseUrl +'recent/'+category_id);
+    return this.httpClient.get(this. baseUrl +'recent/'+category_id,{headers:this.headers});
   }
 
   getProjects(){
-    return this.httpClient.get(this.MostProjectsURL);
+    return this.httpClient.get(this.MostProjectsURL,{headers:this.headers});
   }
 
   getDevelopers(){
@@ -76,11 +77,14 @@ export class ProjectService {
       responseType: 'blob'
     })
   }
-  getClientProject(id:any){
-    return this.httpClient.get(this. baseUrl +'client/'+id);
 
+  getClientProject(id:any){
+    return this.httpClient.get(this. baseUrl +'client/'+id,{headers:this.headers});
   }
 
+getPending(userId:any){
+  return this.httpClient.get(this. baseUrl +'pending/'+ userId ,{headers:this.headers});
+}
 
 }
 

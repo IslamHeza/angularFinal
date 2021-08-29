@@ -26,4 +26,8 @@ export class ReviewsService {
   showreviews(id:any){
     return this.httpClient.get(this.ShowReviewURL + id);
   }
+    avgRate(userId:any){
+    return this.httpClient.get(this.ShowReviewURL +'rate/'+ userId);
+  }
+
 }

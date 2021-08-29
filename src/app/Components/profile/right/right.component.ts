@@ -55,7 +55,7 @@ export class RightComponent implements OnInit {
   showReview() {
     this.reviewService.showreviews(this.onlineUser.id).subscribe((res) => {
       this.Reviews = res;
-      console.log(res);
+      console.log(this.Reviews);
     });
   }
 
@@ -76,8 +76,8 @@ export class RightComponent implements OnInit {
   pending: any = [];
 
   getPendingProposal() {
-    this.proposalService
-      .getPendingProposal(this.route.snapshot.params.id)
+    this.projectService
+      .getPending(this.route.snapshot.params.id)
       .subscribe((res) => {
         this.pendingData = res;
         this.pending = this.pendingData;

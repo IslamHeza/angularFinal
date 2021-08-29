@@ -41,7 +41,7 @@ export class TaskService {
 
 
   getActiveProjects(id:any){
-    return this.httpClient.get(this. baseUrl +'active/'+ id);
+    return this.httpClient.get(this. baseUrl +'active/'+ id ,{headers:this.headers});
   }
 
   download(fileName: string): Observable <Blob> {

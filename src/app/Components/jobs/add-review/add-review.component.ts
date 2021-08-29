@@ -20,6 +20,8 @@ export class AddReviewComponent implements OnInit {
   onlineUser: User = new User();
   userData: any;
   task: any = [] ;
+  rateData : any ;
+  newRate : any ;
 
   changeRate(evant: any) {
     this.rate = evant.value;
@@ -30,7 +32,9 @@ export class AddReviewComponent implements OnInit {
     private ReviewService: ReviewsService,
     private router: Router,
     private route: ActivatedRoute,
-    private taskService:TaskService
+    private taskService:TaskService,
+    private userService :UserService
+
   ) {}
 
   ngOnInit(): void {
@@ -39,23 +43,33 @@ export class AddReviewComponent implements OnInit {
     this.Review.project_id = this.route.snapshot.params.project_id;
     this.Review.rater_id = localStorage.getItem('id');
     this.Review.ratee_id = this.route.snapshot.params.developer_id;
+
+
+
   }
 
   addReview() {
     return this.ReviewService.addReview(this.Review).subscribe((res) => {
       console.log(this.Review.rate);
       this.Review.rate = this.rate;
-      this.router.navigate(['listproject']);
+
+      // this.router.navigate(['listproject']);
     });
   }
 
   makeAccepted() {
     this.taskService.makeAccepted(this.route.snapshot.params.project_id ).subscribe((res) => {
     });
+    this.avgRate();
   }
 
+  avgRate(){
+    this.ReviewService.avgRate(this.route.snapshot.params.developer_id).subscribe(res=>{
+    });
+  }
+  
   // getUser(id: any) {
-  //   return this.userservice.getUser(id).subscribe((res) => {
+  //   return this.userService.getUser(id).subscribe((res) => {
   //     this.userData = res;
   //     this.onlineUser = this.userData;
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReviewsService } from 'src/app/service/reviews.service';
 
 @Component({
   selector: 'app-home-freelancer-dashboard',
@@ -11,5 +12,6 @@ export class HomeFreelancerDashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }
